@@ -1,15 +1,10 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
+      "src": "/(.*)",
       "has": [{ "type": "host", "value": "app.cordevra.com" }],
-      "destination": "/app/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/app/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+      "dest": "/app/index.html",
+      "headers": { "X-Robots-Tag": "noindex" }
     }
   ]
 }
