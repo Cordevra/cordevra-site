@@ -1,6 +1,11 @@
 {
   "routes": [
     {
+      "src": "/booking.js",
+      "has": [{ "type": "host", "value": "app.cordevra.com" }],
+      "dest": "/app/booking.js"
+    },
+    {
       "src": "/home.js",
       "has": [{ "type": "host", "value": "app.cordevra.com" }],
       "dest": "/app/home.js"
