@@ -1,4 +1,4 @@
-/* Cordevra Home dashboard (prototype, demo data only).
+/* Cordevra Home dashboard (prototype; tasks/meetings are demo data, Latest activity reads the app's live demo data).
    Opens on load and whenever the Cordevra logo is clicked.
    Hides itself as soon as any other page is opened. */
 (function () {
@@ -25,7 +25,8 @@
     '.cdvh-kpi .s{font-size:12px;color:#64748B}',
     '.cdvh-row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}',
     '.cdvh-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;min-width:0}',
-    '.cdvh-tasks{flex:2 1 520px}.cdvh-meet{flex:1 1 300px}',
+    '.cdvh-main{flex:2 1 520px;min-width:0;display:flex;flex-direction:column;gap:16px}.cdvh-side{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px}',
+    '.cdvh-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;align-items:start}',
     '.cdvh-ch{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}',
     '.cdvh-tabs{display:flex;gap:6px;flex-wrap:wrap}',
     '.cdvh-tabs button{display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;background:#fff;color:#334155;border:1px solid #E2E8F0}',
@@ -65,6 +66,15 @@
     '.cdvh-dl{width:56px;flex-shrink:0;font-size:12px;font-weight:700;color:#0F766E}',
     '.cdvh-pg{font-size:12px;font-weight:600;color:#475569;white-space:nowrap}',
     '.cdvh-muted{font-size:13px;color:#64748B}',
+    '.cdvh-act{display:flex;flex-direction:column;gap:3px;width:100%;padding:10px 2px;border:0;border-top:1px solid #F1F5F9;background:none;text-align:left;font-family:inherit;cursor:pointer;color:#1E293B}',
+    '.cdvh-act:hover{background:#F8FAFC}',
+    '.cdvh-act .top{display:flex;align-items:center;gap:8px;min-width:0}',
+    '.cdvh-act .k{flex-shrink:0;font-size:11px;font-weight:600;border-radius:999px;padding:2px 8px}',
+    '.cdvh-act b{flex:1;min-width:0;font-size:13px;font-weight:600;color:#0E1A2B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
+    '.cdvh-act .w{flex-shrink:0;font-size:12px;color:#64748B;white-space:nowrap}',
+    '.cdvh-act .t{font-size:14px}',
+    '@media (min-width:900px){.cdvh-main .cdvh-act{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);column-gap:16px;align-items:baseline}.cdvh-main .cdvh-act .top{grid-row:span 2}.cdvh-main .cdvh-act .top .w{display:none}.cdvh-main .cdvh-act .t::after{content:attr(data-w);float:right;font-size:12px;color:#64748B}}',
+    '.cdvh-act .d{font-size:12px;color:#64748B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}',
     /* logo = Home */
     '[data-cdv-logo]{cursor:pointer;border-radius:8px;padding-top:6px!important;padding-bottom:6px!important;transition:background .15s}',
     '[data-cdv-logo]:hover{background:rgba(34,50,74,.6)}',
@@ -123,7 +133,7 @@
     today: [
       ['t1', 'Review uncategorized transactions', 'Atlas Fitness Studio', 'Bookkeeping', 'Today', 'DO'],
       ['t2', 'Prepare monthly management report', 'Riverside Pediatrics', 'Advisory', 'Today', 'DO'],
-      ['t3', 'Reconcile credit card', 'Bluehn Charters', 'Bookkeeping', 'Today', 'RB'],
+      ['t3', 'Reconcile credit card', 'Bluefin Charters', 'Bookkeeping', 'Today', 'RB'],
       ['t4', 'Call with new lead \u00b7 3:00 PM', 'Summit Yoga Co (Lead)', 'Sales', 'Today', 'DO'],
       ['t5', 'Approve payroll run', 'Northwind Logistics', 'Payroll', 'Today', 'RB']
     ],
@@ -136,7 +146,7 @@
       ['u6', 'Kick off month-end close', 'All bookkeeping clients', 'Month End', soon(9), 'DO']
     ]
   };
-  var FIRM_EXTRA = ['o8', 'Collect W-9s', 'Bluehn Charters', 'Bookkeeping', late(5), 'RB'];
+  var FIRM_EXTRA = ['o8', 'Collect W-9s', 'Bluefin Charters', 'Bookkeeping', late(5), 'RB'];
 
   var state = { tab: 'overdue', scope: 'mine', done: {}, reminded: {} };
   var root = null;
@@ -172,6 +182,78 @@
       }
       return r ? String(r).trim().split(/\s+/)[0] : '';
     } catch (e) { return ''; }
+  }
+
+  /* ---------- Latest activity: newest events across all clients (live data from the app) ---------- */
+  var ACT_KIND = {
+    email: ['Email', '#DBEAFE', '#1D4ED8'], whatsapp: ['WhatsApp', '#DCFCE7', '#15803D'], contact: ['Contact', '#DBEAFE', '#1D4ED8'],
+    upload: ['Upload', '#DCFCE7', '#15803D'], portal: ['Portal', '#DBEAFE', '#1D4ED8'], billing: ['Billing', '#DCFCE7', '#15803D'],
+    calendar: ['Meeting', '#EDE9FE', '#6D28D9'], call: ['Call', '#EDE9FE', '#6D28D9'], task: ['Task', '#FEF3C7', '#B45309'],
+    hours: ['Hours', '#FEF3C7', '#B45309'], account: ['Account', '#F1F5F9', '#475569'], general: ['Note', '#F1F5F9', '#475569'], project: ['Project', '#F1F5F9', '#475569']
+  };
+  /* events the client started (shown under "From clients") */
+  var ACT_FROM_CLIENT = /^(Email received from|WhatsApp from|Text message from|Portal message|Uploaded |Signed in to the client portal|Started a portal conversation|Client |Form submitted|Payment of .* received|Proposal ".*" accepted|Signature declined|Document signed)/;
+  var act = { items: [], at: 0, loading: false, filter: 'clients' };
+
+  function actWho(a) { return a.author ? a.author.name.replace(' (client)', '') : 'Client'; }
+  function actPhrase(a) {
+    var b = a.body || '', m;
+    if ((m = b.match(/^Email received from (.+?): (.*)$/))) return [m[1] + ' emailed you', m[2]];
+    if ((m = b.match(/^(WhatsApp|Text message) from (.+?): (.*)$/))) return [m[2] + ' sent a ' + (m[1] === 'WhatsApp' ? 'WhatsApp message' : 'text message'), '“' + m[3] + '”'];
+    if ((m = b.match(/^Portal message: (.*)$/))) return [actWho(a) + ' sent a portal message', '“' + m[1] + '”'];
+    if ((m = b.match(/^Uploaded (.*) in the portal: (.*)$/))) return [actWho(a) + ' uploaded ' + m[1], m[2]];
+    if (/^Signed in to the client portal/.test(b)) return [actWho(a) + ' signed in to the portal', ''];
+    if ((m = b.match(/^Profile updated\. (.*)$/))) return ['Profile updated' + (a.author ? ' by ' + a.author.name : ''), m[1]];
+    if ((m = b.match(/^Email sent: (.*)$/))) return ['Email sent' + (a.author ? ' by ' + a.author.name : ''), m[1]];
+    var i = b.indexOf(': ');
+    return i > 0 && i < 60 ? [b.slice(0, i), b.slice(i + 2)] : [b, ''];
+  }
+  function actAgo(iso) {
+    var s = (Date.now() - new Date(iso).getTime()) / 1000;
+    if (s < 60) return 'just now'; if (s < 3600) return Math.floor(s / 60) + ' min ago'; if (s < 86400) return Math.floor(s / 3600) + ' h ago';
+    if (s < 7 * 86400) return Math.floor(s / 86400) + (s < 2 * 86400 ? ' day ago' : ' days ago');
+    return md(new Date(iso));
+  }
+  function actLoad() {
+    var api = window.__cdvApi;
+    if (!api || act.loading) return;
+    act.loading = true;
+    Promise.resolve(api.clients({})).then(function (cs) {
+      var list = (cs && cs.data) || cs || [], all = [];
+      return Promise.all(list.map(function (c) {
+        return api.clientActivity(c.id, '').then(function (rows) { rows.forEach(function (a) { all.push({ a: a, client: c }); }); }, function () {});
+      })).then(function () {
+        all.sort(function (x, y) { return String(y.a.created_at).localeCompare(String(x.a.created_at)); });
+        act.items = all;
+      });
+    }).catch(function () { act.items = []; }).then(function () {
+      act.at = Date.now(); act.loading = false;
+      if (root && root.style.display !== 'none') render();
+    });
+  }
+  function activityCard() {
+    if (Date.now() - act.at > 5000) setTimeout(actLoad, 0);
+    var rows = act.items.filter(function (x) {
+      return act.filter === 'all' || ACT_FROM_CLIENT.test(x.a.body || '') || (x.a.author && / \(client\)$/.test(x.a.author.name));
+    }).slice(0, 6);
+    var filters = el('div', { 'class': 'cdvh-tabs', role: 'group', 'aria-label': 'Show' }, [['clients', 'From clients'], ['all', 'All']].map(function (f) {
+      return el('button', { type: 'button', 'aria-selected': String(act.filter === f[0]), text: f[1], on: { click: function () { act.filter = f[0]; render(); } } });
+    }));
+    var body = rows.length ? rows.map(function (x) {
+      var k = ACT_KIND[x.a.kind] || ACT_KIND.general, ph = actPhrase(x.a);
+      return el('button', { type: 'button', 'class': 'cdvh-act', title: 'Open ' + x.client.name, on: { click: function () { if (window.__cdvNav) { window.__cdvNav('/clients/' + x.client.id); hide(); } } } }, [
+        el('span', { 'class': 'top' }, [
+          el('span', { 'class': 'k', style: 'background:' + k[1] + ';color:' + k[2], text: k[0] }),
+          el('b', { text: x.client.name }),
+          el('span', { 'class': 'w', text: actAgo(x.a.created_at) })
+        ]),
+        el('span', { 'class': 't', 'data-w': actAgo(x.a.created_at), text: ph[0] }),
+        ph[1] ? el('span', { 'class': 'd', text: ph[1] }) : null
+      ]);
+    }) : [el('p', { 'class': 'cdvh-muted', style: 'margin:8px 0', text: act.at ? 'No activity yet.' : 'Loading…' })];
+    return el('section', { 'class': 'cdvh-card', 'aria-label': 'Latest activity' }, [
+      el('div', { 'class': 'cdvh-ch' }, [el('h2', { text: 'Latest activity' }), filters])
+    ].concat(body));
   }
 
   /* ---------- render ---------- */
@@ -243,8 +325,8 @@
         el('span', { 'class': 'cdvh-av', title: 'Assigned to ' + r[5], 'aria-label': 'Assigned to ' + r[5], text: r[5] })
       ]);
     });
-    var tasksCard = el('section', { 'class': 'cdvh-card cdvh-tasks', 'aria-label': 'My tasks', style: 'padding-bottom:12px' }, [
-      el('div', { 'class': 'cdvh-ch' }, [el('h2', { text: 'My tasks' }), tabs])
+    var tasksCard = el('section', { 'class': 'cdvh-card cdvh-tasks', 'aria-label': 'Tasks', style: 'padding-bottom:12px' }, [
+      el('div', { 'class': 'cdvh-ch' }, [el('h2', { text: 'Tasks' }), tabs])
     ].concat(rows).concat([
       el('div', { 'class': 'cdvh-foot' }, [el('button', { type: 'button', 'class': 'cdvh-link', text: 'Open Work Management \u2192', on: { click: function () { go('Work Management'); } } })])
     ]));
@@ -268,7 +350,6 @@
         ]);
       }))
     ]);
-    wrap.appendChild(el('div', { 'class': 'cdvh-row' }, [tasksCard, meetCard]));
 
     /* bottom row */
     var status = [['Not started', 12, '#94A3B8'], ['In progress', 21, '#3B82F6'], ['Waiting on client', 9, '#F59E0B'], ['Ready for review', 6, '#0F766E']];
@@ -313,7 +394,13 @@
         el('span', { 'class': 'cdvh-pg', text: x[3] })
       ]);
     })));
-    wrap.appendChild(el('div', { 'class': 'cdvh-grid3' }, [statusCard, waitCard, dlCard]));
+    /* two balanced columns: Tasks + Latest activity | Upcoming meetings + Waiting on clients,
+       then Open work by status + Key deadlines */
+    wrap.appendChild(el('div', { 'class': 'cdvh-row' }, [
+      el('div', { 'class': 'cdvh-main' }, [tasksCard, activityCard()]),
+      el('div', { 'class': 'cdvh-side' }, [meetCard, waitCard])
+    ]));
+    wrap.appendChild(el('div', { 'class': 'cdvh-grid2' }, [statusCard, dlCard]));
 
     root.appendChild(wrap);
     root.scrollTop = scrollTop;
@@ -355,9 +442,10 @@
 
   /* ---------- wire up ---------- */
   function markLogos() {
-    [].slice.call(document.querySelectorAll('nav > div:first-child')).forEach(function (d) {
+    /* [data-home-link] is set by the app on the sidebar logo, so this also works when the sidebar is minimized */
+    [].slice.call(document.querySelectorAll('[data-home-link], nav > div:first-child')).forEach(function (d) {
       if (d.hasAttribute('data-cdv-logo')) return;
-      if (d.querySelector('svg') && /cordevra/i.test(d.textContent)) {
+      if (d.hasAttribute('data-home-link') || (d.querySelector('svg') && /cordevra/i.test(d.textContent))) {
         d.setAttribute('data-cdv-logo', '');
         d.setAttribute('role', 'link');
         d.setAttribute('tabindex', '0');

@@ -1,5 +1,5 @@
 /* Cordevra booking links (prototype, demo data only).
-   1) In the app: replaces the Calendar "Booking links" card with a manager where each firm
+   1) In the app: "Calendar | Calendar settings | Booking page" in the Calendar title (like Clients | Leads | Contacts). Calendar settings is a manager where each firm
       turns meeting types on/off, edits them, picks staff and availability, or adds its own.
    2) Public page at /book/<firm>: clients pick a meeting type, a staff member, a time, and book.
    Settings are kept in this browser (localStorage) so the booking page reflects them. */
@@ -97,6 +97,14 @@
     '.cdvb,.cdvb-modal,.cdvp{font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif;color:#1E293B}',
     '.cdvb *,.cdvb-modal *,.cdvp *{box-sizing:border-box}',
     '.cdvb{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:16px}',
+    '.cdvb.cdvb-full{max-width:760px;padding:20px}',
+    '.cdvb.cdvb-pp{max-width:none}',
+    '.cdvb-frame{display:block;width:100%;height:calc(100vh - 260px);min-height:560px;border:1px solid #E2E8F0;border-radius:10px;background:#F8FAFC}',
+    '.cdvb-ttabs{display:inline}',
+    '.cdvb-sep{display:inline-block;width:1px;height:20px;background:#CBD5E1;margin:0 14px;vertical-align:-3px}',
+    '.cdvb-tt{border:0;background:none;padding:0;font:inherit;color:#94A3B8;cursor:pointer}.cdvb-tt:hover{color:#475569}',
+    '.cdvb-tt[aria-pressed=true]{color:#0E1A2B}',
+    'h1.cdvb-off{color:#94A3B8;cursor:pointer}h1.cdvb-off:hover{color:#475569}h1.cdvb-off .cdvb-tt:hover{color:#475569}h1.cdvb-off .cdvb-tt[aria-pressed=true]{color:#0E1A2B;cursor:default}',
     '.cdvb-h{display:flex;align-items:center;justify-content:space-between;gap:8px}',
     '.cdvb-h h2{margin:0;font-size:15px;font-weight:700;color:#0E1A2B}',
     '.cdvb-sub{font-size:12px;color:#64748B;margin:6px 0 10px}',
@@ -296,13 +304,74 @@
     else prompt('Copy this link', text);
   }
 
+  /* Calendar module title works like "Clients | Leads | Contacts":
+     Calendar | Calendar settings | Booking page.
+     Calendar settings = booking links (meeting types, staff, availability, Google Meet, personal links).
+     Booking page = the firm's public booking page (link to share + live preview). */
+  var calView = 'calendar', calHead = null, pagePanel = null;
+  var CAL_SUB = { settings: 'Meeting types clients and prospects can book, who takes them, and when.', page: 'The page clients and prospects use to book a meeting with your firm.' };
+  function calendarHeader() {
+    var main = document.querySelector('main'); if (!main) return null;
+    var h = main.querySelector('h1');
+    return h && (h.firstChild && h.firstChild.nodeType === 3 ? h.firstChild.nodeValue.trim() : h.textContent.trim()) === 'Calendar' ? h : null;
+  }
+  function renderPagePanel() {
+    if (!pagePanel) pagePanel = el('section', { 'class': 'cdvb cdvb-full cdvb-pp', 'aria-label': 'Booking page' });
+    pagePanel.innerHTML = '';
+    var onN = types.filter(function (t) { return t.on; }).length;
+    pagePanel.appendChild(el('div', { 'class': 'cdvb-page' }, [
+      icon('globe', 16, '#0F766E'),
+      el('span', { 'class': 'u', text: bookingUrl().replace(/^https?:\/\//, '') }),
+      el('button', { type: 'button', 'class': 'cdvb-btn ghost', text: 'Copy link', on: { click: function () { copy(bookingUrl()); } } }),
+      el('a', { 'class': 'cdvb-btn ghost', href: bookingUrl(), target: '_blank', rel: 'noopener', text: 'Open \u2197' })
+    ]));
+    pagePanel.appendChild(el('p', { 'class': 'cdvb-sub', text: onN + ' of ' + types.length + ' meeting types are on this page. Change them in Calendar settings. Personal links (one person only) are in Calendar settings too.' }));
+    pagePanel.appendChild(el('iframe', { 'class': 'cdvb-frame', src: bookingUrl() + '?embed=1', title: 'Booking page preview' }));
+  }
   function mountCard() {
     var orig = findOriginalCard();
-    if (!orig) return;
-    if (!orig.hasAttribute('data-cdvb-hidden')) { orig.setAttribute('data-cdvb-hidden', ''); }
-    orig.style.display = 'none';
-    if (!card || card.previousSibling !== orig) { renderCard(); orig.parentNode.insertBefore(card, orig.nextSibling); }
+    if (orig) { orig.setAttribute('data-cdvb-hidden', ''); orig.style.display = 'none'; }
+    var h = calendarHeader();
+    if (!h) { calHead = null; calView = 'calendar'; return; }
+    if (h !== calHead) { calHead = h; calView = 'calendar'; }
+    var tabs = h.querySelector('.cdvb-ttabs');
+    if (!tabs) {
+      tabs = el('span', { 'class': 'cdvb-ttabs' }, [
+        el('span', { 'class': 'cdvb-sep', 'aria-hidden': 'true' }),
+        el('button', { type: 'button', 'class': 'cdvb-tt', 'data-v': 'settings', text: 'Calendar settings', on: { click: function (e) { e.stopPropagation(); setView('settings'); } } }),
+        el('span', { 'class': 'cdvb-sep', 'aria-hidden': 'true' }),
+        el('button', { type: 'button', 'class': 'cdvb-tt', 'data-v': 'page', text: 'Booking page', on: { click: function (e) { e.stopPropagation(); setView('page'); } } })
+      ]);
+      h.appendChild(tabs);
+      h.addEventListener('click', function (e) { if (e.target === h) setView('calendar'); });
+    }
+    var head = h.closest('.mb-5') || h.parentNode.parentNode;
+    var page = head.parentNode;
+    h.classList.toggle('cdvb-off', calView !== 'calendar');
+    [].forEach.call(tabs.querySelectorAll('.cdvb-tt'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-v') === calView)); });
+    /* "+ New meeting" belongs to the calendar view */
+    var acts = head.children.length > 1 ? head.lastElementChild : null;
+    if (acts && !acts.contains(h)) acts.style.visibility = calView === 'calendar' ? '' : 'hidden';
+    var sub = head.querySelector('p');
+    if (sub) {
+      if (!sub.hasAttribute('data-cal-sub')) sub.setAttribute('data-cal-sub', sub.textContent);
+      var want = CAL_SUB[calView] || sub.getAttribute('data-cal-sub');
+      if (sub.textContent !== want) sub.textContent = want;
+    }
+    [].slice.call(page.children).forEach(function (c) {
+      if (c === head || c === card || c === pagePanel) return;
+      if (calView !== 'calendar') { if (c.style.display !== 'none') { c.setAttribute('data-cdvb-cal', ''); c.style.display = 'none'; } }
+      else if (c.hasAttribute('data-cdvb-cal')) { c.removeAttribute('data-cdvb-cal'); c.style.display = ''; }
+    });
+    if (calView === 'settings') {
+      if (!card || card.parentNode !== page) { renderCard(); page.insertBefore(card, head.nextSibling); }
+      card.classList.add('cdvb-full');
+    } else if (card && card.parentNode) card.parentNode.removeChild(card);
+    if (calView === 'page') {
+      if (!pagePanel || pagePanel.parentNode !== page) { renderPagePanel(); page.insertBefore(pagePanel, head.nextSibling); }
+    } else if (pagePanel && pagePanel.parentNode) pagePanel.parentNode.removeChild(pagePanel);
   }
+  function setView(v) { if (calView === v) return; calView = v; mountCard(); }
 
   /* ---------- editor modal ---------- */
   function openEditor(existing) {
