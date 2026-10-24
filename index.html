@@ -69,9 +69,10 @@ nav.scrolled{border-bottom-color:var(--line)}
 .form-ok{display:none;max-width:520px;margin:0 auto;background:var(--accent-l);color:var(--accent-d);border-radius:14px;padding:14px 18px;font-weight:600}
 
 /* mockup */
-.mock{max-width:1040px;margin:0 auto;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(14,26,43,.35);overflow:hidden;text-align:left}
+.mock{max-width:1120px;margin:0 auto;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(14,26,43,.35);overflow:hidden;text-align:left}
 .mock-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--soft)}
 .mock-bar i{width:11px;height:11px;border-radius:50%;background:#D9DFE7;display:block}
+.mock-shot{display:block;width:100%;height:auto}
 .mock-bar span{margin-left:14px;font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 12px}
 .mock-body{display:grid;grid-template-columns:200px 1fr;min-height:420px}
 .mock-side{background:var(--ink);color:#B9C4D3;padding:18px 14px;font-size:13px}
@@ -289,52 +290,9 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     </div>
 
     <!-- product preview -->
-    <div class="mock reveal" aria-label="Preview of the cordevra Home screen">
+    <div class="mock reveal" aria-label="cordevra Home screen with sample data">
       <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
-      <div class="mock-body">
-        <aside class="mock-side">
-          <div class="logo"><svg><use href="#mark"/></svg>cordevra</div>
-          <div class="item on"><b></b>Home</div>
-          <div class="item"><b></b>Clients</div>
-          <div class="item"><b></b>Workflows</div>
-          <div class="item"><b></b>Tasks</div>
-          <div class="item"><b></b>Portal</div>
-          <div class="item"><b></b>Forms</div>
-          <div class="item"><b></b>Documents</div>
-          <div class="item"><b></b>Billing</div>
-          <div class="item"><b></b>Calendar</div>
-          <div class="item"><b></b>Playbook</div>
-        </aside>
-        <div class="mock-main">
-          <div class="mock-top">
-            <div><h4>Good morning 👋</h4><small>Here's what's in sync today</small></div>
-            <span class="pill p-green">● All systems synced</span>
-          </div>
-          <div class="kpis">
-            <div class="kpi"><small>Active clients</small><strong>48</strong></div>
-            <div class="kpi"><small>Due this week</small><strong>23</strong></div>
-            <div class="kpi"><small>Awaiting client</small><strong>7</strong></div>
-            <div class="kpi"><small>Invoices open</small><strong>$12.4k</strong></div>
-          </div>
-          <div class="mock-cols">
-            <div class="card">
-              <h5>Monthly close · October <span class="pill p-blue">Recurring</span></h5>
-              <div class="row"><span>Northside Dental</span><div class="bar"><i style="width:90%"></i></div><span class="pill p-green">Review</span></div>
-              <div class="row"><span>Harbor Law PLLC</span><div class="bar"><i style="width:65%"></i></div><span class="pill p-amber">Waiting</span></div>
-              <div class="row"><span>Summit Rehab</span><div class="bar"><i style="width:40%"></i></div><span class="pill p-blue">In progress</span></div>
-              <div class="row"><span>Bloom Studio LLC</span><div class="bar"><i style="width:15%"></i></div><span class="pill p-grey">Not started</span></div>
-            </div>
-            <div class="card">
-              <h5>My tasks <span class="pill p-grey">Today</span></h5>
-              <div class="task"><span class="chk done"></span><s>Reconcile operating account</s></div>
-              <div class="task"><span class="chk done"></span><s>Send onboarding form</s></div>
-              <div class="task"><span class="chk"></span>Approve 4 client A/P bills</div>
-              <div class="task"><span class="chk"></span>Review uncategorized transactions</div>
-              <div class="task"><span class="chk"></span>Call with new lead · 3:00 PM</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img class="mock-shot" src="/app-home.webp" width="2580" height="1500" alt="cordevra Home: overdue, due today, meetings and waiting-on-client counts, a task list, upcoming meetings, open work by status, and key deadlines" loading="eager">
     </div>
   </div>
 
@@ -404,13 +362,13 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="section-head center reveal">
       <span class="eyebrow">Roadmap</span>
       <h2 style="margin-top:14px">From practice management to CFO-level insight</h2>
-      <p>We're launching with the core of your practice, then adding advisory tools in stages.</p>
+      <p>We're launching with Cordevra Practice, then adding advisory tools in stages. Cordevra Lens and Cordevra Scope are sold together as <strong>Cordevra Advisory</strong>.</p>
     </div>
     <div class="road">
-      <div class="mod first reveal"><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows & tasks</li><li>Client portal & forms</li><li>Documents & billing</li><li>QBO review & approvals</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Lens</h3><p>See the business now.</p><ul><li>Owner benefit KPIs</li><li>Burn rate views</li><li>MoM & YoY comparisons</li><li>Automated advisor tips</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 3</div><h3>Scope</h3><p>Look ahead.</p><ul><li>Cash flow forecasting</li><li>What-if scenarios</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 4</div><h3>Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find and hire accounting pros</li><li>Firms reach new clients</li></ul></div>
+      <div class="mod first reveal"><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Cordevra Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows & tasks</li><li>Client portal & forms</li><li>Documents & billing</li><li>QBO review & approvals</li></ul></div>
+      <div class="mod reveal"><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Cordevra Lens</h3><p>See the business now.</p><ul><li>Owner benefit KPIs</li><li>Burn rate views</li><li>MoM & YoY comparisons</li><li>Automated advisor tips</li></ul></div>
+      <div class="mod reveal"><span class="pill p-grey">Next</span><div class="num">MODULE 3</div><h3>Cordevra Scope</h3><p>Look ahead.</p><ul><li>Cash flow forecasting</li><li>What-if scenarios</li></ul></div>
+      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 4</div><h3>Cordevra Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find and hire accounting pros</li><li>Firms reach new clients</li></ul></div>
     </div>
   </div>
 </section>
@@ -423,9 +381,9 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <p>Prices will be announced before launch. Here's how the plans fit together.</p>
     </div>
     <div class="plans reveal">
-      <div class="plan"><h3>Practice</h3><div class="price">Pricing at launch</div><p>Clients, workflows, tasks, portal, forms, documents, billing, calendar, and Playbook.</p></div>
-      <div class="plan hl"><h3>Practice + Analytics</h3><div class="price">Pricing at launch</div><p>Everything in Practice, plus Lens dashboards for CFO-level insight into your clients' numbers.</p></div>
-      <div class="plan"><h3>Forecasting add-on</h3><div class="price">Pricing at launch</div><p>Add Scope for cash flow forecasting and what-if scenarios.</p></div>
+      <div class="plan"><h3>Cordevra Practice</h3><div class="price">The base plan for firms · Pricing at launch</div><p>Clients, workflows, tasks, portal, forms, documents, billing, calendar, and Playbook.</p></div>
+      <div class="plan hl"><h3>Practice + Advisory</h3><div class="price">For firms · Pricing at launch</div><p>Everything in Practice, plus Cordevra Advisory (Lens + Scope): dashboards, KPIs, advisor tips, cash flow forecasts, and what-if scenarios. Offer it to clients as your own advisory service.</p></div>
+      <div class="plan"><h3>Cordevra Advisory</h3><div class="price">For business owners · Pricing at launch</div><p>Connect your own QuickBooks Online. Lens shows where the business is now, Scope shows where it's heading.</p></div>
     </div>
     <p class="price-note reveal">QuickBooks Online integration included in every plan.<span>Founding-member pricing, locked for life for waitlist members.</span></p>
   </div>
@@ -434,10 +392,10 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 <section class="section" id="business" style="padding-top:0">
   <div class="biz reveal">
     <div>
-      <span class="eyebrow" style="background:#fff">For business owners</span>
+      <span class="eyebrow" style="background:#fff">Cordevra Advisory · For business owners</span>
       <h2 style="margin-top:14px">Run a business on QuickBooks? Get CFO-level clarity.</h2>
       <p>Connect QuickBooks Online and see where your business stands today and where it's heading — then find the right professional when you need one.</p>
-      <ul><li>Owner benefits, burn rate, and month-over-month trends</li><li>Cash flow forecasting and what-if scenarios</li><li>Find and hire accounting professionals through Network</li></ul>
+      <ul><li>Owner benefits, burn rate, and month-over-month trends</li><li>Cash flow forecasting and what-if scenarios</li><li>Find and hire accounting professionals through Cordevra Network (coming later)</li></ul>
     </div>
     <div>
       <form class="waitlist js-waitlist" data-audience="Business owner" novalidate>
@@ -457,16 +415,16 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="reveal">
       <span class="eyebrow">Why cordevra</span>
       <h2 style="margin-top:14px">Built inside a working accounting firm</h2>
-      <p style="color:var(--muted);font-size:18px;margin-top:14px">cordevra is being built inside The Ledger Practice by people who run client books every day — so it solves the problems firms actually have, not the ones software companies imagine.</p>
+      <p style="color:var(--muted);font-size:18px;margin-top:14px">cordevra is being built inside a working bookkeeping firm, by people who run client books every day. So it solves the problems firms actually have, not the ones software companies imagine.</p>
       <div class="checks">
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Designed around recurring, cycle-based work</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Fewer subscriptions — forms, storage, and payments included</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>One subscription instead of a stack: forms, storage, payments, and scheduling included</div>
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>A client experience that makes your firm look its best</div>
       </div>
     </div>
     <div class="built-card reveal">
-      <blockquote>"I run a bookkeeping firm, and I've handled controller-level and trust-account work for clients. I built cordevra because I was tired of running my practice across a dozen tools that never talked to each other."</blockquote>
-      <div class="founder"><div class="av" aria-hidden="true">ND</div><cite><strong style="color:var(--ink)">Nat Duchini</strong><br>Founder · Built inside The Ledger Practice</cite></div>
+      <blockquote>“We run a bookkeeping firm, with controller-level and trust-account work for our clients. We built cordevra because we were tired of paying for a dozen tools that never talked to each other.”</blockquote>
+      <div class="founder"><div class="av" aria-hidden="true"><svg style="width:28px;height:28px;color:#fff"><use href="#mark"/></svg></div><cite><strong style="color:var(--ink)">The founding team</strong><br>Bookkeeping firm owners</cite></div>
     </div>
   </div>
 </section>
@@ -482,7 +440,8 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <details><summary>Does it work with QuickBooks Online?</summary><p>Yes — QuickBooks Online is a core part of the plan, starting with client transaction review and A/P bill approvals in the portal.</p></details>
       <details><summary>Can I switch from my current practice management tool?</summary><p>Yes. We're planning a simple path to bring your clients, contacts, and recurring work over, and early-access firms will get help with the move.</p></details>
       <details><summary>How will my data be protected?</summary><p>Security is being built in from the start, and we'll publish our security practices before launch. The live demo uses sample data only, so please don't enter real client information there.</p></details>
-      <details><summary>Is cordevra for business owners too?</summary><p>Yes. Lens, Scope, and Network are also designed for business owners who use QuickBooks Online. Join the waitlist in the business owner section above.</p></details>
+      <details><summary>What is Cordevra Advisory?</summary><p>Cordevra Lens (where the business is now) and Cordevra Scope (where it's heading), sold together. Firms offer it to clients as their own advisory service; business owners use it for financial direction. It's software guidance, not a human CFO.</p></details>
+      <details><summary>Is cordevra for business owners too?</summary><p>Yes. Business owners on QuickBooks Online can use Cordevra Advisory (Lens + Scope) on its own, and Cordevra Network will help them hire professionals. Join the waitlist in the business owner section above.</p></details>
     </div>
   </div>
 </section>
