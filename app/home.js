@@ -8,7 +8,7 @@
     '.cdvh{min-width:0;flex:1 1 0%;overflow-y:auto;padding:24px;box-sizing:border-box;background:#F8FAFC;color:#1E293B;font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif}',
     '@media (max-width:640px){.cdvh{padding:16px}}',
     '.cdvh *{box-sizing:border-box}',
-    '.cdvh-wrap{max-width:1240px;display:flex;flex-direction:column;gap:20px}',
+    '.cdvh-wrap{display:flex;flex-direction:column;gap:20px}',
     '.cdvh-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}',
     '.cdvh-date{font-size:13px;color:#64748B;font-weight:500}',
     '.cdvh h1{margin:4px 0 0;font-size:24px;font-weight:700;color:#0E1A2B}',
@@ -27,6 +27,12 @@
     '.cdvh-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;min-width:0}',
     '.cdvh-main{flex:2 1 520px;min-width:0;display:flex;flex-direction:column;gap:16px}.cdvh-side{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px}',
     '.cdvh-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;align-items:start}',
+    /* fixed columns like the client Dashboard tab, sized to the page area (not the window): 1 column when narrow, 2 medium, 3 wide */
+    '.cdvh-wrap{container-type:inline-size}',
+    '.cdvh-cols{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}',
+    '.cdvh-col{min-width:0;display:flex;flex-direction:column;gap:16px}',
+    '@container (min-width:860px){.cdvh-cols{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}.cdvh-col3{grid-column:1 / -1;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:start}}',
+    '@container (min-width:1400px){.cdvh-cols{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr)}.cdvh-col3{grid-column:auto;display:flex}}',
     '.cdvh-ch{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}',
     '.cdvh-tabs{display:flex;gap:6px;flex-wrap:wrap}',
     '.cdvh-tabs button{display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;background:#fff;color:#334155;border:1px solid #E2E8F0}',
@@ -394,13 +400,14 @@
         el('span', { 'class': 'cdvh-pg', text: x[3] })
       ]);
     })));
-    /* two balanced columns: Tasks + Latest activity | Upcoming meetings + Waiting on clients,
-       then Open work by status + Key deadlines */
-    wrap.appendChild(el('div', { 'class': 'cdvh-row' }, [
-      el('div', { 'class': 'cdvh-main' }, [tasksCard, activityCard()]),
-      el('div', { 'class': 'cdvh-side' }, [meetCard, waitCard])
+    /* fixed columns, full width (same idea as the client Dashboard tab):
+       Tasks + Latest activity | Upcoming meetings + Waiting on clients | Open work by status + Key deadlines.
+       Medium screens: two columns with the third pair underneath; small screens: one column. */
+    wrap.appendChild(el('div', { 'class': 'cdvh-cols' }, [
+      el('div', { 'class': 'cdvh-col cdvh-main' }, [tasksCard, activityCard()]),
+      el('div', { 'class': 'cdvh-col' }, [meetCard, waitCard]),
+      el('div', { 'class': 'cdvh-col cdvh-col3' }, [statusCard, dlCard])
     ]));
-    wrap.appendChild(el('div', { 'class': 'cdvh-grid2' }, [statusCard, dlCard]));
 
     root.appendChild(wrap);
     root.scrollTop = scrollTop;
