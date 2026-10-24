@@ -108,7 +108,7 @@
   }
 
   /* ---------- demo data (dates relative to today) ---------- */
-  function late(n) { return md(addDays(-n)) + ' · ' + n + (n === 1 ? ' day' : ' days') + ' late'; }
+  function late(n) { return md(addDays(-n)) + ' \u00b7 ' + n + (n === 1 ? ' day' : ' days') + ' late'; }
   function soon(n) { var d = addDays(n); return DAY[d.getDay()] + ', ' + md(d); }
   var TASKS = {
     overdue: [
@@ -117,14 +117,14 @@
       ['o3', 'Approve 4 client A/P bills', 'Maple Street Realty', 'Payables', late(3), 'DO'],
       ['o4', 'Follow up on missing bank statements', 'Ironwood Construction', 'Cleanup & Catch-Up', late(2), 'RB'],
       ['o5', 'Review payroll tax deposit', 'Northwind Logistics', 'Payroll', late(2), 'DO'],
-      ['o6', 'Close last month’s books', 'Cedar & Pine Law PLLC', 'Bookkeeping', late(1), 'RB'],
+      ['o6', 'Close last month\u2019s books', 'Cedar & Pine Law PLLC', 'Bookkeeping', late(1), 'RB'],
       ['o7', 'Send onboarding form', 'Brightpath Tutoring', 'Onboarding', late(1), 'DO']
     ],
     today: [
       ['t1', 'Review uncategorized transactions', 'Atlas Fitness Studio', 'Bookkeeping', 'Today', 'DO'],
       ['t2', 'Prepare monthly management report', 'Riverside Pediatrics', 'Advisory', 'Today', 'DO'],
       ['t3', 'Reconcile credit card', 'Bluehn Charters', 'Bookkeeping', 'Today', 'RB'],
-      ['t4', 'Call with new lead · 3:00 PM', 'Summit Yoga Co (Lead)', 'Sales', 'Today', 'DO'],
+      ['t4', 'Call with new lead \u00b7 3:00 PM', 'Summit Yoga Co (Lead)', 'Sales', 'Today', 'DO'],
       ['t5', 'Approve payroll run', 'Northwind Logistics', 'Payroll', 'Today', 'RB']
     ],
     upcoming: [
@@ -206,7 +206,7 @@
       ['Overdue', overdueN, 'Oldest is ' + (state.scope === 'firm' ? 5 : 4) + ' days late', '#F04438', '#B42318', 'overdue'],
       ['Due today', 5, 'Across 5 clients', '#14B8A6', null, 'today'],
       ['Due this week', 18, 'Through ' + DAY[weekEnd.getDay()] + ', ' + md(weekEnd), '#3B82F6', null, 'upcoming'],
-      ['Meetings', 4, '1 today · next at 3:00 PM', '#8B5CF6', null, 'Calendar'],
+      ['Meetings', 4, '1 today \u00b7 next at 3:00 PM', '#8B5CF6', null, 'Calendar'],
       ['Waiting on clients', 9, '3 waiting over a week', '#F59E0B', null, 'Communications']
     ];
     wrap.appendChild(el('div', { 'class': 'cdvh-kpis' }, kpis.map(function (k) {
@@ -238,7 +238,7 @@
         [done ? svg('M5 12l5 5 9-10', 12, '#fff', 3.5) : null]);
       return el('div', { 'class': 'cdvh-task' + (done ? ' done' : '') }, [
         box,
-        el('div', { 'class': 'cdvh-tt' }, [el('span', { 'class': 't', text: r[1] }), el('span', { 'class': 'cdvh-sub', text: r[2] + ' · ' + r[3] })]),
+        el('div', { 'class': 'cdvh-tt' }, [el('span', { 'class': 't', text: r[1] }), el('span', { 'class': 'cdvh-sub', text: r[2] + ' \u00b7 ' + r[3] })]),
         el('span', { 'class': 'cdvh-due ' + dueCls, text: r[4] }),
         el('span', { 'class': 'cdvh-av', title: 'Assigned to ' + r[5], 'aria-label': 'Assigned to ' + r[5], text: r[5] })
       ]);
@@ -246,15 +246,15 @@
     var tasksCard = el('section', { 'class': 'cdvh-card cdvh-tasks', 'aria-label': 'My tasks', style: 'padding-bottom:12px' }, [
       el('div', { 'class': 'cdvh-ch' }, [el('h2', { text: 'My tasks' }), tabs])
     ].concat(rows).concat([
-      el('div', { 'class': 'cdvh-foot' }, [el('button', { type: 'button', 'class': 'cdvh-link', text: 'Open Work Management →', on: { click: function () { go('Work Management'); } } })])
+      el('div', { 'class': 'cdvh-foot' }, [el('button', { type: 'button', 'class': 'cdvh-link', text: 'Open Work Management \u2192', on: { click: function () { go('Work Management'); } } })])
     ]));
 
     /* meetings card */
     var meetings = [
-      [0, 'Discovery call', '3:00 – 3:30 PM', 'Summit Yoga Co (Lead)', 'Video call', true],
-      [2, 'Monthly financial review', '10:00 – 10:45 AM', 'Harbor Dental Group', 'Video call'],
-      [2, 'Tax planning session', '2:00 – 2:30 PM', 'Coastal HVAC Services', 'Phone'],
-      [3, 'Onboarding kickoff', '11:30 AM – 12:00 PM', 'Brightpath Tutoring', 'Video call']
+      [0, 'Discovery call', '3:00 \u2013 3:30 PM', 'Summit Yoga Co (Lead)', 'Video call', true],
+      [2, 'Monthly financial review', '10:00 \u2013 10:45 AM', 'Harbor Dental Group', 'Video call'],
+      [2, 'Tax planning session', '2:00 \u2013 2:30 PM', 'Coastal HVAC Services', 'Phone'],
+      [3, 'Onboarding kickoff', '11:30 AM \u2013 12:00 PM', 'Brightpath Tutoring', 'Video call']
     ];
     var meetCard = el('section', { 'class': 'cdvh-card cdvh-meet', 'aria-label': 'Upcoming meetings' }, [
       el('div', { 'class': 'cdvh-ch', style: 'margin-bottom:12px' }, [el('h2', { text: 'Upcoming meetings' }),
@@ -263,7 +263,7 @@
         var d = addDays(m[0]);
         return el('div', { 'class': 'cdvh-m' + (m[5] ? ' soon' : '') }, [
           el('div', { 'class': 'cdvh-md' }, [el('div', { 'class': 'w', text: m[0] === 0 ? 'TODAY' : DAY[d.getDay()].toUpperCase() }), el('div', { 'class': 'n', text: String(d.getDate()) })]),
-          el('div', { 'class': 'cdvh-mi' }, [el('span', { 'class': 't', text: m[1] }), el('span', { 'class': 'w', text: m[2] + ' · ' + m[3] }), el('span', { 'class': 'cdvh-sub', text: m[4] })]),
+          el('div', { 'class': 'cdvh-mi' }, [el('span', { 'class': 't', text: m[1] }), el('span', { 'class': 'w', text: m[2] + ' \u00b7 ' + m[3] }), el('span', { 'class': 'cdvh-sub', text: m[4] })]),
           m[5] ? el('button', { type: 'button', 'class': 'cdvh-join', text: 'Join' }) : null
         ]);
       }))
@@ -292,7 +292,7 @@
     ].concat(waiting.map(function (w) {
       var sent = !!state.reminded[w[0]];
       return el('div', { 'class': 'cdvh-li' }, [
-        el('div', { 'class': 'x' }, [el('span', { 'class': 't', text: w[1] }), el('span', { 'class': 'cdvh-sub', text: w[2] + ' · ' + w[3] })]),
+        el('div', { 'class': 'x' }, [el('span', { 'class': 't', text: w[1] }), el('span', { 'class': 'cdvh-sub', text: w[2] + ' \u00b7 ' + w[3] })]),
         sent ? el('span', { 'class': 'cdvh-pg', style: 'color:#047857', text: 'Reminder sent' })
              : el('button', { type: 'button', 'class': 'cdvh-link', style: 'font-size:12px;white-space:nowrap', text: 'Remind',
                  on: { click: function () { state.reminded[w[0]] = true; render(); } } })
@@ -389,6 +389,11 @@
   }
 
   function boot() {
+    /* booking links + client booking page live in their own file */
+    if (!document.querySelector('script[src="/booking.js"]')) {
+      var bs = document.createElement('script'); bs.src = '/booking.js'; bs.defer = true; document.head.appendChild(bs);
+    }
+    if (/^\/book(\/|$)/.test(location.pathname)) return; /* public booking page: no Home */
     var style = document.createElement('style');
     style.textContent = CSS;
     document.head.appendChild(style);
