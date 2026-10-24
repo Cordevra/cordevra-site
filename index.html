@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>cordevra — Your Practice. In Sync.</title>
-<meta name="description" content="Practice management for accounting firms: recurring work that runs itself, clients who answer in their portal, and invoices that get paid — in one place. Join the waitlist for founding-member pricing.">
-<meta property="og:title" content="cordevra — Your Practice. In Sync.">
-<meta property="og:description" content="Practice management for accounting firms. Join the waitlist for early access.">
+<title>cordevra — One system. Your entire firm.</title>
+<meta name="description" content="One system for your entire bookkeeping firm: practice management, client portal, forms, documents, payments, scheduling, SOPs, and QuickBooks review in one platform. Join the waitlist.">
+<meta property="og:title" content="cordevra — One system. Your entire firm.">
+<meta property="og:description" content="One system for your entire bookkeeping firm: practice management, client portal, forms, documents, payments, scheduling, SOPs, and QuickBooks review in one platform. Join the waitlist.">
 <meta property="og:url" content="https://cordevra.com">
 <meta name="theme-color" content="#0E1A2B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1A2B'/%3E%3Cpath d='M44 18.5A19 19 0 1 0 44 45.5' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='49' cy='32' r='5' fill='%2314B8A6'/%3E%3C/svg%3E">
@@ -57,6 +57,10 @@ nav.scrolled{border-bottom-color:var(--line)}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:56px;text-align:center}
 .hero h1{font-size:clamp(44px,7.5vw,84px);font-weight:800;margin:22px 0 18px}
 .hero h1 .sync{color:var(--accent)}
+.hero .tagline{font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--ink-2);margin-top:20px}
+.hero .tagline .sync{color:var(--accent)}
+.hero .tagline + h1{margin-top:8px}
+.collapse{color:var(--accent);font-size:22px;font-weight:700;margin:10px 0}
 .hero .lead{font-size:clamp(18px,2.2vw,22px);color:var(--ink-2);font-weight:600;max-width:720px;margin:0 auto 10px}
 .hero .sub{font-size:17px;color:var(--muted);max-width:640px;margin:0 auto 32px}
 .waitlist{display:flex;gap:10px;max-width:520px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:0 10px 30px -12px rgba(14,26,43,.18)}
@@ -100,7 +104,7 @@ nav.scrolled{border-bottom-color:var(--line)}
 .task s{color:var(--muted)}
 
 /* replaces strip */
-.strip{padding:40px 0 0}
+.strip{padding:0}
 .strip p{text-align:center;color:var(--muted);font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:18px}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .chips span{border:1px dashed #C5CED9;color:var(--muted);border-radius:999px;padding:8px 16px;font-size:14px;text-decoration:line-through;text-decoration-color:rgba(91,107,128,.5)}
@@ -255,9 +259,10 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><span class="pulse"></span>Coming soon · Early access opening</span>
-      <h1>Your Practice.<br><span class="sync">In Sync.</span></h1>
-      <p class="lead">Recurring work that runs itself, clients who answer in their portal, and invoices that get paid — in one place, with fewer subscriptions.</p>
-      <p class="sub">Practice management built for bookkeeping, accounting, and tax firms.</p>
+      <p class="tagline">Your Practice. <span class="sync">In Sync.</span></p>
+      <h1>One system.<br><span class="sync">Your entire firm.</span></h1>
+      <p class="lead">Practice management, client portal, forms, documents, payments, scheduling, SOPs, and QuickBooks review — the tools bookkeeping firms pay for separately, built as one platform.</p>
+      <p class="sub">Then grow into advisory without adding another subscription.</p>
 
       <form class="waitlist js-waitlist" novalidate>
         <input type="email" name="email" placeholder="you@yourfirm.com" aria-label="Work email" required>
@@ -272,6 +277,15 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <p class="form-note">Founding-member pricing for waitlist members. No spam — just launch updates.</p>
       <a class="demo-link" href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a>
       <p class="form-note" style="margin-top:4px">Interactive preview with sample data only.</p>
+    </div>
+
+    <div class="strip">
+      <p>One subscription instead of</p>
+      <div class="chips">
+        <span>Practice management app</span><span>Client portal</span><span>Form builder</span><span>Document storage</span><span>Scheduling tool</span><span>Payment processing</span><span>SOP wiki</span>
+      </div>
+      <div class="collapse" aria-hidden="true">↓</div>
+      <div class="chips"><span class="win">cordevra</span></div>
     </div>
 
     <!-- product preview -->
@@ -324,12 +338,6 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     </div>
   </div>
 
-  <div class="wrap strip reveal">
-    <p>One platform instead of</p>
-    <div class="chips">
-      <span>Spreadsheets</span><span>Email threads</span><span>Separate client portal</span><span>Form builder</span><span>Billing tool</span><span>Scheduling app</span><span class="win">cordevra</span>
-    </div>
-  </div>
 </header>
 
 <section class="section" id="features">
@@ -396,7 +404,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="section-head center reveal">
       <span class="eyebrow">Roadmap</span>
       <h2 style="margin-top:14px">From practice management to CFO-level insight</h2>
-      <p>We're launching with the core of your practice, then adding advisory tools in stages. Lens and Scope are sold together as <strong>Cordevra Advisory</strong>.</p>
+      <p>We're launching with the core of your practice, then adding advisory tools in stages.</p>
     </div>
     <div class="road">
       <div class="mod first reveal"><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows & tasks</li><li>Client portal & forms</li><li>Documents & billing</li><li>QBO review & approvals</li></ul></div>
