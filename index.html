@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>cordevra — Your Practice. In Sync.</title>
-<meta name="description" content="Everything your accounting firm needs, working together. Manage clients, projects, tasks, communications, billing, and daily operations — all in one place. Join the waitlist.">
+<meta name="description" content="Practice management for accounting firms: recurring work that runs itself, clients who answer in their portal, and invoices that get paid — in one place. Join the waitlist for founding-member pricing.">
 <meta property="og:title" content="cordevra — Your Practice. In Sync.">
 <meta property="og:description" content="Practice management for accounting firms. Join the waitlist for early access.">
 <meta property="og:url" content="https://cordevra.com">
@@ -165,6 +165,32 @@ details p{color:var(--muted);margin-top:10px;font-size:16px}
 .final h2{margin-bottom:12px}
 .final p{color:var(--muted);font-size:18px;margin-bottom:28px}
 
+/* waitlist extras */
+.wl-extra{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:640px;margin:12px auto 0}
+.wl-extra select{font:inherit;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+.demo-link{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:var(--accent-d)}
+.demo-link:hover{text-decoration:underline}
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:#fff}
+.plan.hl{border:2px solid var(--accent)}
+.plan h3{font-size:20px;margin-bottom:6px}
+.plan .price{font-weight:700;color:var(--muted);font-size:14px;margin-bottom:12px}
+.plan p{color:var(--muted);font-size:15px}
+.price-note{margin-top:22px;text-align:center;color:var(--ink-2);font-weight:600}
+.price-note span{display:block;color:var(--muted);font-weight:500;font-size:14px;margin-top:4px}
+/* business owners */
+.biz{background:var(--accent-l);border-radius:28px;padding:56px 40px;margin:0 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.biz p{color:var(--ink-2);font-size:17px;margin-top:12px}
+.biz ul{list-style:none;margin-top:18px;display:grid;gap:8px}
+.biz li{display:flex;gap:10px}
+.biz li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:10px;flex:none}
+.biz .waitlist{margin:0}
+.biz .wl-extra{grid-template-columns:1fr;max-width:520px;margin:12px 0 0}
+.founder{display:flex;gap:14px;align-items:center;margin-top:20px}
+.founder .av{width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+.founder cite{margin-top:0}
+.foot-links{display:flex;gap:18px}
 footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 .foot a:hover{color:var(--ink)}
@@ -178,7 +204,8 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 @media (max-width:980px){
   .features{grid-template-columns:1fr 1fr}
   .road{grid-template-columns:1fr 1fr}
-  .cycle-grid,.built{grid-template-columns:1fr}
+  .cycle-grid,.built,.biz{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
   .mock-body{grid-template-columns:1fr}
   .mock-side{display:none}
 }
@@ -191,6 +218,8 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   .waitlist{flex-direction:column;border-radius:18px;padding:10px}
   .waitlist input{padding:12px 10px}
   .waitlist .btn{justify-content:center}
+  .wl-extra{grid-template-columns:1fr}
+  .biz{margin:0 12px;padding:40px 20px;border-radius:22px}
   .cycle-sec,.final{margin:0 12px;border-radius:22px}
   .row{grid-template-columns:1.4fr 1fr}
   .row .pill{display:none}
@@ -213,10 +242,11 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
       <a href="#roadmap">Roadmap</a>
+      <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="https://app.cordevra.com" class="btn btn-primary">Start free trial</a>
+      <a href="#join" class="btn btn-primary">Join the waitlist</a>
     </div>
   </div>
 </nav>
@@ -226,32 +256,40 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div>
       <span class="eyebrow"><span class="pulse"></span>Coming soon · Early access opening</span>
       <h1>Your Practice.<br><span class="sync">In Sync.</span></h1>
-      <p class="lead">Everything your accounting firm needs, working together.</p>
-      <p class="sub">Manage clients, projects, tasks, communications, billing, and daily operations — all in one place.</p>
+      <p class="lead">Recurring work that runs itself, clients who answer in their portal, and invoices that get paid — in one place, with fewer subscriptions.</p>
+      <p class="sub">Practice management built for bookkeeping, accounting, and tax firms.</p>
 
       <form class="waitlist js-waitlist" novalidate>
         <input type="email" name="email" placeholder="you@yourfirm.com" aria-label="Work email" required>
         <button class="btn btn-primary" type="submit">Join the waitlist →</button>
       </form>
+      <div class="wl-extra">
+          <select name="size" aria-label="Firm size"><option value="">Firm size</option><option>Just me</option><option>2–5 people</option><option>6–15 people</option><option>16+ people</option></select>
+          <select name="role" aria-label="Your role"><option value="">Your role</option><option>Owner / partner</option><option>Manager</option><option>Staff accountant / bookkeeper</option><option>Other</option></select>
+          <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
+      </div>
       <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
-      <p class="form-note">Be first in line for early access. No spam — just launch updates.</p>
+      <p class="form-note">Founding-member pricing for waitlist members. No spam — just launch updates.</p>
+      <a class="demo-link" href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a>
+      <p class="form-note" style="margin-top:4px">Interactive preview with sample data only.</p>
     </div>
 
     <!-- product preview -->
-    <div class="mock reveal" aria-label="Preview of the cordevra dashboard">
+    <div class="mock reveal" aria-label="Preview of the cordevra Home screen">
       <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
       <div class="mock-body">
         <aside class="mock-side">
           <div class="logo"><svg><use href="#mark"/></svg>cordevra</div>
-          <div class="item on"><b></b>Dashboard</div>
+          <div class="item on"><b></b>Home</div>
           <div class="item"><b></b>Clients</div>
           <div class="item"><b></b>Workflows</div>
           <div class="item"><b></b>Tasks</div>
-          <div class="item"><b></b>Inbox</div>
+          <div class="item"><b></b>Portal</div>
+          <div class="item"><b></b>Forms</div>
           <div class="item"><b></b>Documents</div>
           <div class="item"><b></b>Billing</div>
-          <div class="item"><b></b>Forms</div>
           <div class="item"><b></b>Calendar</div>
+          <div class="item"><b></b>Playbook</div>
         </aside>
         <div class="mock-main">
           <div class="mock-top">
@@ -310,7 +348,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h3>Billing & payments</h3><p>Invoice clients and get paid online with embedded payments, tied to the work you delivered.</p></div>
       <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3>QuickBooks Online review</h3><p>Clients review uncategorized transactions and approve A/P bills right from their portal.</p></div>
       <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Calendar & booking</h3><p>A built-in calendar with booking links for discovery calls, reviews, and client meetings.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div><h3>Knowledge base & SOPs</h3><p>Document your firm's procedures once, so every team member does the work the same way.</p></div>
+      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div><h3>Playbook</h3><p>Document your firm's procedures and SOPs once, so every team member does the work the same way.</p></div>
     </div>
   </div>
 </section>
@@ -358,23 +396,60 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="section-head center reveal">
       <span class="eyebrow">Roadmap</span>
       <h2 style="margin-top:14px">From practice management to CFO-level insight</h2>
-      <p>We're launching with the core of your practice, then adding advisory tools in stages.</p>
+      <p>We're launching with the core of your practice, then adding advisory tools in stages. Lens and Scope are sold together as <strong>Cordevra Advisory</strong>.</p>
     </div>
     <div class="road">
-      <div class="mod first reveal"><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Practice</h3><p>Run the firm day to day.</p><ul><li>Clients, workflows & tasks</li><li>Client portal & forms</li><li>Documents & billing</li><li>QBO review & approvals</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>CFO Lenses</h3><p>Analysis dashboards with ready-made models.</p><ul><li>Owner benefit KPIs</li><li>Burn rate views</li><li>MoM & YoY comparisons</li><li>Automated advisor tips</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 3</div><h3>Foresight</h3><p>Look ahead with your clients.</p><ul><li>Cash flow forecasting</li><li>What-if simulator</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 4</div><h3>Marketplace</h3><p>Extend cordevra with add-ons and templates.</p><ul><li>Workflow templates</li><li>Add-on tools</li></ul></div>
+      <div class="mod first reveal"><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows & tasks</li><li>Client portal & forms</li><li>Documents & billing</li><li>QBO review & approvals</li></ul></div>
+      <div class="mod reveal"><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Lens</h3><p>See the business now.</p><ul><li>Owner benefit KPIs</li><li>Burn rate views</li><li>MoM & YoY comparisons</li><li>Automated advisor tips</li></ul></div>
+      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 3</div><h3>Scope</h3><p>Look ahead.</p><ul><li>Cash flow forecasting</li><li>What-if scenarios</li></ul></div>
+      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 4</div><h3>Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find and hire accounting pros</li><li>Firms reach new clients</li></ul></div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0">
+<section class="section" id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2 style="margin-top:14px">Simple plans that grow with your firm</h2>
+      <p>Prices will be announced before launch. Here's how the plans fit together.</p>
+    </div>
+    <div class="plans reveal">
+      <div class="plan"><h3>Practice</h3><div class="price">Pricing at launch</div><p>Clients, workflows, tasks, portal, forms, documents, billing, calendar, and Playbook.</p></div>
+      <div class="plan hl"><h3>Practice + Analytics</h3><div class="price">Pricing at launch</div><p>Everything in Practice, plus Lens dashboards for CFO-level insight into your clients' numbers.</p></div>
+      <div class="plan"><h3>Forecasting add-on</h3><div class="price">Pricing at launch</div><p>Add Scope for cash flow forecasting and what-if scenarios.</p></div>
+    </div>
+    <p class="price-note reveal">QuickBooks Online integration included in every plan.<span>Founding-member pricing, locked for life for waitlist members.</span></p>
+  </div>
+</section>
+
+<section class="section" id="business" style="padding-top:0">
+  <div class="biz reveal">
+    <div>
+      <span class="eyebrow" style="background:#fff">For business owners</span>
+      <h2 style="margin-top:14px">Run a business on QuickBooks? Get CFO-level clarity.</h2>
+      <p>Connect QuickBooks Online and see where your business stands today and where it's heading — then find the right professional when you need one.</p>
+      <ul><li>Owner benefits, burn rate, and month-over-month trends</li><li>Cash flow forecasting and what-if scenarios</li><li>Find and hire accounting professionals through Network</li></ul>
+    </div>
+    <div>
+      <form class="waitlist js-waitlist" data-audience="Business owner" novalidate>
+        <input type="email" name="email" placeholder="you@yourbusiness.com" aria-label="Email" required>
+        <button class="btn btn-primary" type="submit">Join the waitlist →</button>
+      </form>
+      <div class="wl-extra">
+        <select name="size" aria-label="Company size"><option value="">Company size</option><option>Just me</option><option>2–10 employees</option><option>11–50 employees</option><option>51+ employees</option></select>
+      </div>
+      <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap built">
     <div class="reveal">
       <span class="eyebrow">Why cordevra</span>
       <h2 style="margin-top:14px">Built inside a working accounting firm</h2>
-      <p style="color:var(--muted);font-size:18px;margin-top:14px">cordevra is being designed by people who run client books every day — so it solves the problems firms actually have, not the ones software companies imagine.</p>
+      <p style="color:var(--muted);font-size:18px;margin-top:14px">cordevra is being built inside The Ledger Practice by people who run client books every day — so it solves the problems firms actually have, not the ones software companies imagine.</p>
       <div class="checks">
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Designed around recurring, cycle-based work</div>
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Fewer subscriptions — forms, storage, and payments included</div>
@@ -382,8 +457,8 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       </div>
     </div>
     <div class="built-card reveal">
-      <blockquote>"We built cordevra because we were tired of running our firm across a dozen tools that never talked to each other."</blockquote>
-      <cite>— The cordevra team</cite>
+      <blockquote>"I run a bookkeeping firm, and I've handled controller-level and trust-account work for clients. I built cordevra because I was tired of running my practice across a dozen tools that never talked to each other."</blockquote>
+      <div class="founder"><div class="av" aria-hidden="true">ND</div><cite><strong style="color:var(--ink)">Nat Duchini</strong><br>Founder · Built inside The Ledger Practice</cite></div>
     </div>
   </div>
 </section>
@@ -394,20 +469,28 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="faq reveal">
       <details><summary>Who is cordevra for?</summary><p>Bookkeeping, accounting, and tax firms — from solo practitioners to growing teams — that want clients, work, and billing in one place.</p></details>
       <details><summary>When does it launch?</summary><p>We're building now. Waitlist members get first access and launch updates before anyone else.</p></details>
-      <details><summary>How much will it cost?</summary><p>Pricing will be announced closer to launch. Early-access members will hear about it first.</p></details>
+      <details><summary>How much will it cost?</summary><p>Prices will be announced before launch. Waitlist members get founding-member pricing, locked for life. See the plans above.</p></details>
+      <details><summary>How is my team billed?</summary><p>We'll share how team members and seats are priced with waitlist members before launch.</p></details>
       <details><summary>Does it work with QuickBooks Online?</summary><p>Yes — QuickBooks Online is a core part of the plan, starting with client transaction review and A/P bill approvals in the portal.</p></details>
-      <details><summary>Can I switch from my current practice management tool?</summary><p>That's the goal. We're planning a simple path to bring your clients and workflows over.</p></details>
+      <details><summary>Can I switch from my current practice management tool?</summary><p>Yes. We're planning a simple path to bring your clients, contacts, and recurring work over, and early-access firms will get help with the move.</p></details>
+      <details><summary>How will my data be protected?</summary><p>Security is being built in from the start, and we'll publish our security practices before launch. The live demo uses sample data only, so please don't enter real client information there.</p></details>
+      <details><summary>Is cordevra for business owners too?</summary><p>Yes. Lens, Scope, and Network are also designed for business owners who use QuickBooks Online. Join the waitlist in the business owner section above.</p></details>
     </div>
   </div>
 </section>
 
 <section class="final reveal">
   <h2>Get your practice in sync.</h2>
-  <p>Join the waitlist and be first to try cordevra.</p>
+  <p>Join the waitlist for early access and founding-member pricing.</p>
   <form class="waitlist js-waitlist" novalidate>
     <input type="email" name="email" placeholder="you@yourfirm.com" aria-label="Work email" required>
     <button class="btn btn-primary" type="submit">Join the waitlist →</button>
   </form>
+  <div class="wl-extra">
+    <select name="size" aria-label="Firm size"><option value="">Firm size</option><option>Just me</option><option>2–5 people</option><option>6–15 people</option><option>16+ people</option></select>
+    <select name="role" aria-label="Your role"><option value="">Your role</option><option>Owner / partner</option><option>Manager</option><option>Staff accountant / bookkeeper</option><option>Other</option></select>
+    <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
+  </div>
   <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
 </section>
 
@@ -415,6 +498,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   <div class="wrap foot">
     <a href="#" class="logo" style="font-size:18px;color:var(--ink)"><svg style="width:24px;height:24px"><use href="#mark"/></svg>cordevra</a>
     <span>Questions? <a href="mailto:hello@cordevra.com" style="color:var(--accent-d);font-weight:600">hello@cordevra.com</a></span>
+    <span class="foot-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms</a></span>
     <span>© 2026 cordevra. All rights reserved.</span>
   </div>
 </footer>
@@ -432,14 +516,19 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.querySelectorAll('.js-waitlist').forEach(form=>{
   form.addEventListener('submit',e=>{
     e.preventDefault();
-    const input=form.querySelector('input');
+    const input=form.querySelector('input[type=email]');
     const email=input.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input.focus();input.style.color='#DC2626';setTimeout(()=>input.style.color='',1200);return;}
-    const subject=encodeURIComponent('Waitlist — '+email);
-    const body=encodeURIComponent('Please add me to the cordevra waitlist.\n\nEmail: '+email+'\nFirm name: \n');
-    window.location.href='mailto:hello@cordevra.com?subject='+subject+'&body='+body;
+    const audience=form.dataset.audience||'Accounting firm';
+    const extra=form.parentElement.querySelector('.wl-extra');
+    const lines=['Please add me to the cordevra waitlist.','','Audience: '+audience,'Email: '+email];
+    if(extra) extra.querySelectorAll('select').forEach(sel=>lines.push(sel.getAttribute('aria-label')+': '+(sel.value||'—')));
+    lines.push(audience==='Business owner'?'Business name: ':'Firm name: ');
+    const subject=encodeURIComponent('Waitlist ('+audience+') — '+email);
+    window.location.href='mailto:hello@cordevra.com?subject='+subject+'&body='+encodeURIComponent(lines.join('\n'));
     form.style.display='none';
-    form.nextElementSibling.style.display='block';
+    if(extra) extra.style.display='none';
+    form.parentElement.querySelector('.js-ok').style.display='block';
   });
 });
 </script>
