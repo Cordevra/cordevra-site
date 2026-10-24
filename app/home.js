@@ -69,6 +69,7 @@
     '[data-cdv-logo]{cursor:pointer;border-radius:8px;padding-top:6px!important;padding-bottom:6px!important;transition:background .15s}',
     '[data-cdv-logo]:hover{background:rgba(34,50,74,.6)}',
     'body.cdv-home [data-cdv-logo]{background:#22324A}',
+    '[data-cdv-sep]{font-size:0!important;display:inline-block!important;width:1px;height:20px;background:#CBD5E1;margin:0 14px!important;vertical-align:middle;align-self:center}',
     'body.cdv-home aside nav a{background:transparent!important;box-shadow:none!important;color:#cbd5e1!important}'
   ].join('\n');
 
@@ -306,13 +307,16 @@
     document.body.classList.add('cdv-home');
     render();
     root.scrollTop = 0;
-    mainSnap = snap(m);
-    if (watcher) watcher.disconnect();
-    /* if the app switches page by any other route (search, a button, etc.), get out of the way */
-    watcher = new MutationObserver(function () {
-      if (snap(mainEl) !== mainSnap) hide();
-    });
-    watcher.observe(m, { childList: true, subtree: true, characterData: true });
+    if (watcher) { watcher.disconnect(); watcher = null; }
+    /* if the app switches page by any other route (search, a button, etc.), get out of the way.
+       Start watching after the page underneath has settled. */
+    setTimeout(function () {
+      if (!document.body.classList.contains('cdv-home') || mainEl !== m) return;
+      mainSnap = snap(m);
+      if (watcher) watcher.disconnect();
+      watcher = new MutationObserver(function () { if (snap(mainEl) !== mainSnap) hide(); });
+      watcher.observe(m, { childList: true, subtree: true, characterData: true });
+    }, 800);
   }
   function hide() {
     if (watcher) { watcher.disconnect(); watcher = null; }
@@ -346,18 +350,34 @@
     if ((e.key === 'Enter' || e.key === ' ') && e.target.hasAttribute && e.target.hasAttribute('data-cdv-logo')) { e.preventDefault(); show(); }
   });
 
+  /* page-title separators: replace the "/" between Clients / Leads / Contacts with a thin divider */
+  function markSeps() {
+    var m = findMain(); if (!m) return;
+    [].slice.call(m.querySelectorAll('span,div,i')).forEach(function (e) {
+      if (e.children.length === 0 && e.textContent.trim() === '/' && !e.hasAttribute('data-cdv-sep')) {
+        e.setAttribute('data-cdv-sep', ''); e.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
   function boot() {
     var style = document.createElement('style');
     style.textContent = CSS;
     document.head.appendChild(style);
-    var tries = 0;
-    (function wait() {
+    var shownFor = null; /* the app shell <main> we last auto-opened Home on */
+    function tick() {
       markLogos();
-      if (findMain() && document.querySelector('[data-cdv-logo]')) {
-        show(); /* Home is the landing page */
-        new MutationObserver(markLogos).observe(document.body, { childList: true, subtree: true });
-      } else if (tries++ < 100) setTimeout(wait, 100);
-    })();
+      markSeps();
+      var m = findMain();
+      /* Home is the landing page: open it once each time the app shell appears (first load, after sign-in) */
+      if (m && m !== shownFor && document.querySelector('[data-cdv-logo]')) { shownFor = m; show(); }
+    }
+    var queued = false;
+    new MutationObserver(function () {
+      if (queued) return; queued = true;
+      requestAnimationFrame(function () { queued = false; tick(); });
+    }).observe(document.body, { childList: true, subtree: true });
+    tick();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
