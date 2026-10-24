@@ -147,6 +147,33 @@
     return l;
   }
 
+  /* signed-in user's first name, read from the app's own state (falls back to no name) */
+  function firstName() {
+    function scan(v, d) {
+      if (!v || typeof v !== 'object' || d > 3) return null;
+      try {
+        if (typeof v.name === 'string' && typeof v.email === 'string' && 'role' in v) return v.name;
+        for (var k in v) {
+          if (k === '_owner' || k === 'return' || k === 'child' || k === 'stateNode' || k === '$$typeof') continue;
+          var s = scan(v[k], d + 1); if (s) return s;
+        }
+      } catch (e) {}
+      return null;
+    }
+    try {
+      var m = mainEl || findMain(); if (!m) return '';
+      var key = Object.keys(m).filter(function (x) { return x.indexOf('__reactFiber') === 0; })[0];
+      var f = key && m[key], r = null;
+      for (var n = 0; n < 40 && f && !r; n++) {
+        var h = f.memoizedState, j = 0;
+        while (h && j < 40 && !r) { r = scan(h.memoizedState, 0); h = h.next; j++; }
+        if (!r && f.memoizedProps) r = scan(f.memoizedProps, 1);
+        f = f.return;
+      }
+      return r ? String(r).trim().split(/\s+/)[0] : '';
+    } catch (e) { return ''; }
+  }
+
   /* ---------- render ---------- */
   function render() {
     if (!root) return;
@@ -155,6 +182,7 @@
     var now = new Date();
     var h = now.getHours();
     var greet = h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+    var fn = firstName(); if (fn) greet += ', ' + fn;
     var overdueN = TASKS.overdue.length + (state.scope === 'firm' ? 1 : 0);
     var weekEnd = addDays(6);
 
