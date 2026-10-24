@@ -1,5 +1,5 @@
 /* Cordevra booking links (prototype, demo data only).
-   1) In the app: "Calendar | Calendar settings | Booking page" in the Calendar title (like Clients | Leads | Contacts). Calendar settings is a manager where each firm
+   1) In the app: "Calendar | Booking page" in the Calendar title (like Clients | Leads | Contacts) and a gear at the far right for Calendar settings, a manager where each firm
       turns meeting types on/off, edits them, picks staff and availability, or adds its own.
    2) Public page at /book/<firm>: clients pick a meeting type, a staff member, a time, and book.
    Settings are kept in this browser (localStorage) so the booking page reflects them. */
@@ -99,6 +99,8 @@
     '.cdvb{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:16px}',
     '.cdvb.cdvb-full{max-width:760px;padding:20px}',
     '.cdvb.cdvb-pp{max-width:none}',
+    '.cdvb-gear{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:6px;border:1px solid #CBD5E1;background:#fff;color:#334155;font-size:18px;line-height:1;cursor:pointer}',
+    '.cdvb-gear:hover{border-color:#94A3B8;background:#F8FAFC}.cdvb-gear[aria-pressed=true]{background:#0E1A2B;border-color:#0E1A2B;color:#fff}',
     '.cdvb-frame{display:block;width:100%;height:calc(100vh - 260px);min-height:560px;border:1px solid #E2E8F0;border-radius:10px;background:#F8FAFC}',
     '.cdvb-ttabs{display:inline}',
     '.cdvb-sep{display:inline-block;width:1px;height:20px;background:#CBD5E1;margin:0 14px;vertical-align:-3px}',
@@ -305,11 +307,11 @@
   }
 
   /* Calendar module title works like "Clients | Leads | Contacts":
-     Calendar | Calendar settings | Booking page.
+     Calendar | Booking page, plus a gear (far right) for Calendar settings.
      Calendar settings = booking links (meeting types, staff, availability, Google Meet, personal links).
      Booking page = the firm's public booking page (link to share + live preview). */
   var calView = 'calendar', calHead = null, pagePanel = null;
-  var CAL_SUB = { settings: 'Meeting types clients and prospects can book, who takes them, and when.', page: 'The page clients and prospects use to book a meeting with your firm.' };
+  var CAL_SUB = { settings: 'Calendar settings: meeting types clients and prospects can book, who takes them, and when.', page: 'The page clients and prospects use to book a meeting with your firm.' };
   function calendarHeader() {
     var main = document.querySelector('main'); if (!main) return null;
     var h = main.querySelector('h1');
@@ -338,8 +340,6 @@
     if (!tabs) {
       tabs = el('span', { 'class': 'cdvb-ttabs' }, [
         el('span', { 'class': 'cdvb-sep', 'aria-hidden': 'true' }),
-        el('button', { type: 'button', 'class': 'cdvb-tt', 'data-v': 'settings', text: 'Calendar settings', on: { click: function (e) { e.stopPropagation(); setView('settings'); } } }),
-        el('span', { 'class': 'cdvb-sep', 'aria-hidden': 'true' }),
         el('button', { type: 'button', 'class': 'cdvb-tt', 'data-v': 'page', text: 'Booking page', on: { click: function (e) { e.stopPropagation(); setView('page'); } } })
       ]);
       h.appendChild(tabs);
@@ -349,9 +349,18 @@
     var page = head.parentNode;
     h.classList.toggle('cdvb-off', calView !== 'calendar');
     [].forEach.call(tabs.querySelectorAll('.cdvb-tt'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-v') === calView)); });
-    /* "+ New meeting" belongs to the calendar view */
+    /* Calendar settings = a gear at the far right of the header, like the other modules; "+ New meeting" only in the calendar view */
     var acts = head.children.length > 1 ? head.lastElementChild : null;
-    if (acts && !acts.contains(h)) acts.style.visibility = calView === 'calendar' ? '' : 'hidden';
+    if (acts && !acts.contains(h)) {
+      var gear = acts.querySelector('.cdvb-gear');
+      if (!gear) {
+        gear = el('button', { type: 'button', 'class': 'cdvb-gear', title: 'Calendar settings', 'aria-label': 'Calendar settings',
+          on: { click: function () { setView(calView === 'settings' ? 'calendar' : 'settings'); } } }, [el('span', { 'aria-hidden': 'true', text: '\u2699' })]);
+        acts.appendChild(gear);
+      }
+      gear.setAttribute('aria-pressed', String(calView === 'settings'));
+      [].forEach.call(acts.children, function (c) { if (c !== gear) c.style.display = calView === 'calendar' ? '' : 'none'; });
+    }
     var sub = head.querySelector('p');
     if (sub) {
       if (!sub.hasAttribute('data-cal-sub')) sub.setAttribute('data-cal-sub', sub.textContent);
