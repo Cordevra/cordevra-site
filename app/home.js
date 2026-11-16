@@ -3,6 +3,8 @@
    Hides itself as soon as any other page is opened. */
 (function () {
   'use strict';
+  /* Home is part of the React app now (decision #42): stay off when the app says so. */
+  if (window.__cdvReactHome) return;
 
   var CSS = [
     '.cdvh{min-width:0;flex:1 1 0%;overflow-y:auto;padding:24px;box-sizing:border-box;background:#F8FAFC;color:#1E293B;font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif}',
