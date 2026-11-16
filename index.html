@@ -482,7 +482,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 <footer>
   <div class="wrap foot">
     <a href="#" class="logo" style="font-size:18px;color:var(--ink)"><svg style="width:24px;height:24px"><use href="#mark"/></svg>cordevra</a>
-    <span>Questions? <a href="mailto:hello@cordevra.com" style="color:var(--accent-d);font-weight:600">hello@cordevra.com</a></span>
+    <span>Questions? <a href="mailto:support@cordevra.com" style="color:var(--accent-d);font-weight:600">support@cordevra.com</a></span>
     <span class="foot-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms</a></span>
     <span>© 2026 cordevra. All rights reserved.</span>
   </div>
@@ -497,7 +497,7 @@ addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passiv
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// waitlist: opens an email to hello@cordevra.com (no backend needed)
+// waitlist: opens an email to support@cordevra.com (no backend needed)
 document.querySelectorAll('.js-waitlist').forEach(form=>{
   form.addEventListener('submit',e=>{
     e.preventDefault();
@@ -510,7 +510,7 @@ document.querySelectorAll('.js-waitlist').forEach(form=>{
     if(extra) extra.querySelectorAll('select').forEach(sel=>lines.push(sel.getAttribute('aria-label')+': '+(sel.value||'—')));
     lines.push(audience==='Business owner'?'Business name: ':'Firm name: ');
     const subject=encodeURIComponent('Waitlist ('+audience+') — '+email);
-    window.location.href='mailto:hello@cordevra.com?subject='+subject+'&body='+encodeURIComponent(lines.join('\n'));
+    window.location.href='mailto:support@cordevra.com?subject='+subject+'&body='+encodeURIComponent(lines.join('\n'));
     form.style.display='none';
     if(extra) extra.style.display='none';
     form.parentElement.querySelector('.js-ok').style.display='block';
