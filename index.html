@@ -16,7 +16,7 @@
 <style>
 :root{
   --ink:#0E1A2B; --ink-2:#22324A; --ink-3:#16263C; --muted:#5B6B80; --line:#E3E8EF;
-  --bg:#FFFFFF; --soft:#F5F8FA; --accent:#14B8A6; --accent-d:#0E9384; --accent-l:#E6F7F5; --mint:#5EEAD4;
+  --bg:#FFFFFF; --soft:#F5F8FA; --accent:#14B8A6; --accent-d:#0F766E; --accent-dd:#115E59; --accent-l:#E6F7F5; --mint:#5EEAD4;
   --warm:#F59E0B; --coral:#FB7185; --radius:18px; --max:1180px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -26,8 +26,8 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-.01em}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;border-radius:999px;padding:13px 24px;border:0;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;font-family:inherit}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px -10px rgba(20,184,166,.7)}
-.btn-primary:hover{background:var(--accent-d);transform:translateY(-1px)}
+.btn-primary{background:var(--accent-d);color:#fff;box-shadow:0 10px 30px -10px rgba(20,184,166,.7)}
+.btn-primary:hover{background:var(--accent-dd);transform:translateY(-1px)}
 .btn-light{background:#fff;color:var(--ink)}
 .btn-light:hover{transform:translateY(-1px)}
 .btn-line{background:transparent;color:inherit;border:1px solid currentColor;opacity:.85}
@@ -131,11 +131,11 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .cycle-viz{display:flex;gap:8px;flex-wrap:wrap}
 .cycle-viz b{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.08);color:#DCE3EC;border:1px solid rgba(255,255,255,.1);animation:lit 6s infinite}
 .cycle-viz b:nth-child(2){animation-delay:1s}.cycle-viz b:nth-child(3){animation-delay:2s}.cycle-viz b:nth-child(4){animation-delay:3s}.cycle-viz b:nth-child(5){animation-delay:4s}.cycle-viz b:nth-child(6){animation-delay:5s}
-@keyframes lit{0%,12%{background:var(--accent);color:#fff;border-color:var(--accent)}20%,100%{background:rgba(255,255,255,.08);color:#DCE3EC}}
+@keyframes lit{0%,12%{background:var(--accent-d);color:#fff;border-color:var(--accent)}20%,100%{background:rgba(255,255,255,.08);color:#DCE3EC}}
 .portal-viz{display:grid;gap:8px}
 .portal-viz div{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:600}
 .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;display:inline-block}
-.p-green{background:#E6F7F5;color:#0E9384}.p-amber{background:#FEF3C7;color:#B45309}.p-blue{background:#E8EFFE;color:#3157D5}.p-grey{background:#EEF1F5;color:#5B6B80}.p-rose{background:#FFE4E6;color:#BE123C}
+.p-green{background:#E6F7F5;color:#0F766E}.p-amber{background:#FEF3C7;color:#B45309}.p-blue{background:#E8EFFE;color:#3157D5}.p-grey{background:#EEF1F5;color:#5B6B80}.p-rose{background:#FFE4E6;color:#BE123C}
 .ai-viz{font-size:13.5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px}
 .ai-viz .q{color:#fff;font-weight:600}
 .ai-viz .a{color:var(--mint);margin-top:8px;min-height:44px}
@@ -143,7 +143,7 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 @keyframes blink{50%{opacity:0}}
 .cal-viz{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;font-size:11px;text-align:center;color:var(--muted)}
 .cal-viz i{font-style:normal;padding:7px 0;border-radius:8px;background:var(--soft)}
-.cal-viz i.b{background:var(--accent);color:#fff;font-weight:700}
+.cal-viz i.b{background:var(--accent-d);color:#fff;font-weight:700}
 .cal-viz i.h{background:#FEF3C7;color:#B45309;font-weight:700}
 
 /* cycle section */
@@ -169,7 +169,7 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .toggle button{position:relative;z-index:1;border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;cursor:pointer;color:var(--muted);transition:color .2s}
 .toggle button[aria-pressed=true]{color:#fff}
 .toggle .knob{position:absolute;top:5px;bottom:5px;border-radius:999px;background:var(--ink);transition:left .3s,width .3s}
-.toggle .save{font-size:11px;background:var(--accent);color:#fff;border-radius:999px;padding:2px 7px;margin-left:6px}
+.toggle .save{font-size:11px;background:var(--accent-d);color:#fff;border-radius:999px;padding:2px 7px;margin-left:6px}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
 .plan{position:relative;border:1px solid var(--line);border-radius:26px;padding:32px 28px;background:#fff;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
 .plan:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(14,26,43,.45)}
@@ -356,7 +356,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <select name="role" aria-label="Your role"><option value="">Your role</option><option>Owner / partner</option><option>Manager</option><option>Staff accountant / bookkeeper</option><option>Other</option></select>
       <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
     </div>
-    <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
+    <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
     <p class="form-note">14-day free trial at launch, no card needed. No spam, just launch updates.</p>
     <div class="hero-links"><a href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a><a href="#pricing">See pricing →</a></div>
 
@@ -610,7 +610,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <div class="wl-extra">
         <select name="size" aria-label="Company size"><option value="">Company size</option><option>Just me</option><option>2–10 employees</option><option>11–50 employees</option><option>51+ employees</option></select>
       </div>
-      <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
+      <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
     </div>
   </div>
 </section>
@@ -625,7 +625,6 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
         <div><svg><use href="#ok"/></svg>Designed around recurring, cycle-based work</div>
         <div><svg><use href="#ok"/></svg>One subscription instead of a stack: forms, storage, payments, scheduling and AP/AR included</div>
         <div><svg><use href="#ok"/></svg>A client experience that makes your firm look its best</div>
-        <div><svg><use href="#ok"/></svg>English, Portuguese and Spanish from day one</div>
       </div>
     </div>
     <div class="built-card reveal">
@@ -654,7 +653,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   </div>
 </section>
 
-<section class="final reveal">
+<section class="final reveal" id="cta">
   <h2>Get your practice <span class="serif">in sync.</span></h2>
   <p>Join the waitlist for early access and founding-firm pricing.</p>
   <form class="waitlist js-waitlist" novalidate>
@@ -666,7 +665,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <select name="role" aria-label="Your role"><option value="">Your role</option><option>Owner / partner</option><option>Manager</option><option>Staff accountant / bookkeeper</option><option>Other</option></select>
     <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
   </div>
-  <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
+  <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
 </section>
 
 <footer>
@@ -748,20 +747,25 @@ function renderCalc(){
 }
 seats.addEventListener('input', renderCalc); renderCalc();
 
-// waitlist: opens an email to support@cordevra.com (no backend needed)
-document.querySelectorAll('.js-waitlist').forEach(form => {
-  form.addEventListener('submit', e => {
+// waitlist: each signup goes to the "Cordevra waitlist" form owned by support@cordevra.com,
+// which emails support@ and keeps every signup in one list. Visitors stay on this page.
+const WAITLIST = 'https://docs.google.com/forms/d/e/1FAIpQLSdQN1Lk85_qr5LSlA4awDGe_FXv9tChav07g8fjTyBHdhtZ5g/formResponse';
+const FIELDS = {email:'entry.1161790117', audience:'entry.1938122243', size:'entry.1167895717', role:'entry.410898957', tool:'entry.2001985338', source:'entry.317484'};
+document.querySelectorAll('.js-waitlist').forEach((form, i) => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const input = form.querySelector('input[type=email]');
     const email = input.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); input.style.color = '#DC2626'; setTimeout(() => input.style.color = '', 1200); return }
-    const audience = form.dataset.audience || 'Accounting firm';
+    const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending…';
     const extra = form.parentElement.querySelector('.wl-extra');
-    const lines = ['Please add me to the cordevra waitlist.', '', 'Audience: ' + audience, 'Email: ' + email];
-    if (extra) extra.querySelectorAll('select').forEach(sel => lines.push(sel.getAttribute('aria-label') + ': ' + (sel.value || '—')));
-    lines.push(audience === 'Business owner' ? 'Business name: ' : 'Firm name: ');
-    const subject = encodeURIComponent('Waitlist (' + audience + ') — ' + email);
-    window.location.href = 'mailto:support@cordevra.com?subject=' + subject + '&body=' + encodeURIComponent(lines.join('\n'));
+    const val = name => extra?.querySelector(`select[name=${name}]`)?.value || '';
+    const body = new URLSearchParams();
+    body.set(FIELDS.email, email);
+    body.set(FIELDS.audience, form.dataset.audience || 'Accounting firm');
+    body.set(FIELDS.size, val('size')); body.set(FIELDS.role, val('role')); body.set(FIELDS.tool, val('tool'));
+    body.set(FIELDS.source, (form.closest('section,header')?.id || 'page') + ' · ' + location.hostname);
+    try { await fetch(WAITLIST, {method:'POST', mode:'no-cors', body}) } catch (err) { /* the form service accepted or the network failed; show the fallback below */ btn.disabled = false; btn.textContent = 'Try again'; const ok = form.parentElement.querySelector('.js-ok'); ok.style.display = 'block'; ok.innerHTML = 'Something went wrong. Please email <a href="mailto:support@cordevra.com" style="text-decoration:underline">support@cordevra.com</a>.'; return }
     form.style.display = 'none';
     if (extra) extra.style.display = 'none';
     form.parentElement.querySelector('.js-ok').style.display = 'block';
