@@ -107,15 +107,15 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .slides{position:relative;aspect-ratio:2580/1500;background:#F5F8FA}
 .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}
 .slides img.on{opacity:1}
-.arrow{position:absolute;top:55%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(14,26,43,.8);border:2px solid rgba(255,255,255,.7);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center;opacity:.85;transition:opacity .2s,background .2s;z-index:3}
-.arrow:hover{opacity:1;background:var(--accent-d)}
-.arrow.prev{left:14px}.arrow.next{right:14px}
+.shot-ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;position:relative;z-index:3}
+.arrow{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:26px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.arrow:hover{background:var(--accent-d);border-color:var(--accent-d)}
 .shot-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px;position:relative;z-index:3}
 .shot-tabs button{font:inherit;font-size:13.5px;font-weight:700;color:#C9D3E0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .2s}
 .shot-tabs button:hover{color:#fff;border-color:var(--mint)}
 .shot-tabs button[aria-selected=true]{background:#fff;color:var(--ink);border-color:#fff}
-.shot-cap{text-align:center;color:#9FB0C4;font-size:15px;font-weight:600;margin-top:18px;min-height:24px;position:relative;z-index:3}
-@media (max-width:720px){.shot-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:4px}.shot-tabs button{flex:none}.arrow{width:36px;height:36px;font-size:22px}}
+.shot-cap{text-align:center;color:#9FB0C4;font-size:15px;font-weight:600;margin:0;min-height:24px;max-width:620px}
+@media (max-width:720px){.shot-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:4px}.shot-tabs button{flex:none}.arrow{width:36px;height:36px;font-size:22px}.shot-ctrl{gap:10px}}
 .after-hero{height:0}
 
 /* marquee */
@@ -410,10 +410,12 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
           <img src="/app-advisory.webp" width="2580" height="1500" alt="Advisory portfolio table of clients with KPIs in red" loading="lazy" data-title="Advisory portfolio" data-caption="Spot which clients need attention: margins, runway, receivables and closed books.">
           <img src="/app-lens.webp" width="2580" height="1500" alt="Client Lens dashboard with revenue, margin, owner pay and cash KPIs" loading="lazy" data-title="Client Lens" data-caption="A ready-made dashboard for each client: revenue, margin, cash, owner pay and tips.">
         </div>
-        <button type="button" class="arrow prev" id="prevShot" aria-label="Previous screen">‹</button>
-        <button type="button" class="arrow next" id="nextShot" aria-label="Next screen">›</button>
       </div>
-      <p class="shot-cap" id="shotCap" aria-live="polite">Your firm at a glance: today's tasks, meetings, deadlines and who you're waiting on.</p>
+      <div class="shot-ctrl">
+        <button type="button" class="arrow" id="prevShot" aria-label="Previous screen">‹</button>
+        <p class="shot-cap" id="shotCap" aria-live="polite">Your firm at a glance: today's tasks, meetings, deadlines and who you're waiting on.</p>
+        <button type="button" class="arrow" id="nextShot" aria-label="Next screen">›</button>
+      </div>
     </div>
   </div>
 </header>
