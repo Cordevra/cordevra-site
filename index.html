@@ -97,14 +97,26 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .stack-cap{display:flex;align-items:center;justify-content:center;gap:12px;color:#9FB0C4;font-size:14px;font-weight:600;margin-top:4px}
 
 /* product shot */
-.shot-wrap{perspective:1600px;margin:40px auto -140px;max-width:1120px;position:relative;z-index:2}
+.shot-wrap{perspective:1600px;margin:48px auto 0;padding-bottom:90px;max-width:1120px;position:relative;z-index:2}
 .mock{border-radius:22px;background:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:0 60px 120px -40px rgba(0,0,0,.7),0 0 0 8px rgba(255,255,255,.04);overflow:hidden;transform:rotateX(14deg) scale(.96);transform-origin:50% 0;transition:transform .2s ease-out;text-align:left}
 .mock-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--soft)}
 .mock-bar i{width:11px;height:11px;border-radius:50%;background:#D9DFE7;display:block}
 .mock-bar i:nth-child(1){background:#FCA5A5}.mock-bar i:nth-child(2){background:#FCD34D}.mock-bar i:nth-child(3){background:#86EFAC}
 .mock-bar span{margin-left:14px;font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 12px}
-.mock img{display:block;width:100%;height:auto}
-.after-hero{height:180px}
+.mock img{display:block}
+.slides{position:relative;aspect-ratio:2580/1500;background:#F5F8FA}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}
+.slides img.on{opacity:1}
+.arrow{position:absolute;top:55%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(14,26,43,.8);border:2px solid rgba(255,255,255,.7);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center;opacity:.85;transition:opacity .2s,background .2s;z-index:3}
+.arrow:hover{opacity:1;background:var(--accent-d)}
+.arrow.prev{left:14px}.arrow.next{right:14px}
+.shot-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px;position:relative;z-index:3}
+.shot-tabs button{font:inherit;font-size:13.5px;font-weight:700;color:#C9D3E0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .2s}
+.shot-tabs button:hover{color:#fff;border-color:var(--mint)}
+.shot-tabs button[aria-selected=true]{background:#fff;color:var(--ink);border-color:#fff}
+.shot-cap{text-align:center;color:#9FB0C4;font-size:15px;font-weight:600;margin-top:18px;min-height:24px;position:relative;z-index:3}
+@media (max-width:720px){.shot-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:4px}.shot-tabs button{flex:none}.arrow{width:36px;height:36px;font-size:22px}}
+.after-hero{height:0}
 
 /* marquee */
 .marquee{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;background:#fff;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
@@ -294,6 +306,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   .plan .for{min-height:0}
 }
 @media (max-width:720px){
+  .shot-wrap{padding-bottom:60px}
   .nav-links{display:none}
   .section{padding:80px 0}
   .bento,.road,.addons{grid-template-columns:1fr}
@@ -305,7 +318,6 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   .stack .tool{font-size:12.5px;padding:7px 12px}
   .biz{margin:0 12px;padding:44px 22px;border-radius:26px}
   .cycle-sec,.final{margin:0 12px;border-radius:26px}
-  .shot-wrap{margin-bottom:-80px}.after-hero{height:110px}
   .founding{padding:22px}
   .founding .left{flex-direction:column;align-items:flex-start}
 }
@@ -373,10 +385,23 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="stack-cap"><span id="stackText">One platform. Hover to see what's inside.</span></div>
 
     <div class="shot-wrap">
-      <div class="mock" id="mock" aria-label="cordevra Home screen with sample data">
+      <div class="shot-tabs" role="tablist" aria-label="Product screens"><button type="button" role="tab" aria-selected="true" data-i="0">Home</button><button type="button" role="tab" aria-selected="false" data-i="1">Work Management</button><button type="button" role="tab" aria-selected="false" data-i="2">Board view</button><button type="button" role="tab" aria-selected="false" data-i="3">Waiting on client</button><button type="button" role="tab" aria-selected="false" data-i="4">Client profile</button><button type="button" role="tab" aria-selected="false" data-i="5">Client folders</button><button type="button" role="tab" aria-selected="false" data-i="6">Advisory portfolio</button><button type="button" role="tab" aria-selected="false" data-i="7">Client Lens</button></div>
+      <div class="mock" id="mock" aria-roledescription="carousel" aria-label="cordevra screens with sample data">
         <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
-        <img src="/app-home.webp" width="2580" height="1500" alt="cordevra Home: overdue, due today, meetings and waiting-on-client counts, a task list, upcoming meetings, open work by status, and key deadlines" loading="eager">
+        <div class="slides" id="slides">
+          <img src="/app-home.webp" width="2580" height="1500" alt="cordevra Home: overdue, due today, meetings and waiting-on-client counts, tasks, upcoming meetings and key deadlines" loading="eager" data-title="Home" data-caption="Your firm at a glance: today's tasks, meetings, deadlines and who you're waiting on.">
+          <img src="/app-work.webp" width="2580" height="1500" alt="Work Management list of client projects with status, due dates and progress" loading="lazy" data-title="Work Management" data-caption="Every recurring project with status, progress, deadlines and risk alerts.">
+          <img src="/app-board.webp" width="2580" height="1500" alt="Work Management board grouped by due date" loading="lazy" data-title="Board view" data-caption="Drag projects through the week: overdue, this week, next week, later.">
+          <img src="/app-waiting.webp" width="2580" height="1500" alt="Waiting on client board of document requests, questions and signatures" loading="lazy" data-title="Waiting on client" data-caption="Everything clients still owe, by how long they've had it, with one-click reminders.">
+          <img src="/app-client.webp" width="2580" height="1500" alt="Client profile dashboard with projects, recent documents and contacts" loading="lazy" data-title="Client profile" data-caption="Projects, documents, contacts, notes and tasks for each client on one page.">
+          <img src="/app-files.webp" width="2580" height="1500" alt="Client files organized in folders with uploaded documents" loading="lazy" data-title="Client folders" data-caption="Organized folders per client, with what was shared and what the client uploaded.">
+          <img src="/app-advisory.webp" width="2580" height="1500" alt="Advisory portfolio table of clients with KPIs in red" loading="lazy" data-title="Advisory portfolio" data-caption="Spot which clients need attention: margins, runway, receivables and closed books.">
+          <img src="/app-lens.webp" width="2580" height="1500" alt="Client Lens dashboard with revenue, margin, owner pay and cash KPIs" loading="lazy" data-title="Client Lens" data-caption="A ready-made dashboard for each client: revenue, margin, cash, owner pay and tips.">
+        </div>
+        <button type="button" class="arrow prev" id="prevShot" aria-label="Previous screen">‹</button>
+        <button type="button" class="arrow next" id="nextShot" aria-label="Next screen">›</button>
       </div>
+      <p class="shot-cap" id="shotCap" aria-live="polite">Your firm at a glance: today's tasks, meetings, deadlines and who you're waiting on.</p>
     </div>
   </div>
 </header>
@@ -710,6 +735,19 @@ if (!reduce) {
   mock.addEventListener('mousemove', e => { const r = mock.getBoundingClientRect(); tx = ((e.clientX - r.left) / r.width - .5) * 4; ty = -((e.clientY - r.top) / r.height - .5) * 3; apply() });
   mock.addEventListener('mouseleave', () => { tx = ty = 0; apply() });
 }
+
+// product screens carousel: changes on its own every 5 s, arrows and tabs to choose; pauses while the mouse is over it
+const imgs=[...document.querySelectorAll('#slides img')], tabsEl=[...document.querySelectorAll('.shot-tabs button')], cap=document.getElementById('shotCap');
+let cur=0, timer=null;
+function show(i){ cur=(i+imgs.length)%imgs.length; imgs.forEach((im,k)=>im.classList.toggle('on',k===cur)); tabsEl.forEach((t,k)=>t.setAttribute('aria-selected',String(k===cur))); cap.textContent=imgs[cur].dataset.caption; if(innerWidth<=720) tabsEl[cur].scrollIntoView({block:'nearest',inline:'center'}) }
+function auto(){ clearInterval(timer); if(!reduce) timer=setInterval(()=>show(cur+1),5000) }
+document.getElementById('prevShot').addEventListener('click',()=>{show(cur-1);auto()});
+document.getElementById('nextShot').addEventListener('click',()=>{show(cur+1);auto()});
+tabsEl.forEach(t=>t.addEventListener('click',()=>{show(+t.dataset.i);auto()}));
+const wrapEl=document.querySelector('.shot-wrap');
+wrapEl.addEventListener('mouseenter',()=>clearInterval(timer)); wrapEl.addEventListener('mouseleave',auto);
+let sx=null; wrapEl.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true}); wrapEl.addEventListener('touchend',e=>{ if(sx===null)return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));auto()} sx=null });
+show(0); auto();
 
 // Ask Cordevra: typed answer (sample, no real data)
 const ai = document.getElementById('aiAnswer');
