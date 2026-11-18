@@ -4,230 +4,313 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>cordevra — One system. Your entire firm.</title>
-<meta name="description" content="One system for your entire bookkeeping firm: practice management, client portal, forms, documents, payments, scheduling, SOPs, payables and receivables, and QuickBooks review in one platform. Join the waitlist.">
+<meta name="description" content="One system for your entire bookkeeping firm: practice management, client portal, forms, e-signatures, documents, payments, scheduling, payables and receivables, and QuickBooks review. Plans from $29/month. Join the waitlist for founding-firm pricing.">
 <meta property="og:title" content="cordevra — One system. Your entire firm.">
-<meta property="og:description" content="One system for your entire bookkeeping firm: practice management, client portal, forms, documents, payments, scheduling, SOPs, payables and receivables, and QuickBooks review in one platform. Join the waitlist.">
+<meta property="og:description" content="Practice management, client portal, forms, e-signatures, payments, scheduling and QuickBooks review in one platform for bookkeeping firms. Plans from $29/month.">
 <meta property="og:url" content="https://cordevra.com">
 <meta name="theme-color" content="#0E1A2B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1A2B'/%3E%3Cpath d='M44 18.5A19 19 0 1 0 44 45.5' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='49' cy='32' r='5' fill='%2314B8A6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0E1A2B; --ink-2:#22324A; --muted:#5B6B80; --line:#E3E8EF;
-  --bg:#FFFFFF; --soft:#F5F8FA; --accent:#14B8A6; --accent-d:#0E9384; --accent-l:#E6F7F5;
-  --warm:#F59E0B; --radius:16px; --max:1160px;
+  --ink:#0E1A2B; --ink-2:#22324A; --ink-3:#16263C; --muted:#5B6B80; --line:#E3E8EF;
+  --bg:#FFFFFF; --soft:#F5F8FA; --accent:#14B8A6; --accent-d:#0F766E; --accent-dd:#115E59; --accent-l:#E6F7F5; --mint:#5EEAD4;
+  --warm:#F59E0B; --coral:#FB7185; --radius:18px; --max:1180px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;border-radius:999px;padding:12px 22px;border:0;cursor:pointer;transition:.2s;font-family:inherit}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-d)}
-.btn-ghost{background:transparent;border:1px solid var(--line)}
-.btn-ghost:hover{border-color:var(--ink)}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--accent-d);background:var(--accent-l);padding:6px 12px;border-radius:999px}
-.eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(20,184,166,.5);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(20,184,166,.5)}70%{box-shadow:0 0 0 10px rgba(20,184,166,0)}100%{box-shadow:0 0 0 0 rgba(20,184,166,0)}}
-h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
-h2{font-size:clamp(28px,4vw,42px);font-weight:800}
-.section{padding:96px 0}
-.section-head{max-width:680px;margin-bottom:48px}
-.section-head p{color:var(--muted);font-size:18px;margin-top:14px}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;border-radius:999px;padding:13px 24px;border:0;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;font-family:inherit}
+.btn-primary{background:var(--accent-d);color:#fff;box-shadow:0 10px 30px -10px rgba(20,184,166,.7)}
+.btn-primary:hover{background:var(--accent-dd);transform:translateY(-1px)}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-light:hover{transform:translateY(-1px)}
+.btn-line{background:transparent;color:inherit;border:1px solid currentColor;opacity:.85}
+.btn-line:hover{opacity:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);background:var(--accent-l);padding:6px 12px;border-radius:999px}
+.eyebrow.dark{background:rgba(94,234,212,.12);color:var(--mint)}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(20,184,166,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(20,184,166,.55)}70%{box-shadow:0 0 0 10px rgba(20,184,166,0)}100%{box-shadow:0 0 0 0 rgba(20,184,166,0)}}
+h1,h2,h3{line-height:1.08;letter-spacing:-.03em}
+h2{font-size:clamp(32px,4.6vw,56px);font-weight:800}
+h2 .serif{font-size:1.08em}
+.section{padding:110px 0}
+.section-head{max-width:760px;margin-bottom:56px}
+.section-head p{color:var(--muted);font-size:18px;margin-top:16px}
 .center{text-align:center;margin-left:auto;margin-right:auto}
 
 /* nav */
-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:.2s}
-nav.scrolled{border-bottom-color:var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px;letter-spacing:-.03em}
-.logo svg{width:30px;height:30px}
-.nav-links{display:flex;gap:30px;font-size:15px;color:var(--muted);font-weight:500}
-.nav-links a:hover{color:var(--ink)}
+nav{position:fixed;top:14px;left:0;right:0;z-index:60;pointer-events:none}
+.nav-in{pointer-events:auto;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 10px 0 20px;border-radius:999px;background:rgba(14,26,43,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);color:#fff;transition:background .3s,color .3s,border-color .3s;margin-left:16px;margin-right:16px}
+@media (min-width:1132px){.nav-in{margin:0 auto}}
+nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color:var(--line);box-shadow:0 10px 30px -18px rgba(14,26,43,.35)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.03em}
+.logo svg{width:28px;height:28px}
+.nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:600;opacity:.85}
+.nav-links a:hover{color:var(--accent)}
 .nav-in .btn{padding:10px 18px;font-size:14px}
-.nav-cta{display:flex;gap:10px;align-items:center}
-@media (max-width:560px){.nav-in .btn{padding:9px 14px}}
 
 /* hero */
-.hero{padding:72px 0 40px;position:relative}
-.hero::before{content:"";position:absolute;inset:-200px 0 auto 0;height:700px;background:radial-gradient(600px 300px at 80% 20%,rgba(20,184,166,.12),transparent 70%),radial-gradient(500px 300px at 10% 0%,rgba(14,26,43,.06),transparent 70%);z-index:-1}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:56px;text-align:center}
-.hero h1{font-size:clamp(44px,7.5vw,84px);font-weight:800;margin:22px 0 18px}
-.hero h1 .sync{color:var(--accent)}
-.hero .tagline{font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--ink-2);margin-top:20px}
-.hero .tagline .sync{color:var(--accent)}
-.hero .tagline + h1{margin-top:8px}
-.collapse{color:var(--accent);font-size:22px;font-weight:700;margin:10px 0}
-.hero .lead{font-size:clamp(18px,2.2vw,22px);color:var(--ink-2);font-weight:600;max-width:720px;margin:0 auto 10px}
-.hero .sub{font-size:17px;color:var(--muted);max-width:640px;margin:0 auto 32px}
-.waitlist{display:flex;gap:10px;max-width:520px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:0 10px 30px -12px rgba(14,26,43,.18)}
-.waitlist input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:15px;padding:0 16px;background:transparent;color:var(--ink)}
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:150px 0 0;isolation:isolate}
+.hero .aurora{position:absolute;inset:-20%;z-index:-2;background:
+  radial-gradient(40% 35% at 75% 25%,rgba(20,184,166,.35),transparent 70%),
+  radial-gradient(35% 30% at 15% 15%,rgba(94,234,212,.14),transparent 70%),
+  radial-gradient(40% 40% at 50% 100%,rgba(20,184,166,.22),transparent 70%);
+  animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(-4%,3%,0) scale(1.06)}}
+.hero .grid{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent)}
+.hero-in{text-align:center;position:relative}
+.hero h1{font-size:clamp(46px,8.4vw,108px);font-weight:800;margin:22px auto 22px;max-width:1000px}
+.hero h1 .serif{color:var(--mint);font-size:1.06em}
+.rotator{display:inline-grid;color:var(--mint);min-width:8.5em;text-align:left;vertical-align:bottom;overflow:hidden}
+.rotator span{grid-area:1/1;opacity:0;transform:translateY(60%);transition:opacity .45s,transform .45s;white-space:nowrap}
+.rotator span.on{opacity:1;transform:none}
+.rotator span.out{opacity:0;transform:translateY(-60%)}
+.for-line{font-size:clamp(20px,2.6vw,28px);font-weight:700;color:#fff;margin:-6px 0 18px}
+.hero .lead{font-size:clamp(18px,2.1vw,21px);color:#C9D3E0;max-width:740px;margin:0 auto 34px}
+.hero .lead b{color:#fff}
+.waitlist{display:flex;gap:8px;max-width:540px;margin:0 auto;background:#fff;border-radius:999px;padding:6px;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.waitlist input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:15px;padding:0 18px;background:transparent;color:var(--ink)}
+.wl-extra{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:660px;margin:12px auto 0}
+.wl-extra select{font:inherit;font-size:13.5px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+.hero .wl-extra select{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#E6ECF3}
+.hero .wl-extra option{color:var(--ink)}
 .form-note{font-size:13px;color:var(--muted);margin-top:12px}
-.form-ok{display:none;max-width:520px;margin:0 auto;background:var(--accent-l);color:var(--accent-d);border-radius:14px;padding:14px 18px;font-weight:600}
+.hero .form-note{color:#9FB0C4}
+.form-ok{display:none;max-width:540px;margin:0 auto;background:var(--accent-l);color:var(--accent-d);border-radius:14px;padding:14px 18px;font-weight:700}
+.hero-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:18px;font-size:14px;font-weight:600}
+.hero-links a{color:var(--mint)}
+.hero-links a:hover{text-decoration:underline}
 
-/* mockup */
-.mock{max-width:1120px;margin:0 auto;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(14,26,43,.35);overflow:hidden;text-align:left}
+/* stack collapse */
+.stack{position:relative;height:300px;max-width:980px;margin:56px auto 0}
+.stack .tool{position:absolute;left:50%;top:50%;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;color:#DCE3EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transform:translate(-50%,-50%) translate(var(--x),var(--y)) rotate(var(--r));transition:transform 1.1s cubic-bezier(.7,0,.2,1) var(--d),opacity .8s ease var(--d),filter .8s var(--d)}
+.stack .tool s{text-decoration-color:rgba(251,113,133,.0);transition:text-decoration-color .4s}
+.stack .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:all .8s cubic-bezier(.2,.9,.3,1.3) 1s;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:16px 26px;border-radius:22px;font-weight:800;font-size:26px;letter-spacing:-.03em;box-shadow:0 0 0 10px rgba(20,184,166,.15),0 0 80px rgba(20,184,166,.6)}
+.stack .core svg{width:36px;height:36px}
+.stack.go .tool{transform:translate(-50%,-50%) translate(0,0) rotate(0) scale(.3);opacity:0;filter:blur(4px)}
+.stack.go .core{transform:translate(-50%,-50%) scale(1);opacity:1}
+.stack-cap{display:flex;align-items:center;justify-content:center;gap:12px;color:#9FB0C4;font-size:14px;font-weight:600;margin-top:4px}
+.stack-cap button{background:none;border:1px solid rgba(255,255,255,.2);color:#E6ECF3;border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+.stack-cap button:hover{border-color:var(--mint);color:var(--mint)}
+
+/* product shot */
+.shot-wrap{perspective:1600px;margin:40px auto -140px;max-width:1120px;position:relative;z-index:2}
+.mock{border-radius:22px;background:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:0 60px 120px -40px rgba(0,0,0,.7),0 0 0 8px rgba(255,255,255,.04);overflow:hidden;transform:rotateX(14deg) scale(.96);transform-origin:50% 0;transition:transform .2s ease-out;text-align:left}
 .mock-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--soft)}
 .mock-bar i{width:11px;height:11px;border-radius:50%;background:#D9DFE7;display:block}
-.mock-shot{display:block;width:100%;height:auto}
+.mock-bar i:nth-child(1){background:#FCA5A5}.mock-bar i:nth-child(2){background:#FCD34D}.mock-bar i:nth-child(3){background:#86EFAC}
 .mock-bar span{margin-left:14px;font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 12px}
-.mock-body{display:grid;grid-template-columns:200px 1fr;min-height:420px}
-.mock-side{background:var(--ink);color:#B9C4D3;padding:18px 14px;font-size:13px}
-.mock-side .logo{color:#fff;font-size:17px;margin-bottom:22px}
-.mock-side .logo svg{width:22px;height:22px}
-.mock-side div.item{padding:8px 10px;border-radius:8px;margin-bottom:2px;display:flex;gap:10px;align-items:center}
-.mock-side div.item.on{background:rgba(255,255,255,.08);color:#fff}
-.mock-side div.item b{width:14px;height:14px;border-radius:4px;border:1.5px solid currentColor;opacity:.7;display:block}
-.mock-main{padding:22px 24px;background:#FBFCFD}
-.mock-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.mock-top h4{font-size:18px}
-.mock-top small{color:var(--muted);font-size:12px}
-.pill{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;display:inline-block}
-.p-green{background:#E6F7F5;color:#0E9384}.p-amber{background:#FEF3C7;color:#B45309}.p-blue{background:#E8EFFE;color:#3157D5}.p-grey{background:#EEF1F5;color:#5B6B80}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
-.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.kpi small{color:var(--muted);font-size:11px;display:block}
-.kpi strong{font-size:20px}
-.mock-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
-.card h5{font-size:13px;margin-bottom:10px;display:flex;justify-content:space-between}
-.row{display:grid;grid-template-columns:1.6fr 1fr .9fr;gap:8px;align-items:center;font-size:12px;padding:8px 0;border-top:1px solid var(--line)}
-.row:first-of-type{border-top:0}
-.bar{height:6px;background:#EEF1F5;border-radius:9px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--accent);border-radius:9px}
-.task{display:flex;gap:10px;align-items:flex-start;font-size:12px;padding:7px 0;border-top:1px solid var(--line)}
-.task:first-of-type{border-top:0}
-.chk{width:14px;height:14px;border-radius:4px;border:1.5px solid #C5CED9;flex:none;margin-top:2px}
-.chk.done{background:var(--accent);border-color:var(--accent)}
-.task s{color:var(--muted)}
+.mock img{display:block;width:100%;height:auto}
+.after-hero{height:180px}
 
-/* replaces strip */
-.strip{padding:0}
-.strip p{text-align:center;color:var(--muted);font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:18px}
-.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.chips span{border:1px dashed #C5CED9;color:var(--muted);border-radius:999px;padding:8px 16px;font-size:14px;text-decoration:line-through;text-decoration-color:rgba(91,107,128,.5)}
-.chips span.win{border:1px solid var(--accent);background:var(--accent-l);color:var(--accent-d);text-decoration:none;font-weight:700}
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;background:#fff;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee-track{display:flex;gap:44px;width:max-content;animation:scroll 40s linear infinite;font-weight:700;font-size:15px;color:var(--ink-2)}
+.marquee-track span{display:flex;align-items:center;gap:44px;white-space:nowrap}
+.marquee-track span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-/* features */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.feat{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:#fff;transition:.2s}
-.feat:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 18px 40px -24px rgba(14,26,43,.3)}
-.ico{width:44px;height:44px;border-radius:12px;background:var(--accent-l);color:var(--accent-d);display:grid;place-items:center;margin-bottom:16px}
-.ico svg{width:22px;height:22px}
-.feat h3{font-size:18px;margin-bottom:8px}
-.feat p{color:var(--muted);font-size:15px}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tile{position:relative;border:1px solid var(--line);border-radius:24px;padding:28px;background:#fff;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 24px 50px -30px rgba(14,26,43,.4);border-color:#CFE9E5}
+.tile h3{font-size:21px;margin-bottom:8px}
+.tile p{color:var(--muted);font-size:15px}
+.tile .tag{font-size:12px;font-weight:700;color:var(--accent-d);letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;display:block}
+.t-wide{grid-column:span 4}.t-mid{grid-column:span 3}.t-sm{grid-column:span 2}
+.tile.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tile.dark p{color:#B9C4D3}.tile.dark .tag{color:var(--mint)}
+.tile.mint{background:linear-gradient(135deg,#E6F7F5,#F4FBFA)}
+.viz{margin-top:22px}
+.cycle-viz{display:flex;gap:8px;flex-wrap:wrap}
+.cycle-viz b{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.08);color:#DCE3EC;border:1px solid rgba(255,255,255,.1);animation:lit 6s infinite}
+.cycle-viz b:nth-child(2){animation-delay:1s}.cycle-viz b:nth-child(3){animation-delay:2s}.cycle-viz b:nth-child(4){animation-delay:3s}.cycle-viz b:nth-child(5){animation-delay:4s}.cycle-viz b:nth-child(6){animation-delay:5s}
+@keyframes lit{0%,12%{background:var(--accent-d);color:#fff;border-color:var(--accent)}20%,100%{background:rgba(255,255,255,.08);color:#DCE3EC}}
+.portal-viz{display:grid;gap:8px}
+.portal-viz div{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:600}
+.pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;display:inline-block}
+.p-green{background:#E6F7F5;color:#0F766E}.p-amber{background:#FEF3C7;color:#B45309}.p-blue{background:#E8EFFE;color:#3157D5}.p-grey{background:#EEF1F5;color:#5B6B80}.p-rose{background:#FFE4E6;color:#BE123C}
+.ai-viz{font-size:13.5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px}
+.ai-viz .q{color:#fff;font-weight:600}
+.ai-viz .a{color:var(--mint);margin-top:8px;min-height:44px}
+.ai-viz .a::after{content:"▍";animation:blink 1s steps(1) infinite;color:var(--mint)}
+@keyframes blink{50%{opacity:0}}
+.cal-viz{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;font-size:11px;text-align:center;color:var(--muted)}
+.cal-viz i{font-style:normal;padding:7px 0;border-radius:8px;background:var(--soft)}
+.cal-viz i.b{background:var(--accent-d);color:#fff;font-weight:700}
+.cal-viz i.h{background:#FEF3C7;color:#B45309;font-weight:700}
 
-/* cycle */
-.cycle-sec{background:var(--ink);color:#fff;border-radius:28px;margin:0 24px}
-.cycle-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+/* cycle section */
+.cycle-sec{background:var(--ink);color:#fff;border-radius:36px;margin:0 20px;position:relative;overflow:hidden}
+.cycle-sec::before{content:"";position:absolute;inset:auto -10% -40% auto;width:600px;height:600px;background:radial-gradient(closest-side,rgba(20,184,166,.3),transparent);z-index:0}
+.cycle-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative}
 .cycle-sec h2{color:#fff}
-.cycle-sec p{color:#B9C4D3;font-size:18px;margin-top:14px}
-.steps{margin-top:28px;display:grid;gap:14px}
-.step{display:flex;gap:14px;align-items:flex-start}
-.step b{flex:none;width:30px;height:30px;border-radius:50%;background:rgba(20,184,166,.18);color:var(--accent);display:grid;place-items:center;font-size:14px}
-.step div{color:#DCE3EC;font-size:16px}
-.step strong{color:#fff;display:block}
-.orbit{position:relative;aspect-ratio:1;max-width:420px;margin:0 auto;width:100%}
+.cycle-sec .section-head p,.cycle-sec p.lede{color:#B9C4D3;font-size:18px;margin-top:14px}
+.steps{margin-top:30px;display:grid;gap:12px}
+.step{display:flex;gap:16px;align-items:flex-start;padding:14px 16px;border-radius:16px;transition:background .3s;cursor:default}
+.step:hover,.step.on{background:rgba(255,255,255,.06)}
+.step b{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(20,184,166,.18);color:var(--mint);display:grid;place-items:center;font-size:14px}
+.step div{color:#DCE3EC;font-size:15.5px}
+.step strong{color:#fff;display:block;font-size:17px}
+.orbit{position:relative;aspect-ratio:1;max-width:440px;margin:0 auto;width:100%}
 .orbit svg{width:100%;height:100%}
 .orbit .spin{transform-origin:200px 200px;animation:spin 24s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* pricing */
+.pricing{background:radial-gradient(60% 40% at 50% 0%,#E6F7F5,transparent 70%)}
+.toggle{display:inline-flex;background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px;gap:4px;margin-top:26px;position:relative}
+.toggle button{position:relative;z-index:1;border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;cursor:pointer;color:var(--muted);transition:color .2s}
+.toggle button[aria-pressed=true]{color:#fff}
+.toggle .knob{position:absolute;top:5px;bottom:5px;border-radius:999px;background:var(--ink);transition:left .3s,width .3s}
+.toggle .save{font-size:11px;background:var(--accent-d);color:#fff;border-radius:999px;padding:2px 7px;margin-left:6px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{position:relative;border:1px solid var(--line);border-radius:26px;padding:32px 28px;background:#fff;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.plan:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(14,26,43,.45)}
+.plan.star{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 40px 80px -40px rgba(20,184,166,.7)}
+.plan .badge{position:absolute;top:-13px;left:28px;background:linear-gradient(90deg,var(--accent),var(--mint));color:var(--ink);font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.plan h3{font-size:24px}
+.plan .for{color:var(--muted);font-size:14.5px;margin-top:4px;min-height:44px}
+.plan.star .for{color:#B9C4D3}
+.amount{display:flex;align-items:flex-end;gap:6px;margin:22px 0 4px}
+.amount .num{font-size:58px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.amount .num sup{font-size:26px;vertical-align:top;position:relative;top:8px;margin-right:2px}
+.amount .per{color:var(--muted);font-size:14px;font-weight:600;padding-bottom:8px;line-height:1.3}
+.plan.star .per{color:#B9C4D3}
+.billed{font-size:13px;color:var(--muted);min-height:20px}
+.plan.star .billed{color:#9FB0C4}
+.plan ul{list-style:none;margin:22px 0 26px;display:grid;gap:10px;font-size:15px;flex:1}
+.plan li{display:flex;gap:10px;align-items:flex-start}
+.plan li svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--accent)}
+.plan.star li svg{color:var(--mint)}
+.plan .btn{width:100%}
+.plan .btn-ghost{background:var(--soft);color:var(--ink)}
+.plan .btn-ghost:hover{background:var(--accent-l)}
+.founding{margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border-radius:24px;padding:24px 28px;background:linear-gradient(110deg,#0E1A2B,#16343F 60%,#0E9384);color:#fff}
+.founding h3{font-size:22px}
+.founding p{color:#C9D3E0;font-size:15px;margin-top:4px}
+.founding .seal{flex:none;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--ink);font-weight:800;font-size:20px;line-height:1;text-align:center;transform:rotate(-10deg);box-shadow:0 0 0 6px rgba(94,234,212,.2)}
+.founding .seal small{display:block;font-size:10px;letter-spacing:.06em}
+.founding .left{display:flex;align-items:center;gap:20px}
+
+/* calculator */
+.calc{margin-top:28px;display:grid;grid-template-columns:1.1fr 1fr;gap:18px}
+.calc-box{border:1px solid var(--line);border-radius:24px;padding:28px;background:#fff}
+.calc-box h3{font-size:20px}
+.calc-box p.small{color:var(--muted);font-size:14.5px;margin-top:4px}
+.range-row{margin-top:22px}
+.range-row label{display:flex;justify-content:space-between;font-weight:700;font-size:15px}
+.range-row output{color:var(--accent-d)}
+input[type=range]{width:100%;margin-top:12px;accent-color:var(--accent);height:6px}
+.calc-out{display:grid;gap:10px;margin-top:22px}
+.calc-out div{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-radius:14px;background:var(--soft);font-weight:600}
+.calc-out div.best{background:var(--accent-l);color:var(--accent-d)}
+.calc-out b{font-size:18px}
+.calc-out .na{color:var(--muted);font-weight:500;font-size:14px}
+.addons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.addon{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+.addon b{display:block;font-size:20px;letter-spacing:-.02em}
+.addon span{color:var(--muted);font-size:14px}
+.addon.free b{color:var(--accent-d)}
+
 /* roadmap */
-.road{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
-.mod{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:#fff;position:relative}
-.mod.first{border:2px solid var(--accent);box-shadow:0 18px 40px -24px rgba(20,184,166,.6)}
-.mod .num{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.06em}
-.mod h3{font-size:20px;margin:6px 0 10px}
-.mod p{font-size:14px;color:var(--muted)}
-.mod ul{list-style:none;margin-top:14px;font-size:14px;display:grid;gap:6px}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.road::before{content:"";position:absolute;left:4%;right:4%;top:38px;height:2px;background:linear-gradient(90deg,var(--accent),#D9DFE7 30%);z-index:0}
+.mod{position:relative;z-index:1;border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff}
+.mod .dot{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #C5CED9;margin-bottom:16px}
+.mod.first{border:2px solid var(--accent);box-shadow:0 20px 40px -26px rgba(20,184,166,.7)}
+.mod.first .dot{border-color:var(--accent);background:var(--accent);box-shadow:0 0 0 6px var(--accent-l)}
+.mod .num{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.08em}
+.mod h3{font-size:20px;margin:4px 0 8px}
+.mod p{font-size:14.5px;color:var(--muted)}
+.mod ul{list-style:none;margin-top:12px;font-size:14px;display:grid;gap:6px}
 .mod li{display:flex;gap:8px}
 .mod li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;flex:none}
 .mod .pill{position:absolute;top:22px;right:20px}
 
-/* built by */
-.built{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.built-card{background:var(--soft);border-radius:24px;padding:36px}
-.built-card blockquote{font-size:22px;font-weight:600;line-height:1.45;letter-spacing:-.01em}
-.built-card cite{display:block;margin-top:18px;font-style:normal;color:var(--muted);font-size:15px}
-.checks{display:grid;gap:14px;margin-top:24px}
-.checks div{display:flex;gap:12px;font-size:16px}
-.checks svg{flex:none;width:22px;height:22px;color:var(--accent)}
-
-/* faq */
-.faq{max-width:760px;margin:0 auto}
-details{border-bottom:1px solid var(--line);padding:20px 0}
-summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--accent);font-size:24px;line-height:1;transition:.2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{color:var(--muted);margin-top:10px;font-size:16px}
-
-/* final cta */
-.final{text-align:center;background:linear-gradient(180deg,var(--soft),#fff);border-radius:28px;padding:80px 24px;margin:0 24px}
-.final h2{margin-bottom:12px}
-.final p{color:var(--muted);font-size:18px;margin-bottom:28px}
-
-/* waitlist extras */
-.wl-extra{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:640px;margin:12px auto 0}
-.wl-extra select{font:inherit;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
-.demo-link{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:var(--accent-d)}
-.demo-link:hover{text-decoration:underline}
-/* pricing */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.plan{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:#fff}
-.plan.hl{border:2px solid var(--accent)}
-.plan h3{font-size:20px;margin-bottom:6px}
-.plan .price{font-weight:700;color:var(--muted);font-size:14px;margin-bottom:12px}
-.plan p{color:var(--muted);font-size:15px}
-.price-note{margin-top:22px;text-align:center;color:var(--ink-2);font-weight:600}
-.price-note span{display:block;color:var(--muted);font-weight:500;font-size:14px;margin-top:4px}
-/* business owners */
-.biz{background:var(--accent-l);border-radius:28px;padding:56px 40px;margin:0 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+/* biz */
+.biz{background:var(--accent-l);border-radius:36px;padding:64px 48px;margin:0 20px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
 .biz p{color:var(--ink-2);font-size:17px;margin-top:12px}
 .biz ul{list-style:none;margin-top:18px;display:grid;gap:8px}
 .biz li{display:flex;gap:10px}
 .biz li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:10px;flex:none}
-.biz .waitlist{margin:0}
-.biz .wl-extra{grid-template-columns:1fr;max-width:520px;margin:12px 0 0}
-.founder{display:flex;gap:14px;align-items:center;margin-top:20px}
-.founder .av{width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
-.founder cite{margin-top:0}
-.foot-links{display:flex;gap:18px}
+.biz .waitlist{margin:0;box-shadow:0 14px 30px -18px rgba(14,26,43,.35)}
+.biz .wl-extra{grid-template-columns:1fr;max-width:540px;margin:10px 0 0}
+
+/* built */
+.built{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.built-card{background:var(--ink);color:#fff;border-radius:30px;padding:44px;position:relative;overflow:hidden}
+.built-card::after{content:"“";position:absolute;right:24px;top:-30px;font-family:'Instrument Serif',serif;font-size:220px;color:rgba(94,234,212,.15);line-height:1}
+.built-card blockquote{font-family:'Instrument Serif',Georgia,serif;font-size:30px;line-height:1.3;position:relative;z-index:1}
+.built-card cite{display:block;margin-top:22px;font-style:normal;color:#9FB0C4;font-size:15px}
+.checks{display:grid;gap:14px;margin-top:26px}
+.checks div{display:flex;gap:12px;font-size:16.5px;font-weight:500}
+.checks svg{flex:none;width:22px;height:22px;color:var(--accent)}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:26px;line-height:1;transition:.2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px;font-size:16px}
+
+/* final */
+.final{position:relative;overflow:hidden;text-align:center;background:var(--ink);color:#fff;border-radius:36px;padding:100px 24px;margin:0 20px}
+.final::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 50% 60%,rgba(20,184,166,.4),transparent 70%);z-index:0}
+.final>*{position:relative}
+.final h2{color:#fff;margin-bottom:14px;font-size:clamp(36px,6vw,72px)}
+.final h2 .serif{color:var(--mint)}
+.final p{color:#B9C4D3;font-size:18px;margin-bottom:30px}
+.final .wl-extra select{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#E6ECF3}
+.final .wl-extra option{color:var(--ink)}
+
 footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 .foot a:hover{color:var(--ink)}
+.foot-links{display:flex;gap:18px}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.orbit .spin,.eyebrow .pulse{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .mock{transform:none}
+}
 
 /* responsive */
-@media (max-width:980px){
-  .features{grid-template-columns:1fr 1fr}
-  .road{grid-template-columns:1fr 1fr}
-  .cycle-grid,.built,.biz{grid-template-columns:1fr}
-  .plans{grid-template-columns:1fr}
-  .mock-body{grid-template-columns:1fr}
-  .mock-side{display:none}
+@media (max-width:1000px){
+  .bento{grid-template-columns:1fr 1fr}
+  .t-wide,.t-mid,.t-sm{grid-column:span 1}
+  .t-wide{grid-column:span 2}
+  .road{grid-template-columns:1fr 1fr}.road::before{display:none}
+  .cycle-grid,.built,.biz,.calc{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .plan .for{min-height:0}
 }
-@media (max-width:640px){
+@media (max-width:720px){
   .nav-links{display:none}
-  .section{padding:72px 0}
-  .features,.road{grid-template-columns:1fr}
-  .kpis{grid-template-columns:1fr 1fr}
-  .mock-cols{grid-template-columns:1fr}
-  .waitlist{flex-direction:column;border-radius:18px;padding:10px}
+  .section{padding:80px 0}
+  .bento,.road,.addons{grid-template-columns:1fr}
+  .t-wide{grid-column:span 1}
+  .waitlist{flex-direction:column;border-radius:20px;padding:10px}
   .waitlist input{padding:12px 10px}
-  .waitlist .btn{justify-content:center}
   .wl-extra{grid-template-columns:1fr}
-  .biz{margin:0 12px;padding:40px 20px;border-radius:22px}
-  .cycle-sec,.final{margin:0 12px;border-radius:22px}
-  .row{grid-template-columns:1.4fr 1fr}
-  .row .pill{display:none}
+  .stack{height:340px}
+  .stack .tool{font-size:12.5px;padding:7px 12px}
+  .biz{margin:0 12px;padding:44px 22px;border-radius:26px}
+  .cycle-sec,.final{margin:0 12px;border-radius:26px}
+  .shot-wrap{margin-bottom:-80px}.after-hero{height:110px}
+  .founding{padding:22px}
+  .founding .left{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -238,121 +321,142 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <path d="M44 18.5A19 19 0 1 0 44 45.5" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
     <circle cx="49" cy="32" r="5" fill="#14B8A6"/>
   </symbol>
+  <symbol id="ok" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <nav id="nav">
-  <div class="wrap nav-in">
+  <div class="nav-in">
     <a href="#" class="logo" aria-label="cordevra home"><svg><use href="#mark"/></svg>cordevra</a>
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
-      <a href="#roadmap">Roadmap</a>
       <a href="#pricing">Pricing</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#faq">FAQ</a>
     </div>
-    <div class="nav-cta">
-      <a href="#join" class="btn btn-primary">Join the waitlist</a>
-    </div>
+    <a href="#join" class="btn btn-primary">Join the waitlist</a>
   </div>
 </nav>
 
 <header class="hero" id="join">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow"><span class="pulse"></span>Coming soon · Early access opening</span>
-      <p class="tagline">Your Practice. <span class="sync">In Sync.</span></p>
-      <h1>One system.<br><span class="sync">Your entire firm.</span></h1>
-      <p class="lead">Practice management, client portal, forms, documents, payments, scheduling, SOPs, payables and receivables, and QuickBooks review — the tools bookkeeping firms pay for separately, built as one platform.</p>
-      <p class="sub">Then grow into advisory without adding another subscription.</p>
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow dark"><span class="pulse"></span>Founding firms: 30% off</span>
+    <h1>One system.<br><span class="serif">Your entire firm.</span></h1>
+    <p class="for-line">Built for <span class="rotator" aria-live="polite"><span class="on">your clients.</span><span>your deadlines.</span><span>your portal.</span><span>your billing.</span><span>your team.</span></span></p>
+    <p class="lead">Practice management, client portal, forms, e-signatures, documents, payments, scheduling, payables, receivables and QuickBooks review: <b>the tools bookkeeping firms pay for separately, built as one platform.</b> Plans from <b>$29/month</b>, billed yearly.</p>
 
-      <form class="waitlist js-waitlist" novalidate>
-        <input type="email" name="email" placeholder="you@yourfirm.com" aria-label="Work email" required>
-        <button class="btn btn-primary" type="submit">Join the waitlist →</button>
-      </form>
-      <div class="wl-extra">
-          <select name="size" aria-label="Firm size"><option value="">Firm size</option><option>Just me</option><option>2–5 people</option><option>6–15 people</option><option>16+ people</option></select>
-          <select name="role" aria-label="Your role"><option value="">Your role</option><option>Owner / partner</option><option>Manager</option><option>Staff accountant / bookkeeper</option><option>Other</option></select>
-          <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
-      </div>
-      <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
-      <p class="form-note">Founding-member pricing for waitlist members. No spam — just launch updates.</p>
-      <a class="demo-link" href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a>
-      <p class="form-note" style="margin-top:4px">Interactive preview with sample data only.</p>
+    <form class="waitlist js-waitlist" novalidate>
+      <input type="email" name="email" placeholder="you@yourfirm.com" aria-label="Work email" required>
+      <button class="btn btn-primary" type="submit">Join the waitlist →</button>
+    </form>
+    <div class="wl-extra">
+      <select name="size" aria-label="Firm size"><option value="">Firm size</option><option>Just me</option><option>2–5 people</option><option>6–15 people</option><option>16+ people</option></select>
+      <select name="role" aria-label="Your role"><option value="">Your role</option><option>Owner / partner</option><option>Manager</option><option>Staff accountant / bookkeeper</option><option>Other</option></select>
+      <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
     </div>
+    <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
+    <p class="form-note">14-day free trial at launch, no card needed. No spam, just launch updates.</p>
+    <div class="hero-links"><a href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a><a href="#pricing">See pricing →</a></div>
 
-    <div class="strip">
-      <p>One subscription instead of</p>
-      <div class="chips">
-        <span>Practice management app</span><span>Client portal</span><span>Form builder</span><span>Document storage</span><span>Scheduling tool</span><span>Bill approval tool</span><span>Collections tool</span><span>Payment processing</span><span>SOP wiki</span>
-      </div>
-      <div class="collapse" aria-hidden="true">↓</div>
-      <div class="chips"><span class="win">cordevra</span></div>
+    <div class="stack" id="stack" aria-label="Nine separate tools collapse into one: cordevra">
+      <span class="tool" style="--x:-360px;--y:-90px;--r:-6deg;--d:0s"><s>Practice management app</s></span>
+      <span class="tool" style="--x:-120px;--y:-120px;--r:4deg;--d:.05s"><s>Client portal</s></span>
+      <span class="tool" style="--x:150px;--y:-110px;--r:-3deg;--d:.1s"><s>Form builder</s></span>
+      <span class="tool" style="--x:370px;--y:-70px;--r:6deg;--d:.15s"><s>E-signature tool</s></span>
+      <span class="tool" style="--x:-300px;--y:20px;--r:3deg;--d:.2s"><s>Document storage</s></span>
+      <span class="tool" style="--x:310px;--y:30px;--r:-5deg;--d:.25s"><s>Scheduling tool</s></span>
+      <span class="tool" style="--x:-380px;--y:110px;--r:-4deg;--d:.3s"><s>Bill approval tool</s></span>
+      <span class="tool" style="--x:-110px;--y:120px;--r:5deg;--d:.35s"><s>Collections tool</s></span>
+      <span class="tool" style="--x:140px;--y:115px;--r:-6deg;--d:.4s"><s>Payment processing</s></span>
+      <span class="tool" style="--x:380px;--y:120px;--r:3deg;--d:.45s"><s>SOP wiki</s></span>
+      <div class="core"><svg><use href="#mark"/></svg>cordevra</div>
     </div>
+    <div class="stack-cap"><span id="stackText">Nine subscriptions…</span><button type="button" id="stackBtn">Replay</button></div>
 
-    <!-- product preview -->
-    <div class="mock reveal" aria-label="cordevra Home screen with sample data">
-      <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
-      <img class="mock-shot" src="/app-home.webp" width="2580" height="1500" alt="cordevra Home: overdue, due today, meetings and waiting-on-client counts, a task list, upcoming meetings, open work by status, and key deadlines" loading="eager">
+    <div class="shot-wrap">
+      <div class="mock" id="mock" aria-label="cordevra Home screen with sample data">
+        <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
+        <img src="/app-home.webp" width="2580" height="1500" alt="cordevra Home: overdue, due today, meetings and waiting-on-client counts, a task list, upcoming meetings, open work by status, and key deadlines" loading="eager">
+      </div>
     </div>
   </div>
-
 </header>
+<div class="after-hero"></div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Recurring workflows</span><span>Client portal</span><span>Custom forms</span><span>E-signatures</span><span>Booking links</span><span>Document folders</span><span>Invoices &amp; online payments</span><span>Bill approvals</span><span>Collections</span><span>W-9s &amp; 1099s</span><span>QuickBooks review</span><span>Text &amp; WhatsApp</span><span>Ask Cordevra AI</span>
+    <span>Recurring workflows</span><span>Client portal</span><span>Custom forms</span><span>E-signatures</span><span>Booking links</span><span>Document folders</span><span>Invoices &amp; online payments</span><span>Bill approvals</span><span>Collections</span><span>W-9s &amp; 1099s</span><span>QuickBooks review</span><span>Text &amp; WhatsApp</span><span>Ask Cordevra AI</span>
+  </div>
+</div>
 
 <section class="section" id="features">
   <div class="wrap">
     <div class="section-head center reveal">
       <span class="eyebrow">Features</span>
-      <h2 style="margin-top:14px">Built for how accounting firms actually work</h2>
-      <p>Every piece of your practice, connected — so nothing slips between tools.</p>
+      <h2 style="margin-top:16px">Built for how firms <span class="serif">actually</span> work</h2>
+      <p>Every piece of your practice, connected, so nothing slips between tools.</p>
     </div>
-    <div class="features">
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div><h3>Recurring workflows</h3><p>Cycle-based workflows for monthly closes, payroll, and tax season that roll forward on their own.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><path d="M17 11h5M19.5 8.5v5"/></svg></div><h3>Clients & leads</h3><p>One record per client with contacts, services, notes, and history. Leads live right alongside them.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h4"/></svg></div><h3>Client portal</h3><p>A clean dashboard where clients upload documents, answer questions, and see what's needed from them.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><h3>Custom forms</h3><p>Build your own onboarding and intake forms — no extra subscription, answers land on the client record.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div><h3>Document storage</h3><p>Native, organized client folders built in — no syncing to a separate drive.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h3>Billing & payments</h3><p>Invoice clients and get paid online with embedded payments, tied to the work you delivered.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3>Client approvals & QuickBooks review</h3><p>Clients answer transaction questions and approve bills right from their portal, and the answers sync back to QuickBooks Online.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Calendar & booking</h3><p>A built-in calendar with booking links for discovery calls, reviews, and client meetings.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div><h3>Playbook</h3><p>Document your firm's procedures and SOPs once, so every team member does the work the same way.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Receivables management</h3><p>Collection rules per client: when to follow up, how often, and through email or text. Overdue invoices get chased automatically.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg></div><h3>W-9s & 1099 prep</h3><p>Request W-9s through the portal, flag 1099 vendors, and push the updates back to QuickBooks before January hits.</p></div>
-      <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><h3>E-signatures</h3><p>Send engagement letters and other documents for signature, right from the client's record.</p></div>
+    <div class="bento">
+      <div class="tile dark t-wide reveal">
+        <span class="tag">Recurring workflows</span>
+        <h3>Month-end that runs itself</h3>
+        <p>Monthly closes, payroll and tax season roll forward on their own: the right tasks, deadlines and client requests every period.</p>
+        <div class="viz cycle-viz" aria-hidden="true"><b>Request docs</b><b>Reconcile</b><b>Review</b><b>Client questions</b><b>Close</b><b>Invoice</b></div>
+      </div>
+      <div class="tile mint t-sm reveal">
+        <span class="tag">Client portal</span>
+        <h3>Clients do their part</h3>
+        <p>Upload, answer, approve and sign in one clean place.</p>
+        <div class="viz portal-viz" aria-hidden="true"><div>Bank statements <span class="pill p-green">Uploaded</span></div><div>3 bills to approve <span class="pill p-amber">Waiting</span></div><div>Engagement letter <span class="pill p-blue">Signed</span></div></div>
+      </div>
+      <div class="tile t-sm reveal">
+        <span class="tag">Calendar &amp; booking</span>
+        <h3>Booking links built in</h3>
+        <p>Discovery calls and reviews land on your calendar and the client's record.</p>
+        <div class="viz cal-viz" aria-hidden="true"><i>M</i><i>T</i><i>W</i><i>T</i><i>F</i><i>S</i><i>S</i><i>3</i><i class="b">4</i><i>5</i><i class="b">6</i><i>7</i><i>8</i><i>9</i><i class="h">10</i><i>11</i><i class="b">12</i><i>13</i><i>14</i><i>15</i><i>16</i></div>
+      </div>
+      <div class="tile dark t-wide reveal">
+        <span class="tag">Ask Cordevra · AI</span>
+        <h3>Ask your firm anything</h3>
+        <p>Plain-language questions over your own firm's work. Smart document sorting and meeting notes that turn into tasks.</p>
+        <div class="viz ai-viz" aria-hidden="true"><div class="q">Who is still waiting on documents for the October close?</div><div class="a" id="aiAnswer"></div></div>
+      </div>
+      <div class="tile t-mid reveal">
+        <span class="tag">QuickBooks review &amp; approvals</span>
+        <h3>Questions answered in the portal, synced back</h3>
+        <p>Clients answer transaction questions and approve bills from their portal; answers go back to QuickBooks Online after your team approves.</p>
+      </div>
+      <div class="tile t-mid reveal">
+        <span class="tag">Payables &amp; receivables</span>
+        <h3>Sell AP and AR as services</h3>
+        <p>Bill approvals with your own rules per client, collections that follow up on their own, and W-9s and 1099s handled before January.</p>
+      </div>
+      <div class="tile t-sm reveal"><span class="tag">Forms &amp; e-sign</span><h3>Intake to signature</h3><p>Your own forms and engagement letters, answers on the client record.</p></div>
+      <div class="tile t-sm reveal"><span class="tag">Billing</span><h3>Get paid online</h3><p>Invoices and card or ACH payments tied to the work you delivered.</p></div>
+      <div class="tile t-sm reveal"><span class="tag">Text &amp; WhatsApp</span><h3>Reach clients where they answer</h3><p>Messages and reminders, all logged on the client's activity.</p></div>
     </div>
-  </div>
-</section>
-
-<section class="section" id="ap-ar" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Payables & receivables</span>
-      <h2 style="margin-top:14px">Manage your clients' payables and receivables, not just their books.</h2>
-    </div>
-    <div class="plans reveal">
-      <div class="plan"><h3>Payables, approved your way</h3><p>Bills go to the client portal for review and approval, with approval steps your firm sets up for each client. Approved bills stay tied to QuickBooks.</p></div>
-      <div class="plan"><h3>Receivables that follow up on their own</h3><p>Set your own collection rules: when to follow up, how often, and through which channel. Overdue invoices get chased without anyone on your team doing it.</p></div>
-      <div class="plan"><h3>W-9s and 1099s, before January</h3><p>Request W-9s from vendors through the portal and track who needs a 1099, right next to the bills you already manage.</p></div>
-    </div>
-    <p class="price-note reveal">Turn AP and AR into services you can sell, not extra work you absorb.</p>
   </div>
 </section>
 
 <section class="section cycle-sec" id="how">
   <div class="wrap cycle-grid">
     <div class="reveal">
-      <span class="eyebrow" style="background:rgba(20,184,166,.15);color:#5EEAD4">How it works</span>
-      <h2 style="margin-top:14px">Work that runs in cycles — not chaos</h2>
-      <p>Accounting is recurring by nature. cordevra is built around that rhythm, so every month starts organized.</p>
-      <div class="steps">
-        <div class="step"><b>1</b><div><strong>Onboard</strong>Send a custom intake form. The client, documents, and services are set up automatically.</div></div>
-        <div class="step"><b>2</b><div><strong>Run the cycle</strong>Recurring workflows create the right tasks, deadlines, and client requests every period.</div></div>
-        <div class="step"><b>3</b><div><strong>Collaborate</strong>Clients answer, upload, and approve in their portal — no more chasing over email.</div></div>
-        <div class="step"><b>4</b><div><strong>Bill & repeat</strong>Invoice, get paid, and watch the next cycle roll forward on its own.</div></div>
+      <span class="eyebrow dark">How it works</span>
+      <h2 style="margin-top:16px">Work that runs in <span class="serif" style="color:var(--mint)">cycles</span>, not chaos</h2>
+      <p class="lede">Accounting is recurring by nature. cordevra is built around that rhythm, so every month starts organized.</p>
+      <div class="steps" id="steps">
+        <div class="step on"><b>1</b><div><strong>Onboard</strong>Send a custom intake form. The client, documents and services are set up automatically.</div></div>
+        <div class="step"><b>2</b><div><strong>Run the cycle</strong>Recurring workflows create the right tasks, deadlines and client requests every period.</div></div>
+        <div class="step"><b>3</b><div><strong>Collaborate</strong>Clients answer, upload and approve in their portal. No more chasing over email.</div></div>
+        <div class="step"><b>4</b><div><strong>Bill &amp; repeat</strong>Invoice, get paid, and watch the next cycle roll forward on its own.</div></div>
       </div>
     </div>
     <div class="orbit reveal" aria-hidden="true">
       <svg viewBox="0 0 400 400">
-        <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2" stroke-dasharray="4 8"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2" stroke-dasharray="4 8"/>
         <circle cx="200" cy="200" r="95" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2"/>
         <g class="spin">
           <circle cx="200" cy="50" r="10" fill="#14B8A6"/>
@@ -364,7 +468,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
           <path d="M44 18.5A19 19 0 1 0 44 45.5" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
           <circle cx="49" cy="32" r="5" fill="#14B8A6"/>
         </g>
-        <g font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#DCE3EC" text-anchor="middle">
+        <g font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" fill="#DCE3EC" text-anchor="middle">
           <text x="200" y="24">Onboard</text>
           <text x="372" y="182">Run</text>
           <text x="200" y="388">Collaborate</text>
@@ -375,35 +479,118 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   </div>
 </section>
 
-<section class="section" id="roadmap">
+<section class="section pricing" id="pricing">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow">Roadmap</span>
-      <h2 style="margin-top:14px">From practice management to CFO-level insight</h2>
-      <p>We're launching with Cordevra Practice, then adding advisory tools in stages. Cordevra Lens and Cordevra Scope are sold together as <strong>Cordevra Advisory</strong>.</p>
+      <span class="eyebrow">Pricing</span>
+      <h2 style="margin-top:16px">One price. <span class="serif">Every tool.</span></h2>
+      <p>No add-on for the portal, forms, e-signatures, storage or scheduling. Your clients never pay for a seat.</p>
+      <div class="toggle" role="group" aria-label="Billing period">
+        <span class="knob" id="knob"></span>
+        <button type="button" data-period="yearly" aria-pressed="true">Yearly<span class="save">Save up to 26%</span></button>
+        <button type="button" data-period="monthly" aria-pressed="false">Monthly</button>
+      </div>
     </div>
-    <div class="road">
-      <div class="mod first reveal"><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Cordevra Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows & tasks</li><li>Client portal, forms & e-signatures</li><li>Documents & billing</li><li>Payables, receivables & QBO review</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Cordevra Lens</h3><p>See the business now.</p><ul><li>Owner benefit KPIs</li><li>Burn rate views</li><li>MoM & YoY comparisons</li><li>Automated advisor tips</li><li>Monthly report packs published to the client portal</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Next</span><div class="num">MODULE 3</div><h3>Cordevra Scope</h3><p>Look ahead.</p><ul><li>Cash flow forecasting</li><li>What-if scenarios</li></ul></div>
-      <div class="mod reveal"><span class="pill p-grey">Later</span><div class="num">MODULE 4</div><h3>Cordevra Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find and hire accounting pros</li><li>Firms reach new clients</li></ul></div>
+
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Solo</h3>
+        <p class="for">For the independent bookkeeper running the whole practice.</p>
+        <div class="amount"><span class="num"><sup>$</sup><span data-y="29" data-m="39">29</span></span><span class="per">/month</span></div>
+        <div class="billed" data-y="billed yearly ($348/year)" data-m="billed monthly">billed yearly ($348/year)</div>
+        <ul>
+          <li><svg><use href="#ok"/></svg>1 user, up to 50 clients</li>
+          <li><svg><use href="#ok"/></svg>The full practice platform</li>
+          <li><svg><use href="#ok"/></svg>Workflows, tasks and deadlines</li>
+          <li><svg><use href="#ok"/></svg>Client portal, forms and e-signatures</li>
+          <li><svg><use href="#ok"/></svg>Documents, billing and online payments</li>
+          <li><svg><use href="#ok"/></svg>Calendar and booking links</li>
+          <li><svg><use href="#ok"/></svg>Payables, receivables and QuickBooks review</li>
+        </ul>
+        <a href="#join" class="btn btn-ghost">Join the waitlist</a>
+      </div>
+      <div class="plan reveal">
+        <span class="badge">Recommended</span>
+        <h3>Practice</h3>
+        <p class="for">The full practice platform for firms with a team.</p>
+        <div class="amount"><span class="num"><sup>$</sup><span data-y="49" data-m="59">49</span></span><span class="per">per user<br>/month</span></div>
+        <div class="billed" data-y="billed yearly" data-m="billed monthly">billed yearly</div>
+        <ul>
+          <li><svg><use href="#ok"/></svg>Everything in Solo, for your whole team</li>
+          <li><svg><use href="#ok"/></svg>Add as many team members as you need</li>
+          <li><svg><use href="#ok"/></svg>Team roles, assignments and reviews</li>
+          <li><svg><use href="#ok"/></svg>Bill approvals and automatic collections</li>
+          <li><svg><use href="#ok"/></svg>W-9s and 1099 prep</li>
+          <li><svg><use href="#ok"/></svg>Playbook for your firm's SOPs</li>
+        </ul>
+        <a href="#join" class="btn btn-primary">Join the waitlist</a>
+      </div>
+      <div class="plan star reveal">
+        <span class="badge">Most complete</span>
+        <h3>Practice Plus</h3>
+        <p class="for">AI, deeper reporting and a portal with your own brand.</p>
+        <div class="amount"><span class="num"><sup>$</sup><span data-y="69" data-m="85">69</span></span><span class="per">per user<br>/month</span></div>
+        <div class="billed" data-y="billed yearly" data-m="billed monthly">billed yearly</div>
+        <ul>
+          <li><svg><use href="#ok"/></svg>Everything in Practice</li>
+          <li><svg><use href="#ok"/></svg>Ask Cordevra AI over your firm's data</li>
+          <li><svg><use href="#ok"/></svg>Smart document sorting</li>
+          <li><svg><use href="#ok"/></svg>Meeting notes → tasks</li>
+          <li><svg><use href="#ok"/></svg>Capacity and profit reports, custom roles</li>
+          <li><svg><use href="#ok"/></svg>White-label portal on your own domain</li>
+          <li><svg><use href="#ok"/></svg>250 text/WhatsApp messages per user/month</li>
+          <li><svg><use href="#ok"/></svg>Priority support</li>
+        </ul>
+        <a href="#join" class="btn btn-light">Join the waitlist</a>
+      </div>
+    </div>
+
+    <div class="founding reveal">
+      <div class="left">
+        <div class="seal">30%<small>OFF</small></div>
+        <div><h3>Founding firms: the first 50 firms</h3><p>30% off for your first 12 months, plus free migration of your clients, contacts and recurring work.</p></div>
+      </div>
+      <a href="#join" class="btn btn-light">Claim a founding spot →</a>
+    </div>
+
+    <div class="calc">
+      <div class="calc-box reveal">
+        <h3>What would your firm pay?</h3>
+        <p class="small">Move the slider to your team size. Prices per month, before the founding-firm discount.</p>
+        <div class="range-row">
+          <label for="seats">Team members <output id="seatsOut">4</output></label>
+          <input type="range" id="seats" min="1" max="30" value="4">
+        </div>
+        <div class="calc-out" id="calcOut" aria-live="polite"></div>
+      </div>
+      <div class="reveal">
+        <div class="addons">
+          <div class="addon free"><b>Free</b><span>Client portal users, unlimited</span></div>
+          <div class="addon"><b>$10 / 500</b><span>Extra text and WhatsApp messages</span></div>
+          <div class="addon"><b>+0.5%</b><span>On card payments, on top of Stripe's fee</span></div>
+          <div class="addon"><b>1%, max $10</b><span>ACH bank payments</span></div>
+          <div class="addon"><b>$6 / client</b><span>Cordevra Advisory per connected QuickBooks client per month: ready-made dashboards and report packs, first 3 clients free (when Advisory launches)</span></div>
+          <div class="addon free"><b>Free</b><span>Cordevra Network at launch</span></div>
+        </div>
+        <p class="form-note" style="margin-top:14px">14-day free trial, no card needed. QuickBooks Online integration included in every plan.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="pricing" style="padding-top:0">
+<section class="section" id="roadmap" style="padding-top:0">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow">Pricing</span>
-      <h2 style="margin-top:14px">Simple plans that grow with your firm</h2>
-      <p>Prices will be announced before launch. Here's how the plans fit together.</p>
+      <span class="eyebrow">Roadmap</span>
+      <h2 style="margin-top:16px">From practice management to <span class="serif">CFO-level insight</span></h2>
+      <p>We launch with Cordevra Practice, then add advisory tools in stages. Cordevra Lens and Cordevra Scope are sold together as <strong>Cordevra Advisory</strong>.</p>
     </div>
-    <div class="plans reveal">
-      <div class="plan"><h3>Cordevra Practice</h3><div class="price">The base plan for firms · Pricing at launch</div><p>Clients, workflows, tasks, portal, forms, e-signatures, documents, billing, payables and receivables, QuickBooks review, calendar, and Playbook.</p></div>
-      <div class="plan hl"><h3>Practice + Advisory</h3><div class="price">For firms · Pricing at launch</div><p>Everything in Practice, plus Cordevra Advisory (Lens + Scope): dashboards, KPIs, advisor tips, cash flow forecasts, and what-if scenarios. Offer it to clients as your own advisory service.</p></div>
-      <div class="plan"><h3>Cordevra Advisory</h3><div class="price">For business owners · Pricing at launch</div><p>Connect your own QuickBooks Online. Lens shows where the business is now, Scope shows where it's heading.</p></div>
+    <div class="road">
+      <div class="mod first reveal"><div class="dot"></div><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Cordevra Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows &amp; tasks</li><li>Portal, forms &amp; e-signatures</li><li>Documents &amp; billing</li><li>Payables, receivables &amp; QBO review</li></ul></div>
+      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Cordevra Lens</h3><p>See the business now.</p><ul><li>Ready-made dashboards and report packs</li><li>Owner benefit KPIs and burn rate</li><li>MoM &amp; YoY comparisons</li><li>Build your own dashboards (later)</li></ul></div>
+      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Next</span><div class="num">MODULE 3</div><h3>Cordevra Scope</h3><p>Look ahead.</p><ul><li>Cash flow forecasting</li><li>What-if scenarios</li></ul></div>
+      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Later</span><div class="num">MODULE 4</div><h3>Cordevra Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find accounting pros</li><li>Firms reach new clients</li></ul></div>
     </div>
-    <p class="price-note reveal">QuickBooks Online integration included in every plan.<span>Founding-member pricing, locked for life for waitlist members.</span></p>
   </div>
 </section>
 
@@ -411,9 +598,9 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   <div class="biz reveal">
     <div>
       <span class="eyebrow" style="background:#fff">Cordevra Advisory · For business owners</span>
-      <h2 style="margin-top:14px">Run a business on QuickBooks? Get CFO-level clarity.</h2>
-      <p>Connect QuickBooks Online and see where your business stands today and where it's heading — then find the right professional when you need one.</p>
-      <ul><li>Owner benefits, burn rate, and month-over-month trends</li><li>Cash flow forecasting and what-if scenarios</li><li>Find and hire accounting professionals through Cordevra Network (coming later)</li></ul>
+      <h2 style="margin-top:16px;font-size:clamp(30px,4vw,46px)">Run a business on QuickBooks? Get <span class="serif">CFO-level clarity.</span></h2>
+      <p>Connect QuickBooks Online and see where your business stands today and where it's heading. A plan for business owners is coming later at $39/month.</p>
+      <ul><li>Owner benefits, burn rate and month-over-month trends</li><li>Cash flow forecasting and what-if scenarios</li><li>Find and hire accounting professionals through Cordevra Network</li></ul>
     </div>
     <div>
       <form class="waitlist js-waitlist" data-audience="Business owner" novalidate>
@@ -423,7 +610,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <div class="wl-extra">
         <select name="size" aria-label="Company size"><option value="">Company size</option><option>Just me</option><option>2–10 employees</option><option>11–50 employees</option><option>51+ employees</option></select>
       </div>
-      <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
+      <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
     </div>
   </div>
 </section>
@@ -432,41 +619,43 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   <div class="wrap built">
     <div class="reveal">
       <span class="eyebrow">Why cordevra</span>
-      <h2 style="margin-top:14px">Built inside a working accounting firm</h2>
-      <p style="color:var(--muted);font-size:18px;margin-top:14px">cordevra is being built inside a working bookkeeping firm, by people who run client books every day. So it solves the problems firms actually have, not the ones software companies imagine.</p>
+      <h2 style="margin-top:16px">Built inside a <span class="serif">working</span> accounting firm</h2>
+      <p style="color:var(--muted);font-size:18px;margin-top:16px">cordevra is built by people who run client books every day. So it solves the problems firms actually have, not the ones software companies imagine.</p>
       <div class="checks">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Designed around recurring, cycle-based work</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>One subscription instead of a stack: forms, storage, payments, scheduling, and AP/AR included</div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>A client experience that makes your firm look its best</div>
+        <div><svg><use href="#ok"/></svg>Designed around recurring, cycle-based work</div>
+        <div><svg><use href="#ok"/></svg>One subscription instead of a stack: forms, storage, payments, scheduling and AP/AR included</div>
+        <div><svg><use href="#ok"/></svg>A client experience that makes your firm look its best</div>
       </div>
     </div>
     <div class="built-card reveal">
-      <blockquote>“We run a bookkeeping firm, with controller-level and trust-account work for our clients. We built cordevra because we were tired of paying for a dozen tools that never talked to each other.”</blockquote>
-      <div class="founder"><div class="av" aria-hidden="true"><svg style="width:28px;height:28px;color:#fff"><use href="#mark"/></svg></div><cite><strong style="color:var(--ink)">The founding team</strong><br>Bookkeeping firm owners</cite></div>
+      <blockquote>We run a bookkeeping firm, with controller-level and trust-account work for our clients. We built cordevra because we were tired of paying for a dozen tools that never talked to each other.</blockquote>
+      <cite><strong style="color:#fff">The founding team</strong> · Bookkeeping firm owners</cite>
     </div>
   </div>
 </section>
 
 <section class="section" id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="section-head center reveal"><span class="eyebrow">FAQ</span><h2 style="margin-top:14px">Questions, answered</h2></div>
+    <div class="section-head center reveal"><span class="eyebrow">FAQ</span><h2 style="margin-top:16px">Questions, answered</h2></div>
     <div class="faq reveal">
-      <details><summary>Who is cordevra for?</summary><p>Bookkeeping, accounting, and tax firms — from solo practitioners to growing teams — that want clients, work, and billing in one place.</p></details>
+      <details><summary>Who is cordevra for?</summary><p>Bookkeeping, accounting and tax firms, from solo practitioners to growing teams, that want clients, work and billing in one place.</p></details>
+      <details><summary>How much does it cost?</summary><p>Solo is $29/month billed yearly ($39 month-to-month) for 1 user and up to 50 clients. Practice is $49 per user/month billed yearly ($59 month-to-month). Practice Plus is $69 per user/month billed yearly ($85 month-to-month) and adds AI, deeper reports, custom roles, a white-label portal and 250 text/WhatsApp messages per user each month.</p></details>
+      <details><summary>What do founding firms get?</summary><p>The first 50 firms get 30% off for their first 12 months and free migration of their clients, contacts and recurring work. Join the waitlist to claim a spot.</p></details>
+      <details><summary>What does it cost to take client payments?</summary><p>Card payments cost Stripe's fee plus 0.5%. ACH bank payments cost 1%, capped at $10 per payment.</p></details>
+      <details><summary>Do my clients pay for portal access?</summary><p>No. Client portal users are free and unlimited on every plan.</p></details>
+      <details><summary>Is there a free trial?</summary><p>Yes, 14 days, and no card is needed to start.</p></details>
       <details><summary>When does it launch?</summary><p>We're building now. Waitlist members get first access and launch updates before anyone else.</p></details>
-      <details><summary>How much will it cost?</summary><p>Prices will be announced before launch. Waitlist members get founding-member pricing, locked for life. See the plans above.</p></details>
-      <details><summary>How is my team billed?</summary><p>We'll share how team members and seats are priced with waitlist members before launch.</p></details>
-      <details><summary>Does it work with QuickBooks Online?</summary><p>Yes — QuickBooks Online is a core part of the plan, starting with client transaction review and A/P bill approvals in the portal.</p></details>
-      <details><summary>Can I switch from my current practice management tool?</summary><p>Yes. We're planning a simple path to bring your clients, contacts, and recurring work over, and early-access firms will get help with the move.</p></details>
-      <details><summary>How will my data be protected?</summary><p>Security is being built in from the start, and we'll publish our security practices before launch. The live demo uses sample data only, so please don't enter real client information there.</p></details>
-      <details><summary>What is Cordevra Advisory?</summary><p>Cordevra Lens (where the business is now) and Cordevra Scope (where it's heading), sold together. Firms offer it to clients as their own advisory service; business owners use it for financial direction. It's software guidance, not a human CFO.</p></details>
-      <details><summary>Is cordevra for business owners too?</summary><p>Yes. Business owners on QuickBooks Online can use Cordevra Advisory (Lens + Scope) on its own, and Cordevra Network will help them hire professionals. Join the waitlist in the business owner section above.</p></details>
+      <details><summary>Does it work with QuickBooks Online?</summary><p>Yes. QuickBooks Online is included in every plan, starting with client transaction review and bill approvals in the portal. When Cordevra Advisory launches, it costs $6 per connected client per month (first 3 clients free) and comes with ready-made dashboards and report packs; building your own dashboards comes later.</p></details>
+      <details><summary>Can I switch from my current practice management tool?</summary><p>Yes. We'll bring your clients, contacts and recurring work over, and the migration is free for founding firms.</p></details>
+      <details><summary>How will my data be protected?</summary><p>Security is built in from the start: two-step sign-in, encryption of sensitive fields, separate data for every firm and a full audit log. The live demo uses sample data only, so please don't enter real client information there.</p></details>
+      <details><summary>Is cordevra for business owners too?</summary><p>Yes. A plan for business owners on QuickBooks Online is coming later at $39/month, with Cordevra Advisory (Lens + Scope), and Cordevra Network will help them hire professionals, free at launch. Join the waitlist in the business owner section above.</p></details>
     </div>
   </div>
 </section>
 
-<section class="final reveal">
-  <h2>Get your practice in sync.</h2>
-  <p>Join the waitlist for early access and founding-member pricing.</p>
+<section class="final reveal" id="cta">
+  <h2>Get your practice <span class="serif">in sync.</span></h2>
+  <p>Join the waitlist for early access and founding-firm pricing.</p>
   <form class="waitlist js-waitlist" novalidate>
     <input type="email" name="email" placeholder="you@yourfirm.com" aria-label="Work email" required>
     <button class="btn btn-primary" type="submit">Join the waitlist →</button>
@@ -476,44 +665,110 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <select name="role" aria-label="Your role"><option value="">Your role</option><option>Owner / partner</option><option>Manager</option><option>Staff accountant / bookkeeper</option><option>Other</option></select>
     <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
   </div>
-  <div class="form-ok js-ok">You're on the list! We'll be in touch at launch.</div>
+  <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
 </section>
 
 <footer>
   <div class="wrap foot">
     <a href="#" class="logo" style="font-size:18px;color:var(--ink)"><svg style="width:24px;height:24px"><use href="#mark"/></svg>cordevra</a>
-    <span>Questions? <a href="mailto:support@cordevra.com" style="color:var(--accent-d);font-weight:600">support@cordevra.com</a></span>
+    <span>Questions? <a href="mailto:support@cordevra.com" style="color:var(--accent-d);font-weight:700">support@cordevra.com</a></span>
     <span class="foot-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms</a></span>
-    <span>© 2026 cordevra. All rights reserved.</span>
+    <span>© 2026 Cordevra LLC. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
-// sticky nav border
-const nav=document.getElementById('nav');
-addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// nav: dark over the hero, light after it
+const nav = document.getElementById('nav'), hero = document.querySelector('.hero');
+const setNav = () => nav.classList.toggle('light', hero.getBoundingClientRect().bottom < 80);
+addEventListener('scroll', setNav, {passive:true}); setNav();
 
 // reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// waitlist: opens an email to support@cordevra.com (no backend needed)
-document.querySelectorAll('.js-waitlist').forEach(form=>{
-  form.addEventListener('submit',e=>{
+// rotating word in the headline
+const words = [...document.querySelectorAll('.rotator span')]; let wi = 0;
+if (!reduce) setInterval(() => { const prev = words[wi]; prev.classList.remove('on'); prev.classList.add('out'); setTimeout(() => prev.classList.remove('out'), 500); wi = (wi + 1) % words.length; words[wi].classList.add('on') }, 2200);
+
+// tool stack collapses into cordevra
+const stack = document.getElementById('stack'), stackText = document.getElementById('stackText');
+function collapse(){ stack.classList.remove('go'); stackText.textContent = 'Nine subscriptions…'; requestAnimationFrame(() => setTimeout(() => { stack.classList.add('go'); setTimeout(() => stackText.textContent = '…one platform.', 1200) }, 700)) }
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { collapse(); o.disconnect() } }), {threshold:.5}).observe(stack);
+document.getElementById('stackBtn').addEventListener('click', collapse);
+
+// product shot: flattens as you scroll, tilts with the mouse
+const mock = document.getElementById('mock');
+if (!reduce) {
+  let tx = 0, ty = 0;
+  const apply = () => { const r = mock.getBoundingClientRect(); const p = Math.min(1, Math.max(0, 1 - (r.top - innerHeight * .25) / (innerHeight * .6))); mock.style.transform = `rotateX(${14 * (1 - p) + ty}deg) rotateY(${tx}deg) scale(${.96 + .04 * p})` };
+  addEventListener('scroll', apply, {passive:true}); apply();
+  mock.addEventListener('mousemove', e => { const r = mock.getBoundingClientRect(); tx = ((e.clientX - r.left) / r.width - .5) * 4; ty = -((e.clientY - r.top) / r.height - .5) * 3; apply() });
+  mock.addEventListener('mouseleave', () => { tx = ty = 0; apply() });
+}
+
+// Ask Cordevra: typed answer (sample, no real data)
+const ai = document.getElementById('aiAnswer');
+const answer = '4 clients: 2 still owe bank statements, 1 owes payroll reports, 1 has 3 unanswered questions. Want me to draft reminders?';
+let typed = false;
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting && !typed) { typed = true; o.disconnect(); if (reduce) { ai.textContent = answer; return } let i = 0; const t = setInterval(() => { ai.textContent = answer.slice(0, ++i); if (i >= answer.length) clearInterval(t) }, 28) } }), {threshold:.6}).observe(ai);
+
+// how-it-works steps light up in turn
+const steps = [...document.querySelectorAll('#steps .step')]; let si = 0;
+if (!reduce) setInterval(() => { steps[si].classList.remove('on'); si = (si + 1) % steps.length; steps[si].classList.add('on') }, 2600);
+
+// pricing toggle
+let period = 'yearly';
+const knob = document.getElementById('knob'), btns = [...document.querySelectorAll('.toggle button')];
+function placeKnob(){ const b = btns.find(x => x.dataset.period === period); knob.style.left = b.offsetLeft + 'px'; knob.style.width = b.offsetWidth + 'px' }
+function setPeriod(p){
+  period = p; btns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.period === p))); placeKnob();
+  const k = p === 'yearly' ? 'y' : 'm';
+  document.querySelectorAll('[data-y][data-m]').forEach(el => el.textContent = el.dataset[k]);
+  renderCalc();
+}
+btns.forEach(b => b.addEventListener('click', () => setPeriod(b.dataset.period)));
+addEventListener('resize', placeKnob); requestAnimationFrame(placeKnob);
+
+// team-size calculator
+const seats = document.getElementById('seats'), seatsOut = document.getElementById('seatsOut'), out = document.getElementById('calcOut');
+const PRICES = {yearly:{solo:29, practice:49, plus:69}, monthly:{solo:39, practice:59, plus:85}};
+const money = n => '$' + n.toLocaleString('en-US');
+function renderCalc(){
+  const n = +seats.value, P = PRICES[period]; seatsOut.textContent = n;
+  const rows = [];
+  rows.push(n === 1 ? `<div class="${n === 1 ? 'best' : ''}"><span>Solo</span><b>${money(P.solo)}/mo</b></div>` : `<div><span>Solo</span><span class="na">1 user only</span></div>`);
+  rows.push(`<div class="${n > 1 ? 'best' : ''}"><span>Practice · ${n} user${n > 1 ? 's' : ''}</span><b>${money(P.practice * n)}/mo</b></div>`);
+  rows.push(`<div><span>Practice Plus · ${n} user${n > 1 ? 's' : ''}</span><b>${money(P.plus * n)}/mo</b></div>`);
+  rows.push(`<div><span>Founding firms, first 12 months</span><b>${money(Math.round((n === 1 ? P.solo : P.practice * n) * .7))}/mo</b></div>`);
+  out.innerHTML = rows.join('');
+}
+seats.addEventListener('input', renderCalc); renderCalc();
+
+// waitlist: each signup goes to the "Cordevra waitlist" form owned by support@cordevra.com,
+// which emails support@ and keeps every signup in one list. Visitors stay on this page.
+const WAITLIST = 'https://docs.google.com/forms/d/e/1FAIpQLSdQN1Lk85_qr5LSlA4awDGe_FXv9tChav07g8fjTyBHdhtZ5g/formResponse';
+const FIELDS = {email:'entry.1161790117', audience:'entry.1938122243', size:'entry.1167895717', role:'entry.410898957', tool:'entry.2001985338', source:'entry.317484'};
+document.querySelectorAll('.js-waitlist').forEach((form, i) => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const input=form.querySelector('input[type=email]');
-    const email=input.value.trim();
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input.focus();input.style.color='#DC2626';setTimeout(()=>input.style.color='',1200);return;}
-    const audience=form.dataset.audience||'Accounting firm';
-    const extra=form.parentElement.querySelector('.wl-extra');
-    const lines=['Please add me to the cordevra waitlist.','','Audience: '+audience,'Email: '+email];
-    if(extra) extra.querySelectorAll('select').forEach(sel=>lines.push(sel.getAttribute('aria-label')+': '+(sel.value||'—')));
-    lines.push(audience==='Business owner'?'Business name: ':'Firm name: ');
-    const subject=encodeURIComponent('Waitlist ('+audience+') — '+email);
-    window.location.href='mailto:support@cordevra.com?subject='+subject+'&body='+encodeURIComponent(lines.join('\n'));
-    form.style.display='none';
-    if(extra) extra.style.display='none';
-    form.parentElement.querySelector('.js-ok').style.display='block';
+    const input = form.querySelector('input[type=email]');
+    const email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); input.style.color = '#DC2626'; setTimeout(() => input.style.color = '', 1200); return }
+    const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending…';
+    const extra = form.parentElement.querySelector('.wl-extra');
+    const val = name => extra?.querySelector(`select[name=${name}]`)?.value || '';
+    const body = new URLSearchParams();
+    body.set(FIELDS.email, email);
+    body.set(FIELDS.audience, form.dataset.audience || 'Accounting firm');
+    body.set(FIELDS.size, val('size')); body.set(FIELDS.role, val('role')); body.set(FIELDS.tool, val('tool'));
+    body.set(FIELDS.source, (form.closest('section,header')?.id || 'page') + ' · ' + location.hostname);
+    try { await fetch(WAITLIST, {method:'POST', mode:'no-cors', body}) } catch (err) { /* the form service accepted or the network failed; show the fallback below */ btn.disabled = false; btn.textContent = 'Try again'; const ok = form.parentElement.querySelector('.js-ok'); ok.style.display = 'block'; ok.innerHTML = 'Something went wrong. Please email <a href="mailto:support@cordevra.com" style="text-decoration:underline">support@cordevra.com</a>.'; return }
+    form.style.display = 'none';
+    if (extra) extra.style.display = 'none';
+    form.parentElement.querySelector('.js-ok').style.display = 'block';
   });
 });
 </script>
