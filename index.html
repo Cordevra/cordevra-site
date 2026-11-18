@@ -88,16 +88,17 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .hero-links a:hover{text-decoration:underline}
 
 /* stack collapse */
-.stack{position:relative;height:300px;max-width:980px;margin:56px auto 0}
-.stack .tool{position:absolute;left:50%;top:50%;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;color:#DCE3EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transform:translate(-50%,-50%) translate(var(--x),var(--y)) rotate(var(--r));transition:transform 1.1s cubic-bezier(.7,0,.2,1) var(--d),opacity .8s ease var(--d),filter .8s var(--d)}
+.stack{position:relative;height:300px;max-width:980px;margin:56px auto 0;cursor:pointer}
+.stack.go .core{transition-delay:1.2s}
+.stack:not(.go) .core{transition-delay:0s}
+.stack .tool{position:absolute;left:50%;top:50%;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;color:#DCE3EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transform:translate(-50%,-50%) translate(var(--x),var(--y)) rotate(var(--r));transition:transform 1.6s cubic-bezier(.65,0,.25,1) var(--d),opacity 1.2s ease var(--d),filter 1.2s var(--d);animation:float 6s ease-in-out infinite alternate;animation-delay:calc(var(--d)*-8)}
+@keyframes float{to{translate:0 -8px}}
 .stack .tool s{text-decoration-color:rgba(251,113,133,.0);transition:text-decoration-color .4s}
-.stack .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:all .8s cubic-bezier(.2,.9,.3,1.3) 1s;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:16px 26px;border-radius:22px;font-weight:800;font-size:26px;letter-spacing:-.03em;box-shadow:0 0 0 10px rgba(20,184,166,.15),0 0 80px rgba(20,184,166,.6)}
+.stack .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:all .9s cubic-bezier(.2,.9,.3,1.3) .9s;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:16px 26px;border-radius:22px;font-weight:800;font-size:26px;letter-spacing:-.03em;box-shadow:0 0 0 10px rgba(20,184,166,.15),0 0 80px rgba(20,184,166,.6)}
 .stack .core svg{width:36px;height:36px}
 .stack.go .tool{transform:translate(-50%,-50%) translate(0,0) rotate(0) scale(.3);opacity:0;filter:blur(4px)}
 .stack.go .core{transform:translate(-50%,-50%) scale(1);opacity:1}
 .stack-cap{display:flex;align-items:center;justify-content:center;gap:12px;color:#9FB0C4;font-size:14px;font-weight:600;margin-top:4px}
-.stack-cap button{background:none;border:1px solid rgba(255,255,255,.2);color:#E6ECF3;border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
-.stack-cap button:hover{border-color:var(--mint);color:var(--mint)}
 
 /* product shot */
 .shot-wrap{perspective:1600px;margin:40px auto -140px;max-width:1120px;position:relative;z-index:2}
@@ -360,7 +361,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <p class="form-note">14-day free trial at launch, no card needed. No spam, just launch updates.</p>
     <div class="hero-links"><a href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a><a href="#pricing">See pricing →</a></div>
 
-    <div class="stack" id="stack" aria-label="Nine separate tools collapse into one: cordevra">
+    <div class="stack" id="stack" tabindex="0" role="button" aria-label="Ten separate tools become one: cordevra. Hover, tap or press Enter to see it.">
       <span class="tool" style="--x:-360px;--y:-90px;--r:-6deg;--d:0s"><s>Practice management app</s></span>
       <span class="tool" style="--x:-120px;--y:-120px;--r:4deg;--d:.05s"><s>Client portal</s></span>
       <span class="tool" style="--x:150px;--y:-110px;--r:-3deg;--d:.1s"><s>Form builder</s></span>
@@ -373,7 +374,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <span class="tool" style="--x:380px;--y:120px;--r:3deg;--d:.45s"><s>SOP wiki</s></span>
       <div class="core"><svg><use href="#mark"/></svg>cordevra</div>
     </div>
-    <div class="stack-cap"><span id="stackText">Nine subscriptions…</span><button type="button" id="stackBtn">Replay</button></div>
+    <div class="stack-cap"><span id="stackText">Ten tools you pay for separately. Hover to bring them together.</span></div>
 
     <div class="shot-wrap">
       <div class="mock" id="mock" aria-label="cordevra Home screen with sample data">
@@ -693,11 +694,16 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const words = [...document.querySelectorAll('.rotator span')]; let wi = 0;
 if (!reduce) setInterval(() => { const prev = words[wi]; prev.classList.remove('on'); prev.classList.add('out'); setTimeout(() => prev.classList.remove('out'), 500); wi = (wi + 1) % words.length; words[wi].classList.add('on') }, 2200);
 
-// tool stack collapses into cordevra
+// tool stack: hover (or tap / Enter) brings the ten tools together into cordevra; leaving spreads them again
 const stack = document.getElementById('stack'), stackText = document.getElementById('stackText');
-function collapse(){ stack.classList.remove('go'); stackText.textContent = 'Nine subscriptions…'; requestAnimationFrame(() => setTimeout(() => { stack.classList.add('go'); setTimeout(() => stackText.textContent = '…one platform.', 1200) }, 700)) }
-new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { collapse(); o.disconnect() } }), {threshold:.5}).observe(stack);
-document.getElementById('stackBtn').addEventListener('click', collapse);
+const touch = matchMedia('(hover: none)').matches;
+const idle = touch ? 'Ten tools you pay for separately. Tap to bring them together.' : 'Ten tools you pay for separately. Hover to bring them together.';
+stackText.textContent = idle;
+function together(on){ stack.classList.toggle('go', on); stackText.textContent = on ? '…one platform, one price.' : idle }
+stack.addEventListener('mouseenter', () => { if (!touch) together(true) });
+stack.addEventListener('mouseleave', () => { if (!touch) together(false) });
+stack.addEventListener('click', () => { if (touch) together(!stack.classList.contains('go')) });
+stack.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); together(!stack.classList.contains('go')) } });
 
 // product shot: flattens as you scroll, tilts with the mouse
 const mock = document.getElementById('mock');
