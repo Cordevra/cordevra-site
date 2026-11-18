@@ -88,16 +88,13 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .hero-links a:hover{text-decoration:underline}
 
 /* stack collapse */
-.stack{position:relative;height:300px;max-width:980px;margin:56px auto 0}
-.stack .tool{position:absolute;left:50%;top:50%;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;color:#DCE3EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transform:translate(-50%,-50%) translate(var(--x),var(--y)) rotate(var(--r));transition:transform 1.1s cubic-bezier(.7,0,.2,1) var(--d),opacity .8s ease var(--d),filter .8s var(--d)}
-.stack .tool s{text-decoration-color:rgba(251,113,133,.0);transition:text-decoration-color .4s}
-.stack .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:all .8s cubic-bezier(.2,.9,.3,1.3) 1s;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:16px 26px;border-radius:22px;font-weight:800;font-size:26px;letter-spacing:-.03em;box-shadow:0 0 0 10px rgba(20,184,166,.15),0 0 80px rgba(20,184,166,.6)}
+.stack{position:relative;height:300px;max-width:980px;margin:56px auto 0;cursor:pointer}
+.stack .tool{position:absolute;left:50%;top:50%;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;color:#DCE3EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transform:translate(-50%,-50%) scale(.3);opacity:0;filter:blur(4px);transition:transform 1.3s cubic-bezier(.2,.8,.2,1) var(--d),opacity 1s ease var(--d),filter 1s var(--d)}
+.stack.open .tool{transform:translate(-50%,-50%) translate(var(--x),var(--y)) rotate(var(--r));opacity:1;filter:none}
+.stack .core{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:16px 26px;border-radius:22px;font-weight:800;font-size:26px;letter-spacing:-.03em;box-shadow:0 0 0 10px rgba(20,184,166,.15),0 0 80px rgba(20,184,166,.6);transition:transform .6s cubic-bezier(.2,.9,.3,1.3)}
+.stack.open .core{transform:translate(-50%,-50%) scale(1.06)}
 .stack .core svg{width:36px;height:36px}
-.stack.go .tool{transform:translate(-50%,-50%) translate(0,0) rotate(0) scale(.3);opacity:0;filter:blur(4px)}
-.stack.go .core{transform:translate(-50%,-50%) scale(1);opacity:1}
 .stack-cap{display:flex;align-items:center;justify-content:center;gap:12px;color:#9FB0C4;font-size:14px;font-weight:600;margin-top:4px}
-.stack-cap button{background:none;border:1px solid rgba(255,255,255,.2);color:#E6ECF3;border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
-.stack-cap button:hover{border-color:var(--mint);color:var(--mint)}
 
 /* product shot */
 .shot-wrap{perspective:1600px;margin:40px auto -140px;max-width:1120px;position:relative;z-index:2}
@@ -360,20 +357,20 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <p class="form-note">14-day free trial at launch, no card needed. No spam, just launch updates.</p>
     <div class="hero-links"><a href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a><a href="#pricing">See pricing →</a></div>
 
-    <div class="stack" id="stack" aria-label="Nine separate tools collapse into one: cordevra">
-      <span class="tool" style="--x:-360px;--y:-90px;--r:-6deg;--d:0s"><s>Practice management app</s></span>
-      <span class="tool" style="--x:-120px;--y:-120px;--r:4deg;--d:.05s"><s>Client portal</s></span>
-      <span class="tool" style="--x:150px;--y:-110px;--r:-3deg;--d:.1s"><s>Form builder</s></span>
-      <span class="tool" style="--x:370px;--y:-70px;--r:6deg;--d:.15s"><s>E-signature tool</s></span>
-      <span class="tool" style="--x:-300px;--y:20px;--r:3deg;--d:.2s"><s>Document storage</s></span>
-      <span class="tool" style="--x:310px;--y:30px;--r:-5deg;--d:.25s"><s>Scheduling tool</s></span>
-      <span class="tool" style="--x:-380px;--y:110px;--r:-4deg;--d:.3s"><s>Bill approval tool</s></span>
-      <span class="tool" style="--x:-110px;--y:120px;--r:5deg;--d:.35s"><s>Collections tool</s></span>
-      <span class="tool" style="--x:140px;--y:115px;--r:-6deg;--d:.4s"><s>Payment processing</s></span>
-      <span class="tool" style="--x:380px;--y:120px;--r:3deg;--d:.45s"><s>SOP wiki</s></span>
+    <div class="stack" id="stack" tabindex="0" role="button" aria-label="cordevra: hover, tap or press Enter to see the ten tools it includes.">
+      <span class="tool" style="--x:-360px;--y:-90px;--r:-6deg;--d:0s">Practice management app</span>
+      <span class="tool" style="--x:-120px;--y:-120px;--r:4deg;--d:.05s">Client portal</span>
+      <span class="tool" style="--x:150px;--y:-110px;--r:-3deg;--d:.1s">Form builder</span>
+      <span class="tool" style="--x:370px;--y:-70px;--r:6deg;--d:.15s">E-signature tool</span>
+      <span class="tool" style="--x:-300px;--y:20px;--r:3deg;--d:.2s">Document storage</span>
+      <span class="tool" style="--x:310px;--y:30px;--r:-5deg;--d:.25s">Scheduling tool</span>
+      <span class="tool" style="--x:-380px;--y:110px;--r:-4deg;--d:.3s">Bill approval tool</span>
+      <span class="tool" style="--x:-110px;--y:120px;--r:5deg;--d:.35s">Collections tool</span>
+      <span class="tool" style="--x:140px;--y:115px;--r:-6deg;--d:.4s">Payment processing</span>
+      <span class="tool" style="--x:380px;--y:120px;--r:3deg;--d:.45s">SOP wiki</span>
       <div class="core"><svg><use href="#mark"/></svg>cordevra</div>
     </div>
-    <div class="stack-cap"><span id="stackText">Nine subscriptions…</span><button type="button" id="stackBtn">Replay</button></div>
+    <div class="stack-cap"><span id="stackText">One platform. Hover to see what's inside.</span></div>
 
     <div class="shot-wrap">
       <div class="mock" id="mock" aria-label="cordevra Home screen with sample data">
@@ -693,11 +690,16 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const words = [...document.querySelectorAll('.rotator span')]; let wi = 0;
 if (!reduce) setInterval(() => { const prev = words[wi]; prev.classList.remove('on'); prev.classList.add('out'); setTimeout(() => prev.classList.remove('out'), 500); wi = (wi + 1) % words.length; words[wi].classList.add('on') }, 2200);
 
-// tool stack collapses into cordevra
+// tool stack: cordevra alone; hover (or tap / Enter) shows the ten tools it includes
 const stack = document.getElementById('stack'), stackText = document.getElementById('stackText');
-function collapse(){ stack.classList.remove('go'); stackText.textContent = 'Nine subscriptions…'; requestAnimationFrame(() => setTimeout(() => { stack.classList.add('go'); setTimeout(() => stackText.textContent = '…one platform.', 1200) }, 700)) }
-new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { collapse(); o.disconnect() } }), {threshold:.5}).observe(stack);
-document.getElementById('stackBtn').addEventListener('click', collapse);
+const touch = matchMedia('(hover: none)').matches;
+const idle = touch ? 'One platform. Tap to see what\'s inside.' : 'One platform. Hover to see what\'s inside.';
+stackText.textContent = idle;
+function open(on){ stack.classList.toggle('open', on); stackText.textContent = on ? 'Ten tools firms pay for separately, all included.' : idle }
+stack.addEventListener('mouseenter', () => { if (!touch) open(true) });
+stack.addEventListener('mouseleave', () => { if (!touch) open(false) });
+stack.addEventListener('click', () => { if (touch) open(!stack.classList.contains('open')) });
+stack.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(!stack.classList.contains('open')) } });
 
 // product shot: flattens as you scroll, tilts with the mouse
 const mock = document.getElementById('mock');
