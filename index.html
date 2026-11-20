@@ -229,7 +229,7 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--accent);height:6
 .addon.free b{color:var(--accent-d)}
 
 /* roadmap */
-.road{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
 .road::before{content:"";position:absolute;left:4%;right:4%;top:38px;height:2px;background:linear-gradient(90deg,var(--accent),#D9DFE7 30%);z-index:0}
 .mod{position:relative;z-index:1;border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff}
 .mod .dot{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #C5CED9;margin-bottom:16px}
@@ -397,7 +397,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="stack-cap"><span id="stackText">One platform. Hover to see what's inside.</span></div>
 
     <div class="shot-wrap">
-      <div class="shot-tabs" role="tablist" aria-label="Product screens"><button type="button" role="tab" aria-selected="true" data-i="0">Home</button><button type="button" role="tab" aria-selected="false" data-i="1">Work Management</button><button type="button" role="tab" aria-selected="false" data-i="2">Board view</button><button type="button" role="tab" aria-selected="false" data-i="3">Waiting on client</button><button type="button" role="tab" aria-selected="false" data-i="4">Client profile</button><button type="button" role="tab" aria-selected="false" data-i="5">Client folders</button><button type="button" role="tab" aria-selected="false" data-i="6">Client portal</button><button type="button" role="tab" aria-selected="false" data-i="7">Portal bill approvals</button><button type="button" role="tab" aria-selected="false" data-i="8">Advisory portfolio</button><button type="button" role="tab" aria-selected="false" data-i="9">Client Lens</button></div>
+      <div class="shot-tabs" role="tablist" aria-label="Product screens"><button type="button" role="tab" aria-selected="true" data-i="0">Home</button><button type="button" role="tab" aria-selected="false" data-i="1">Work Management</button><button type="button" role="tab" aria-selected="false" data-i="2">Board view</button><button type="button" role="tab" aria-selected="false" data-i="3">Waiting on client</button><button type="button" role="tab" aria-selected="false" data-i="4">Client profile</button><button type="button" role="tab" aria-selected="false" data-i="5">Client folders</button><button type="button" role="tab" aria-selected="false" data-i="6">Client portal</button><button type="button" role="tab" aria-selected="false" data-i="7">Portal bill approvals</button><button type="button" role="tab" aria-selected="false" data-i="8">Advisory portfolio</button><button type="button" role="tab" aria-selected="false" data-i="9">Client dashboard</button></div>
       <div class="mock" id="mock" aria-roledescription="carousel" aria-label="cordevra screens with sample data">
         <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
         <div class="slides" id="slides">
@@ -410,7 +410,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
           <img src="/app-portal.webp" width="2580" height="1500" alt="Client portal home: action items, bills to approve and a financial snapshot" loading="lazy" data-title="Client portal" data-caption="What your clients see: what they owe you, bills to approve and a snapshot of their numbers, in their language.">
           <img src="/app-portal-bills.webp" width="2580" height="1500" alt="Client portal bill approvals grouped by pay run with Approve, Hold and Reject" loading="lazy" data-title="Portal bill approvals" data-caption="Clients approve, hold or reject bills by pay run, right from their portal.">
           <img src="/app-advisory.webp" width="2580" height="1500" alt="Advisory portfolio table of clients with KPIs in red" loading="lazy" data-title="Advisory portfolio" data-caption="Spot which clients need attention: margins, runway, receivables and closed books.">
-          <img src="/app-lens.webp" width="2580" height="1500" alt="Client Lens dashboard with revenue, margin, owner pay and cash KPIs" loading="lazy" data-title="Client Lens" data-caption="A ready-made dashboard for each client: revenue, margin, cash, owner pay and tips.">
+          <img src="/app-lens.webp" width="2580" height="1500" alt="Client dashboard in Advisory with revenue, margin, owner pay and cash KPIs" loading="lazy" data-title="Client dashboard" data-caption="A ready-made dashboard for each client: revenue, margin, cash, owner pay and tips.">
         </div>
       </div>
       <div class="shot-ctrl">
@@ -621,13 +621,12 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="section-head center reveal">
       <span class="eyebrow">Roadmap</span>
       <h2 style="margin-top:16px">From practice management to <span class="serif">CFO-level insight</span></h2>
-      <p>We launch with Cordevra Practice, then add advisory tools in stages. Cordevra Lens and Cordevra Scope are sold together as <strong>Cordevra Advisory</strong>.</p>
+      <p>We launch with Cordevra Practice, then add <strong>Cordevra Advisory</strong>: reports and forecasts for every client, in one place.</p>
     </div>
     <div class="road">
       <div class="mod first reveal"><div class="dot"></div><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Cordevra Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows &amp; tasks</li><li>Portal, forms &amp; e-signatures</li><li>Documents &amp; billing</li><li>Payables, receivables &amp; QBO review</li></ul></div>
-      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Cordevra Lens</h3><p>See the business now.</p><ul><li>Ready-made dashboards and report packs</li><li>Insights and analytics for every client</li><li>Trends over time</li><li>Build your own dashboards</li></ul></div>
-      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Next</span><div class="num">MODULE 3</div><h3>Cordevra Scope</h3><p>Look ahead.</p><ul><li>Cash flow forecasting</li><li>What-if scenarios</li></ul></div>
-      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Later</span><div class="num">MODULE 4</div><h3>Cordevra Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find accounting pros</li><li>Firms reach new clients</li></ul></div>
+      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Cordevra Advisory</h3><p>See the business now, and look ahead.</p><ul><li>Reports: ready-made dashboards, KPIs and report packs</li><li>Trends and insights for every client</li><li>Forecast: cash flow forecasting</li><li>What-if scenarios</li></ul></div>
+      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Later</span><div class="num">MODULE 3</div><h3>Cordevra Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find accounting pros</li><li>Firms reach new clients</li></ul></div>
     </div>
   </div>
 </section>
@@ -696,7 +695,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <details><summary>Does it work with QuickBooks Online?</summary><p>Yes. QuickBooks Online is included in every plan, starting with client transaction review and bill approvals in the portal. When Cordevra Advisory launches, it costs $6 per connected client per month (first 3 clients free) and comes with ready-made dashboards and report packs, and you can build your own dashboards.</p></details>
       <details><summary>Can I switch from my current practice management tool?</summary><p>Yes. We'll bring your clients, contacts and recurring work over, and the migration is free for founding firms.</p></details>
       <details><summary>How will my data be protected?</summary><p>Security is built in from the start: two-step sign-in, encryption of sensitive fields, separate data for every firm and a full audit log. The live demo uses sample data only, so please don't enter real client information there.</p></details>
-      <details><summary>Is cordevra for business owners too?</summary><p>Yes. A plan for business owners on QuickBooks Online is coming later at $39/month, with Cordevra Advisory (Lens + Scope), and Cordevra Network will help them hire professionals, free at launch. Join the waitlist in the business owner section above.</p></details>
+      <details><summary>Is cordevra for business owners too?</summary><p>Yes. A plan for business owners on QuickBooks Online is coming later at $39/month, with Cordevra Advisory (reports and forecasts), and Cordevra Network will help them hire professionals, free at launch. Join the waitlist in the business owner section above.</p></details>
     </div>
   </div>
 </section>
