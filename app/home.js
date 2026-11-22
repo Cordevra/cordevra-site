@@ -486,10 +486,7 @@
   }
 
   function boot() {
-    /* booking links + client booking page live in their own file */
-    if (!document.querySelector('script[src="/booking.js"]')) {
-      var bs = document.createElement('script'); bs.src = '/booking.js'; bs.defer = true; document.head.appendChild(bs);
-    }
+    /* Booking links and the public booking page are part of the app now (Calendar | Booking page); booking.js is no longer loaded. */
     if (/^\/book(\/|$)/.test(location.pathname)) return; /* public booking page: no Home */
     var style = document.createElement('style');
     style.textContent = CSS;
