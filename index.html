@@ -608,7 +608,6 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
           <div class="addon"><b>+0.5%</b><span>On card payments, on top of Stripe's fee</span></div>
           <div class="addon"><b>1%, max $10</b><span>ACH bank payments</span></div>
           <div class="addon"><b>$6 / client</b><span>Cordevra Advisory per connected QuickBooks client per month: ready-made dashboards and report packs, first 3 clients free (when Advisory launches)</span></div>
-          <div class="addon free"><b>Free</b><span>Cordevra Network at launch</span></div>
         </div>
         <p class="form-note" style="margin-top:14px">14-day free trial, no card needed. QuickBooks Online integration included in every plan.</p>
       </div>
@@ -626,38 +625,6 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="road">
       <div class="mod first reveal"><div class="dot"></div><span class="pill p-green">Launching first</span><div class="num">MODULE 1</div><h3>Cordevra Practice</h3><p>Run the firm.</p><ul><li>Clients, workflows &amp; tasks</li><li>Portal, forms &amp; e-signatures</li><li>Documents &amp; billing</li><li>Payables, receivables &amp; QBO review</li></ul></div>
       <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Next</span><div class="num">MODULE 2</div><h3>Cordevra Advisory</h3><p>See the business now, and look ahead.</p><ul><li>Reports: ready-made dashboards, KPIs and report packs</li><li>Trends and insights for every client</li><li>Forecast: cash flow forecasting</li><li>What-if scenarios</li></ul></div>
-      <div class="mod reveal"><div class="dot"></div><span class="pill p-grey">Later</span><div class="num">MODULE 3</div><h3>Cordevra Network</h3><p>Connect businesses with professionals.</p><ul><li>Businesses find accounting pros</li><li>Firms reach new clients</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="business" style="padding-top:0">
-  <div class="biz reveal">
-    <div>
-      <span class="eyebrow" style="background:#fff">Cordevra Advisory · For business owners</span>
-      <h2 style="margin-top:16px;font-size:clamp(30px,4vw,46px)">Run a business on QuickBooks? Get <span class="serif">CFO-level clarity.</span></h2>
-      <p>Connect QuickBooks Online and ask questions in plain English. Cordevra answers from your own books: cash, profit, owner pay, customers. A plan for business owners is coming later at $39/month.</p>
-      <div class="ask" aria-label="Ask your numbers: sample questions and answers">
-        <div class="ask-head"><svg><use href="#mark"/></svg>Ask your numbers <span>Sample business · sample answers</span></div>
-        <div class="ask-qs" role="tablist">
-          <button type="button" role="tab" aria-selected="true" data-a="About 7 months at your current pace. Cash on hand is $84,200 and the business has used about $11,900 a month over the last 3 months.">How many months of cash do I have?</button>
-          <button type="button" role="tab" aria-selected="false" data-a="Yes, with care: a $4,500/month hire takes your cash runway from about 7 months to 5. Revenue has grown about 6% a month since July; if that holds, you're back to break-even by March.">Can I afford to hire someone?</button>
-          <button type="button" role="tab" aria-selected="false" data-a="Two reasons: ingredient costs rose $3,100 after a supplier price change, and a one-time equipment repair cost $2,400. Sales were in line with September.">Why was October's profit lower?</button>
-          <button type="button" role="tab" aria-selected="false" data-a="So far this year you've taken $62,400 out of the business: $48,000 in draws plus $14,400 of personal costs paid by the business.">How much have I paid myself this year?</button>
-          <button type="button" role="tab" aria-selected="false" data-a="3 customers are more than 30 days late, $6,850 in total. The largest is $4,200, now 45 days late. Want a reminder sent?">Who is paying me late?</button>
-        </div>
-        <div class="ask-a" id="askA" aria-live="polite"></div>
-      </div>
-    </div>
-    <div>
-      <form class="waitlist js-waitlist" data-audience="Business owner" novalidate>
-        <input type="email" name="email" placeholder="you@yourbusiness.com" aria-label="Email" required>
-        <button class="btn btn-primary" type="submit">Join the waitlist →</button>
-      </form>
-      <div class="wl-extra">
-        <select name="size" aria-label="Company size"><option value="">Company size</option><option>Just me</option><option>2–10 employees</option><option>11–50 employees</option><option>51+ employees</option></select>
-      </div>
-      <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
     </div>
   </div>
 </section>
@@ -695,7 +662,6 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <details><summary>Does it work with QuickBooks Online?</summary><p>Yes. QuickBooks Online is included in every plan, starting with client transaction review and bill approvals in the portal. When Cordevra Advisory launches, it costs $6 per connected client per month (first 3 clients free) and comes with ready-made dashboards and report packs, and you can build your own dashboards.</p></details>
       <details><summary>Can I switch from my current practice management tool?</summary><p>Yes. We'll bring your clients, contacts and recurring work over, and the migration is free for founding firms.</p></details>
       <details><summary>How will my data be protected?</summary><p>Security is built in from the start: two-step sign-in, encryption of sensitive fields, separate data for every firm and a full audit log. The live demo uses sample data only, so please don't enter real client information there.</p></details>
-      <details><summary>Is cordevra for business owners too?</summary><p>Yes. A plan for business owners on QuickBooks Online is coming later at $39/month, with Cordevra Advisory (reports and forecasts), and Cordevra Network will help them hire professionals, free at launch. Join the waitlist in the business owner section above.</p></details>
     </div>
   </div>
 </section>
@@ -779,13 +745,6 @@ const ai = document.getElementById('aiAnswer');
 const answer = '4 clients: 2 still owe bank statements, 1 owes payroll reports, 1 has 3 unanswered questions. Want me to draft reminders?';
 let typed = false;
 new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting && !typed) { typed = true; o.disconnect(); if (reduce) { ai.textContent = answer; return } let i = 0; const t = setInterval(() => { ai.textContent = answer.slice(0, ++i); if (i >= answer.length) clearInterval(t) }, 28) } }), {threshold:.6}).observe(ai);
-
-// business owners: "Ask your numbers" sample questions with typed answers
-const askBtns=[...document.querySelectorAll('.ask-qs button')], askA=document.getElementById('askA'); let askT=null;
-function ask(b){ askBtns.forEach(x=>x.setAttribute('aria-selected',String(x===b))); clearInterval(askT); const t=b.dataset.a; askA.classList.remove('done');
-  if(reduce){ askA.textContent=t; askA.classList.add('done'); return } let i=0; askA.textContent=''; askT=setInterval(()=>{ askA.textContent=t.slice(0,++i); if(i>=t.length){clearInterval(askT); askA.classList.add('done')} },18) }
-askBtns.forEach(b=>b.addEventListener('click',()=>ask(b)));
-new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ ask(askBtns[0]); o.disconnect() } }),{threshold:.4}).observe(askA);
 
 // how-it-works steps light up in turn
 const steps = [...document.querySelectorAll('#steps .step')]; let si = 0;
