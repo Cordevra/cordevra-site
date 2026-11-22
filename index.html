@@ -9,7 +9,9 @@
 <meta property="og:description" content="Practice management, client portal, forms, e-signatures, payments, scheduling and QuickBooks review in one platform for bookkeeping firms. Plans from $29/month.">
 <meta property="og:url" content="https://cordevra.com">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://cordevra.com/app-home.webp">
+<meta property="og:image" content="https://cordevra.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0E1A2B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1A2B'/%3E%3Cpath d='M44 18.5A19 19 0 1 0 44 45.5' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='49' cy='32' r='5' fill='%2314B8A6'/%3E%3C/svg%3E">
@@ -37,7 +39,8 @@ a{color:inherit;text-decoration:none}
 .btn-line:hover{opacity:1}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);background:var(--accent-l);padding:6px 12px;border-radius:999px}
 .eyebrow.dark{background:rgba(94,234,212,.12);color:var(--mint)}
-.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(20,184,166,.5);animation:pulse 2s infinite}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--warm);box-shadow:0 0 0 0 rgba(245,158,11,.5);animation:pulsewarm 2s infinite}
+@keyframes pulsewarm{0%{box-shadow:0 0 0 0 rgba(245,158,11,.55)}70%{box-shadow:0 0 0 10px rgba(245,158,11,0)}100%{box-shadow:0 0 0 0 rgba(245,158,11,0)}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(20,184,166,.55)}70%{box-shadow:0 0 0 10px rgba(20,184,166,0)}100%{box-shadow:0 0 0 0 rgba(20,184,166,0)}}
 h1,h2,h3{line-height:1.08;letter-spacing:-.03em}
 h2{font-size:clamp(32px,4.6vw,56px);font-weight:800}
@@ -55,7 +58,7 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.03em}
 .logo svg{width:28px;height:28px}
 .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:600;opacity:.85}
-.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover{color:var(--accent-d)}
 .nav-in .btn{padding:10px 18px;font-size:14px}
 
 /* hero */
@@ -91,8 +94,8 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .hero-links a:hover{text-decoration:underline}
 
 /* stack collapse */
-.stack{position:relative;height:300px;max-width:980px;margin:56px auto 0;cursor:pointer}
-.stack .tool{position:absolute;left:50%;top:50%;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;color:#DCE3EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transform:translate(-50%,-50%) scale(.3);opacity:0;filter:blur(4px);transition:transform 1.3s cubic-bezier(.2,.8,.2,1) var(--d),opacity 1s ease var(--d),filter 1s var(--d)}
+.stack{position:relative;height:250px;max-width:980px;margin:36px auto 0;cursor:pointer}
+.stack .tool{position:absolute;left:50%;top:50%;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;color:#DCE3EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transform:translate(-50%,-50%) translate(calc(var(--x) * .55),calc(var(--y) * .5)) scale(.85);opacity:.22;filter:blur(1.5px);transition:transform 1.3s cubic-bezier(.2,.8,.2,1) var(--d),opacity 1s ease var(--d),filter 1s var(--d)}
 .stack.open .tool{transform:translate(-50%,-50%) translate(var(--x),var(--y)) rotate(var(--r));opacity:1;filter:none}
 .stack .core{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:16px 26px;border-radius:22px;font-weight:800;font-size:26px;letter-spacing:-.03em;box-shadow:0 0 0 10px rgba(20,184,166,.15),0 0 80px rgba(20,184,166,.6);transition:transform .6s cubic-bezier(.2,.9,.3,1.3)}
 .stack.open .core{transform:translate(-50%,-50%) scale(1.06)}
@@ -144,6 +147,11 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .cycle-viz b{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.08);color:#DCE3EC;border:1px solid rgba(255,255,255,.1);animation:lit 6s infinite}
 .cycle-viz b:nth-child(2){animation-delay:1s}.cycle-viz b:nth-child(3){animation-delay:2s}.cycle-viz b:nth-child(4){animation-delay:3s}.cycle-viz b:nth-child(5){animation-delay:4s}.cycle-viz b:nth-child(6){animation-delay:5s}
 @keyframes lit{0%,12%{background:var(--accent-d);color:#fff;border-color:var(--accent)}20%,100%{background:rgba(255,255,255,.08);color:#DCE3EC}}
+.close-viz{display:grid;gap:10px;margin-top:18px}
+.close-viz div{display:grid;grid-template-columns:130px 1fr auto;align-items:center;gap:14px;font-size:13.5px;font-weight:600;color:#DCE3EC;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 14px}
+.close-viz i{height:6px;border-radius:99px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
+.close-viz i::after{content:"";position:absolute;inset:0;width:var(--w);background:linear-gradient(90deg,var(--accent),var(--mint));border-radius:99px}
+@media (max-width:560px){.close-viz div{grid-template-columns:1fr auto}.close-viz i{display:none}}
 .portal-viz{display:grid;gap:8px}
 .portal-viz div{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:600}
 .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;display:inline-block}
@@ -199,7 +207,7 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .plan.star .billed{color:#9FB0C4}
 .plan ul{list-style:none;margin:22px 0 26px;display:grid;gap:10px;font-size:15px;flex:1}
 .plan li{display:flex;gap:10px;align-items:flex-start}
-.plan li svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--accent)}
+.plan li svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--accent-d)}
 .plan.star li svg{color:var(--mint)}
 .plan .btn{width:100%}
 .plan .btn-ghost{background:var(--soft);color:var(--ink)}
@@ -207,7 +215,7 @@ nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color
 .founding{margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border-radius:24px;padding:24px 28px;background:linear-gradient(110deg,#0E1A2B,#16343F 60%,#0E9384);color:#fff}
 .founding h3{font-size:22px}
 .founding p{color:#C9D3E0;font-size:15px;margin-top:4px}
-.founding .seal{flex:none;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--ink);font-weight:800;font-size:20px;line-height:1;text-align:center;transform:rotate(-10deg);box-shadow:0 0 0 6px rgba(94,234,212,.2)}
+.founding .seal{flex:none;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--warm);color:var(--ink);font-weight:800;font-size:20px;line-height:1;text-align:center;transform:rotate(-10deg);box-shadow:0 0 0 6px rgba(94,234,212,.2)}
 .founding .seal small{display:block;font-size:10px;letter-spacing:.06em}
 .founding .left{display:flex;align-items:center;gap:20px}
 
@@ -275,14 +283,14 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--accent);height:6
 .built-card cite{display:block;margin-top:22px;font-style:normal;color:#9FB0C4;font-size:15px}
 .checks{display:grid;gap:14px;margin-top:26px}
 .checks div{display:flex;gap:12px;font-size:16.5px;font-weight:500}
-.checks svg{flex:none;width:22px;height:22px;color:var(--accent)}
+.checks svg{flex:none;width:22px;height:22px;color:var(--accent-d)}
 
 /* faq */
 .faq{max-width:780px;margin:0 auto}
 details{border-bottom:1px solid var(--line);padding:22px 0}
 summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--accent);font-size:26px;line-height:1;transition:.2s}
+summary::after{content:"+";color:var(--accent-d);font-size:26px;line-height:1;transition:.2s}
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--muted);margin-top:10px;font-size:16px}
 
@@ -330,7 +338,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   .waitlist{flex-direction:column;border-radius:20px;padding:10px}
   .waitlist input{padding:12px 10px}
   .wl-extra{grid-template-columns:1fr}
-  .stack{height:340px}
+  .stack{height:300px}
   .stack .tool{font-size:12.5px;padding:7px 12px}
   .biz{margin:0 12px;padding:44px 22px;border-radius:26px}
   .cycle-sec,.final{margin:0 12px;border-radius:26px}
@@ -401,7 +409,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="stack-cap"><span id="stackText">One platform. Hover to see what's inside.</span></div>
 
     <div class="shot-wrap">
-      <div class="shot-tabs" role="tablist" aria-label="Product screens"><button type="button" role="tab" aria-selected="true" data-i="0">Home</button><button type="button" role="tab" aria-selected="false" data-i="1">Work Management</button><button type="button" role="tab" aria-selected="false" data-i="2">Board view</button><button type="button" role="tab" aria-selected="false" data-i="3">Waiting on client</button><button type="button" role="tab" aria-selected="false" data-i="4">Client profile</button><button type="button" role="tab" aria-selected="false" data-i="5">Client folders</button><button type="button" role="tab" aria-selected="false" data-i="6">Client portal</button><button type="button" role="tab" aria-selected="false" data-i="7">Portal bill approvals</button><button type="button" role="tab" aria-selected="false" data-i="8">Advisory portfolio</button><button type="button" role="tab" aria-selected="false" data-i="9">Client dashboard</button></div>
+      <div class="shot-tabs" role="tablist" aria-label="Product screens"><button type="button" role="tab" aria-selected="true" data-i="0">Home</button><button type="button" role="tab" aria-selected="false" data-i="1">Work Management</button><button type="button" role="tab" aria-selected="false" data-i="2">Board view</button><button type="button" role="tab" aria-selected="false" data-i="3">Waiting on client</button><button type="button" role="tab" aria-selected="false" data-i="4">Client profile</button><button type="button" role="tab" aria-selected="false" data-i="5">Client folders</button><button type="button" role="tab" aria-selected="false" data-i="6">Client portal</button><button type="button" role="tab" aria-selected="false" data-i="7">Portal bill approvals</button></div>
       <div class="mock" id="mock" aria-roledescription="carousel" aria-label="Cordevra screens with sample data">
         <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
         <div class="slides" id="slides">
@@ -413,8 +421,6 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
           <img src="/app-files.webp" width="2580" height="1500" alt="Client files organized in folders with uploaded documents" loading="lazy" data-title="Client folders" data-caption="Organized folders per client, with what was shared and what the client uploaded.">
           <img src="/app-portal.webp" width="2580" height="1500" alt="Client portal home: action items, bills to approve and a financial snapshot" loading="lazy" data-title="Client portal" data-caption="What your clients see: what they owe you, bills to approve and a snapshot of their numbers, in their language.">
           <img src="/app-portal-bills.webp" width="2580" height="1500" alt="Client portal bill approvals grouped by pay run with Approve, Hold and Reject" loading="lazy" data-title="Portal bill approvals" data-caption="Clients approve, hold or reject bills by pay run, right from their portal.">
-          <img src="/app-advisory.webp" width="2580" height="1500" alt="Advisory portfolio table of clients with KPIs in red" loading="lazy" data-title="Advisory portfolio" data-caption="Spot which clients need attention: margins, runway, receivables and closed books.">
-          <img src="/app-lens.webp" width="2580" height="1500" alt="Client dashboard in Advisory with revenue, margin, owner pay and cash KPIs" loading="lazy" data-title="Client dashboard" data-caption="A ready-made dashboard for each client: revenue, margin, cash, owner pay and tips.">
         </div>
       </div>
       <div class="shot-ctrl">
@@ -447,6 +453,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
         <h3>Month-end that runs itself</h3>
         <p>Monthly closes, payroll and tax season roll forward on their own: the right tasks, deadlines and client requests every period.</p>
         <div class="viz cycle-viz" aria-hidden="true"><b>Request docs</b><b>Reconcile</b><b>Review</b><b>Client questions</b><b>Close</b><b>Invoice</b></div>
+        <div class="viz close-viz" aria-hidden="true"><div><span>September close</span><i style="--w:100%"></i><span class="pill p-green">Closed</span></div><div><span>October close</span><i style="--w:66%"></i><span class="pill p-amber">4 of 6 · due Nov 15</span></div><div><span>November close</span><i style="--w:0%"></i><span class="pill p-grey">Starts Dec 1</span></div></div>
       </div>
       <div class="tile mint t-sm reveal">
         <span class="tag">Client portal</span>
@@ -690,7 +697,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <a href="#" class="logo" style="font-size:18px;color:var(--ink)"><svg style="width:24px;height:24px"><use href="#mark"/></svg>cordevra</a>
     <span>Questions? <a href="mailto:support@cordevra.com" style="color:var(--accent-d);font-weight:700">support@cordevra.com</a></span>
     <span class="foot-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms</a></span>
-    <span>© 2026 Cordevra. All rights reserved.</span>
+    <span>© 2026 Cordevra LLC. All rights reserved.</span>
   </div>
 </footer>
 
