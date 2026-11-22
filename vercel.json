@@ -2,19 +2,83 @@
   "routes": [
     {
       "src": "/booking.js",
-      "has": [{ "type": "host", "value": "app.cordevra.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "demo.cordevra.com"
+        }
+      ],
       "dest": "/app/booking.js"
     },
     {
       "src": "/home.js",
-      "has": [{ "type": "host", "value": "app.cordevra.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "demo.cordevra.com"
+        }
+      ],
       "dest": "/app/home.js"
     },
     {
       "src": "/(.*)",
-      "has": [{ "type": "host", "value": "app.cordevra.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "demo.cordevra.com"
+        }
+      ],
       "dest": "/app/index.html",
-      "headers": { "X-Robots-Tag": "noindex" }
+      "headers": {
+        "X-Robots-Tag": "noindex"
+      }
+    },
+    {
+      "src": "/api/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "app.cordevra.com"
+        }
+      ],
+      "dest": "https://api.cordevra.com/api/$1"
+    },
+    {
+      "src": "/sanctum/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "app.cordevra.com"
+        }
+      ],
+      "dest": "https://api.cordevra.com/sanctum/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "app.cordevra.com"
+        }
+      ],
+      "dest": "/real/assets/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "app.cordevra.com"
+        }
+      ],
+      "dest": "/real/index.html",
+      "headers": {
+        "X-Robots-Tag": "noindex",
+        "Cache-Control": "no-cache"
+      }
     }
   ]
 }
