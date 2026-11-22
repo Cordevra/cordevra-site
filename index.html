@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>cordevra — One system. Your entire firm.</title>
+<title>Cordevra — One system. Your entire firm.</title>
 <meta name="description" content="One system for your entire bookkeeping firm: practice management, client portal, forms, e-signatures, documents, payments, scheduling, payables and receivables, and QuickBooks review. Plans from $29/month. Join the waitlist for founding-firm pricing.">
-<meta property="og:title" content="cordevra — One system. Your entire firm.">
+<meta property="og:title" content="Cordevra — One system. Your entire firm.">
 <meta property="og:description" content="Practice management, client portal, forms, e-signatures, payments, scheduling and QuickBooks review in one platform for bookkeeping firms. Plans from $29/month.">
 <meta property="og:url" content="https://cordevra.com">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cordevra.com/app-home.webp">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0E1A2B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1A2B'/%3E%3Cpath d='M44 18.5A19 19 0 1 0 44 45.5' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='49' cy='32' r='5' fill='%2314B8A6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -227,9 +230,10 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--accent);height:6
 .addon b{display:block;font-size:20px;letter-spacing:-.02em}
 .addon span{color:var(--muted);font-size:14px}
 .addon.free b{color:var(--accent-d)}
+.addons .addon:last-child:nth-child(odd){grid-column:1/-1}
 
 /* roadmap */
-.road{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
+.road{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;position:relative;max-width:820px;margin:0 auto}
 .road::before{content:"";position:absolute;left:4%;right:4%;top:38px;height:2px;background:linear-gradient(90deg,var(--accent),#D9DFE7 30%);z-index:0}
 .mod{position:relative;z-index:1;border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff}
 .mod .dot{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #C5CED9;margin-bottom:16px}
@@ -347,7 +351,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 
 <nav id="nav">
   <div class="nav-in">
-    <a href="#" class="logo" aria-label="cordevra home"><svg><use href="#mark"/></svg>cordevra</a>
+    <a href="#" class="logo" aria-label="Cordevra home"><svg><use href="#mark"/></svg>cordevra</a>
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
@@ -381,7 +385,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <p class="form-note">14-day free trial at launch, no card needed. No spam, just launch updates.</p>
     <div class="hero-links"><a href="https://app.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a><a href="#pricing">See pricing →</a></div>
 
-    <div class="stack" id="stack" tabindex="0" role="button" aria-label="cordevra: hover, tap or press Enter to see the ten tools it includes.">
+    <div class="stack" id="stack" tabindex="0" role="button" aria-label="Cordevra: hover, tap or press Enter to see the ten tools it includes.">
       <span class="tool" style="--x:-360px;--y:-90px;--r:-6deg;--d:0s">Practice management app</span>
       <span class="tool" style="--x:-120px;--y:-120px;--r:4deg;--d:.05s">Client portal</span>
       <span class="tool" style="--x:150px;--y:-110px;--r:-3deg;--d:.1s">Form builder</span>
@@ -398,10 +402,10 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 
     <div class="shot-wrap">
       <div class="shot-tabs" role="tablist" aria-label="Product screens"><button type="button" role="tab" aria-selected="true" data-i="0">Home</button><button type="button" role="tab" aria-selected="false" data-i="1">Work Management</button><button type="button" role="tab" aria-selected="false" data-i="2">Board view</button><button type="button" role="tab" aria-selected="false" data-i="3">Waiting on client</button><button type="button" role="tab" aria-selected="false" data-i="4">Client profile</button><button type="button" role="tab" aria-selected="false" data-i="5">Client folders</button><button type="button" role="tab" aria-selected="false" data-i="6">Client portal</button><button type="button" role="tab" aria-selected="false" data-i="7">Portal bill approvals</button><button type="button" role="tab" aria-selected="false" data-i="8">Advisory portfolio</button><button type="button" role="tab" aria-selected="false" data-i="9">Client dashboard</button></div>
-      <div class="mock" id="mock" aria-roledescription="carousel" aria-label="cordevra screens with sample data">
+      <div class="mock" id="mock" aria-roledescription="carousel" aria-label="Cordevra screens with sample data">
         <div class="mock-bar"><i></i><i></i><i></i><span>app.cordevra.com</span></div>
         <div class="slides" id="slides">
-          <img src="/app-home.webp" width="2580" height="1500" alt="cordevra Home: overdue, due today, meetings and waiting-on-client counts, tasks, upcoming meetings and key deadlines" loading="eager" data-title="Home" data-caption="Your firm at a glance: today's tasks, meetings, deadlines and who you're waiting on.">
+          <img src="/app-home.webp" width="2580" height="1500" alt="Cordevra Home: overdue, due today, meetings and waiting-on-client counts, tasks, upcoming meetings and key deadlines" loading="eager" data-title="Home" data-caption="Your firm at a glance: today's tasks, meetings, deadlines and who you're waiting on.">
           <img src="/app-work.webp" width="2580" height="1500" alt="Work Management list of client projects with status, due dates and progress" loading="lazy" data-title="Work Management" data-caption="Every recurring project with status, progress, deadlines and risk alerts.">
           <img src="/app-board.webp" width="2580" height="1500" alt="Work Management board grouped by due date" loading="lazy" data-title="Board view" data-caption="Drag projects through the week: overdue, this week, next week, later.">
           <img src="/app-waiting.webp" width="2580" height="1500" alt="Waiting on client board of document requests, questions and signatures" loading="lazy" data-title="Waiting on client" data-caption="Everything clients still owe, by how long they've had it, with one-click reminders.">
@@ -484,7 +488,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <div class="reveal">
       <span class="eyebrow dark">How it works</span>
       <h2 style="margin-top:16px">Work that runs in <span class="serif" style="color:var(--mint)">cycles</span>, not chaos</h2>
-      <p class="lede">Accounting is recurring by nature. cordevra is built around that rhythm, so every month starts organized.</p>
+      <p class="lede">Accounting is recurring by nature. Cordevra is built around that rhythm, so every month starts organized.</p>
       <div class="steps" id="steps">
         <div class="step on"><b>1</b><div><strong>Onboard</strong>Send a custom intake form. The client, documents and services are set up automatically.</div></div>
         <div class="step"><b>2</b><div><strong>Run the cycle</strong>Recurring workflows create the right tasks, deadlines and client requests every period.</div></div>
@@ -605,7 +609,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
         <div class="addons">
           <div class="addon free"><b>Free</b><span>Client portal users, unlimited</span></div>
           <div class="addon"><b>$10 / 500</b><span>Extra text and WhatsApp messages</span></div>
-          <div class="addon"><b>+0.5%</b><span>On card payments, on top of Stripe's fee</span></div>
+          <div class="addon"><b>+0.5%</b><span>On card payments, on top of the processing fee</span></div>
           <div class="addon"><b>1%, max $10</b><span>ACH bank payments</span></div>
           <div class="addon"><b>$6 / client</b><span>Cordevra Advisory per connected QuickBooks client per month: ready-made dashboards and report packs, first 3 clients free (when Advisory launches)</span></div>
         </div>
@@ -632,9 +636,9 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 <section class="section">
   <div class="wrap built">
     <div class="reveal">
-      <span class="eyebrow">Why cordevra</span>
+      <span class="eyebrow">Why Cordevra</span>
       <h2 style="margin-top:16px">Built inside a <span class="serif">working</span> accounting firm</h2>
-      <p style="color:var(--muted);font-size:18px;margin-top:16px">cordevra is built by people who run client books every day. So it solves the problems firms actually have, not the ones software companies imagine.</p>
+      <p style="color:var(--muted);font-size:18px;margin-top:16px">Cordevra is built by people who run client books every day. So it solves the problems firms actually have, not the ones software companies imagine.</p>
       <div class="checks">
         <div><svg><use href="#ok"/></svg>Designed around recurring, cycle-based work</div>
         <div><svg><use href="#ok"/></svg>One subscription instead of a stack: forms, storage, payments, scheduling and AP/AR included</div>
@@ -642,7 +646,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       </div>
     </div>
     <div class="built-card reveal">
-      <blockquote>We run a bookkeeping firm, with controller-level and trust-account work for our clients. We built cordevra because we were tired of paying for a dozen tools that never talked to each other.</blockquote>
+      <blockquote>We run a bookkeeping firm, with controller-level and trust-account work for our clients. We built Cordevra because we were tired of paying for a dozen tools that never talked to each other.</blockquote>
       <cite><strong style="color:#fff">The founding team</strong> · Bookkeeping firm owners</cite>
     </div>
   </div>
@@ -652,10 +656,10 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   <div class="wrap">
     <div class="section-head center reveal"><span class="eyebrow">FAQ</span><h2 style="margin-top:16px">Questions, answered</h2></div>
     <div class="faq reveal">
-      <details><summary>Who is cordevra for?</summary><p>Bookkeeping, accounting and tax firms, from solo practitioners to growing teams, that want clients, work and billing in one place.</p></details>
+      <details><summary>Who is Cordevra for?</summary><p>Bookkeeping, accounting and tax firms, from solo practitioners to growing teams, that want clients, work and billing in one place.</p></details>
       <details><summary>How much does it cost?</summary><p>Solo is $29/month billed yearly ($39 month-to-month) for 1 user and up to 50 clients. Practice is $49 per user/month billed yearly ($59 month-to-month). Practice Plus is $69 per user/month billed yearly ($85 month-to-month) and adds AI, deeper reports, custom roles, a white-label portal and 250 text/WhatsApp messages per user each month.</p></details>
       <details><summary>What do founding firms get?</summary><p>The first 50 firms get 30% off for their first 12 months and free migration of their clients, contacts and recurring work. Join the waitlist to claim a spot.</p></details>
-      <details><summary>What does it cost to take client payments?</summary><p>Card payments cost Stripe's fee plus 0.5%. ACH bank payments cost 1%, capped at $10 per payment.</p></details>
+      <details><summary>What does it cost to take client payments?</summary><p>Card payments cost the processing fee plus 0.5%. ACH bank payments cost 1%, capped at $10 per payment.</p></details>
       <details><summary>Do my clients pay for portal access?</summary><p>No. Client portal users are free and unlimited on every plan.</p></details>
       <details><summary>Is there a free trial?</summary><p>Yes, 14 days, and no card is needed to start.</p></details>
       <details><summary>When does it launch?</summary><p>We're building now. Waitlist members get first access and launch updates before anyone else.</p></details>
@@ -686,7 +690,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
     <a href="#" class="logo" style="font-size:18px;color:var(--ink)"><svg style="width:24px;height:24px"><use href="#mark"/></svg>cordevra</a>
     <span>Questions? <a href="mailto:support@cordevra.com" style="color:var(--accent-d);font-weight:700">support@cordevra.com</a></span>
     <span class="foot-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms</a></span>
-    <span>© 2026 Cordevra LLC. All rights reserved.</span>
+    <span>© 2026 Cordevra. All rights reserved.</span>
   </div>
 </footer>
 
