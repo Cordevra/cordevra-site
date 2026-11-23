@@ -3,4 +3,4 @@ Allow: /
 Disallow: /app/
 Disallow: /real/
 
-Sitemap: https://cordevra.com/sitemap.xml
+Sitemap: https://www.cordevra.com/sitemap.xml
