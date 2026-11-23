@@ -79,6 +79,14 @@
         "X-Robots-Tag": "noindex",
         "Cache-Control": "no-cache"
       }
+    },
+    {
+      "src": "/(client-portal-for-bookkeepers|quickbooks-review|e-signatures-for-bookkeeping-firms|recurring-workflows|blog)/?",
+      "dest": "/$1/index.html"
+    },
+    {
+      "src": "/blog/([a-z0-9-]+)/?",
+      "dest": "/blog/$1/index.html"
     }
   ]
 }
