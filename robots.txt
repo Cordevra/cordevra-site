@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /app/
+Disallow: /real/
 
 Sitemap: https://www.cordevra.com/sitemap.xml

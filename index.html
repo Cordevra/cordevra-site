@@ -7,8 +7,8 @@
 <meta name="description" content="One system for your entire bookkeeping firm: practice management, client portal, forms, e-signatures, documents, payments, scheduling, payables and receivables, and QuickBooks review. Plans from $29/month. Join the waitlist for founding-firm pricing.">
 <meta property="og:title" content="Cordevra — One system. Your entire firm.">
 <meta property="og:description" content="Practice management, client portal, forms, e-signatures, payments, scheduling and QuickBooks review in one platform for bookkeeping firms. Plans from $29/month.">
-<meta property="og:url" content="https://www.cordevra.com/">
 <link rel="canonical" href="https://www.cordevra.com/">
+<meta property="og:url" content="https://www.cordevra.com/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.cordevra.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -58,9 +58,20 @@ nav{position:fixed;top:14px;left:0;right:0;z-index:60;pointer-events:none}
 nav.light .nav-in{background:rgba(255,255,255,.85);color:var(--ink);border-color:var(--line);box-shadow:0 10px 30px -18px rgba(14,26,43,.35)}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.03em}
 .logo svg{width:28px;height:28px}
-.nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:600;opacity:.85}
+.nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:600}
+.nav-links>a,.drop-t{opacity:.85}
 .nav-links a:hover{color:var(--accent-d)}
 .nav-in .btn{padding:10px 18px;font-size:14px}
+.nav-links{align-items:center}
+.drop{position:relative}
+.drop-t::after{content:"";display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:0 0 3px 7px}
+.drop-m{display:none;position:absolute;top:100%;left:-18px;padding-top:14px;min-width:270px}
+.drop:hover .drop-m,.drop:focus-within .drop-m{display:block}
+.drop-m div{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 24px 50px -24px rgba(14,26,43,.45);display:grid}
+.drop-m a{padding:9px 12px;border-radius:10px;font-size:14px}
+.drop-m a:hover{background:var(--accent-l);color:var(--accent-d)}
+.drop-m a.all{border-top:1px solid var(--line);margin-top:4px;border-radius:0 0 10px 10px;color:var(--muted)}
+@media (max-width:1060px){.nav-links .opt{display:none}}
 
 /* hero */
 .hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:150px 0 0;isolation:isolate}
@@ -309,6 +320,14 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 .foot a:hover{color:var(--ink)}
 .foot-links{display:flex;gap:18px}
+.foot-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;font-size:14px;color:var(--muted);margin-bottom:32px}
+.foot-cols p{max-width:260px;margin-top:10px}
+.foot-col{display:grid;gap:8px;align-content:start}
+.foot-col .foot-h{font-weight:800;color:var(--ink);font-size:13px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 4px}
+.foot-cols a:hover{color:var(--ink)}
+.foot-cols+.foot{border-top:1px solid var(--line);padding-top:24px}
+@media (max-width:860px){.foot-cols{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.foot-cols{grid-template-columns:1fr}}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
@@ -362,10 +381,11 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
   <div class="nav-in">
     <a href="#" class="logo" aria-label="Cordevra home"><svg><use href="#mark"/></svg>cordevra</a>
     <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
+      <div class="drop"><a href="#features" class="drop-t" aria-haspopup="true">Features</a><div class="drop-m"><div><a href="/client-portal-for-bookkeepers">Client portal</a><a href="/quickbooks-review">QuickBooks review</a><a href="/e-signatures-for-bookkeeping-firms">E-signatures</a><a href="/recurring-workflows">Recurring workflows</a><a href="#features" class="all">All features</a></div></div></div>
+      <a href="#how" class="opt">How it works</a>
       <a href="#pricing">Pricing</a>
-      <a href="#roadmap">Roadmap</a>
+      <a href="#roadmap" class="opt">Roadmap</a>
+      <a href="/blog">Blog</a>
       <a href="#faq">FAQ</a>
     </div>
     <a href="#join" class="btn btn-primary">Join the waitlist</a>
@@ -391,7 +411,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <select name="tool" aria-label="What you use today"><option value="">What you use today</option><option>Spreadsheets &amp; email</option><option>A practice management app</option><option>A general project management app</option><option>Other</option></select>
     </div>
     <div class="form-ok js-ok">You're on the list! We'll email you before launch.</div>
-    <p class="form-note">14-day free trial at launch, no card needed. No spam, just launch updates.</p>
+    <p class="form-note">15-day free trial at launch, no card needed. No spam, just launch updates.</p>
     <div class="hero-links"><a href="https://demo.cordevra.com" target="_blank" rel="noopener">Explore the live demo →</a><a href="#pricing">See pricing →</a></div>
 
     <div class="stack" id="stack" tabindex="0" role="button" aria-label="Cordevra: hover, tap or press Enter to see the ten tools it includes.">
@@ -621,7 +641,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
           <div class="addon"><b>1%, max $10</b><span>ACH bank payments</span></div>
           <div class="addon"><b>$6 / client</b><span>Cordevra Advisory per connected QuickBooks client per month: ready-made dashboards and report packs, first 3 clients free (when Advisory launches)</span></div>
         </div>
-        <p class="form-note" style="margin-top:14px">14-day free trial, no card needed. QuickBooks Online integration included in every plan.</p>
+        <p class="form-note" style="margin-top:14px">15-day free trial, no card needed. QuickBooks Online integration included in every plan.</p>
       </div>
     </div>
   </div>
@@ -669,7 +689,7 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
       <details><summary>What do founding firms get?</summary><p>The first 50 firms get 30% off for their first 12 months and free migration of their clients, contacts and recurring work. Join the waitlist to claim a spot.</p></details>
       <details><summary>What does it cost to take client payments?</summary><p>Card payments cost the processing fee plus 0.5%. ACH bank payments cost 1%, capped at $10 per payment.</p></details>
       <details><summary>Do my clients pay for portal access?</summary><p>No. Client portal users are free and unlimited on every plan.</p></details>
-      <details><summary>Is there a free trial?</summary><p>Yes, 14 days, and no card is needed to start.</p></details>
+      <details><summary>Is there a free trial?</summary><p>Yes, 15 days, and no card is needed to start.</p></details>
       <details><summary>When does it launch?</summary><p>We're building now. Waitlist members get first access and launch updates before anyone else.</p></details>
       <details><summary>Does it work with QuickBooks Online?</summary><p>Yes. QuickBooks Online is included in every plan, starting with client transaction review and bill approvals in the portal. When Cordevra Advisory launches, it costs $6 per connected client per month (first 3 clients free) and comes with ready-made dashboards and report packs, and you can build your own dashboards.</p></details>
       <details><summary>Can I switch from my current practice management tool?</summary><p>Yes. We'll bring your clients, contacts and recurring work over, and the migration is free for founding firms.</p></details>
@@ -694,11 +714,20 @@ footer{padding:48px 0;border-top:1px solid var(--line);margin-top:96px}
 </section>
 
 <footer>
-  <div class="wrap foot">
-    <a href="#" class="logo" style="font-size:18px;color:var(--ink)"><svg style="width:24px;height:24px"><use href="#mark"/></svg>cordevra</a>
-    <span>Questions? <a href="mailto:support@cordevra.com" style="color:var(--accent-d);font-weight:700">support@cordevra.com</a></span>
-    <span class="foot-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms</a></span>
-    <span>© 2026 Cordevra LLC. All rights reserved.</span>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="foot-col">
+        <a href="#" class="logo" style="font-size:18px;color:var(--ink)"><svg style="width:24px;height:24px"><use href="#mark"/></svg>cordevra</a>
+        <p>One system for your entire bookkeeping firm.</p>
+      </div>
+      <div class="foot-col"><p class="foot-h">Features</p><a href="/client-portal-for-bookkeepers">Client portal</a><a href="/quickbooks-review">QuickBooks review</a><a href="/e-signatures-for-bookkeeping-firms">E-signatures</a><a href="/recurring-workflows">Recurring workflows</a><a href="#features">All features</a></div>
+      <div class="foot-col"><p class="foot-h">Resources</p><a href="/blog">Blog</a><a href="#pricing">Pricing</a><a href="https://demo.cordevra.com" target="_blank" rel="noopener">Live demo</a><a href="#faq">FAQ</a></div>
+      <div class="foot-col"><p class="foot-h">Company</p><a href="mailto:support@cordevra.com">support@cordevra.com</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms</a></div>
+    </div>
+    <div class="foot">
+      <span>Questions? <a href="mailto:support@cordevra.com" style="color:var(--accent-d);font-weight:700">support@cordevra.com</a></span>
+      <span>© 2026 Cordevra LLC. All rights reserved.</span>
+    </div>
   </div>
 </footer>
 
